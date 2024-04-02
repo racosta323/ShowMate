@@ -33,7 +33,7 @@ function NavBar (){
                                     />
                                 </Col>
                                 <Col>
-                                    <Button type="submit">Submit</Button>
+                                    <Button variant="success" type="submit">Submit</Button>
                                 </Col>
                             </Row>
                         </Form>
