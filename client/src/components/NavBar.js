@@ -13,24 +13,23 @@ function NavBar (){
         
             <Navbar 
             // expand="lg" 
-            bg="dark" 
+            bg="danger"
             data-bs-theme="dark"
+            className='my-2'
             >
                 <Col>
-                    <Nav>
-                        <Nav.Link>Home</Nav.Link>
-                        <Nav.Link>Dashboard</Nav.Link>
-                    </Nav>
+                    <Navbar.Brand href="#home" className='mx-3'>Navbar with text</Navbar.Brand>
                 </Col>
             
-                    <Col>
+                    <Col xs={4}>
                         <Form inline>
                             <Row>
                                 <Col xs={8}>
                                     <Form.Control
                                     type="text"
                                     placeholder="Search for shows across the US"
-                                    className=" mr-sm-2"
+                                    className="mr-sm-2"
+                                    data-bs-theme="light"
                                     />
                                 </Col>
                                 <Col>
@@ -38,6 +37,12 @@ function NavBar (){
                                 </Col>
                             </Row>
                         </Form>
+                    </Col>
+                    <Col>
+                        <Nav>
+                            <Nav.Link>Home</Nav.Link>
+                            <Nav.Link>Dashboard</Nav.Link>
+                        </Nav>
                     </Col>
                     <Col className='d-flex flex-row-reverse mx-2'>
                         <Navbar.Text>
