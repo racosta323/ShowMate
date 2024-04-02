@@ -24,7 +24,7 @@ function Search(){
 
 
     let eventsSearch = () => {
-        events.filter(event => {
+        return events.filter(event => {
             // console.log(event.name)
             const searchTerm = value.toLowerCase()
             const searchName = event.name.toLowerCase()
@@ -44,6 +44,23 @@ function Search(){
             )
         })
     }
+
+    // let eventsSearch = () => {
+    //     return events.map((event)=>{
+    //         console.log(event.name)
+    //         return(
+    //             <div className='list-group'>
+    //                 <a href="#" className='list-group-item list-group-item-action' aria-current="true">
+    //                     <div className='d-flex w-100 justify-content-between'>
+    //                         <h5 class="mb-1">{event.name}</h5>
+    //                         <p class="mb-1">Some placeholder content in a paragraph.</p>
+    //                         <small>3 days ago</small>
+    //                     </div>
+    //                 </a>
+    //             </div>
+    //         )
+    //     })
+    // }
 
 
     const searchChange =(event) => {
@@ -68,8 +85,8 @@ function Search(){
                             value={value}
                             onChange={searchChange}
                         />
+                        {eventsSearch()}
                     </Col>
-                    {eventsSearch()}
                     <Col>
                         <Button variant="success" type="submit" onClick={()=>submitSearch(value)}>Submit</Button>
                     </Col>
