@@ -1,12 +1,9 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container'
-import Stack from 'react-bootstrap/Stack'
+
+
+import Search from './Search';
 
 function NavBar (){
     return(
@@ -22,7 +19,8 @@ function NavBar (){
                 </Col>
             
                     <Col xs={4}>
-                        <Form inline>
+                        {Search()}
+                        {/* <Form inline>
                             <Row>
                                 <Col xs={8}>
                                     <Form.Control
@@ -32,11 +30,12 @@ function NavBar (){
                                     data-bs-theme="light"
                                     />
                                 </Col>
+                                {Search()}
                                 <Col>
                                     <Button variant="success" type="submit">Submit</Button>
                                 </Col>
                             </Row>
-                        </Form>
+                        </Form> */}
                     </Col>
                     <Col>
                         <Nav>

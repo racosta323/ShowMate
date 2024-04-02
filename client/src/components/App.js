@@ -4,13 +4,13 @@ import { Switch, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 
 import NavBar from "./NavBar";
+import Search from "./Search";
 
 function App() {
   return (
     <Container>
 
       <NavBar/>
-      <main>This is the main section</main>
     
     </Container>
     )
