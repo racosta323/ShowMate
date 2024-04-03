@@ -9,7 +9,7 @@ const routes = [
         element: <App/>,
         children: [
             {
-                path: 'profile',
+                path: 'profile/:id',
                 element: <Profile/>
             }
         ]

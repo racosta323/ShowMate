@@ -11,7 +11,7 @@ function App() {
   return (
     <Container>
       <NavBar/>
-      <Row className="bg-white mx-1">
+      <Row className="bg-white mx-1 px-3">
         <Outlet/>
       </Row>
     </Container>

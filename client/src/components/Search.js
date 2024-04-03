@@ -12,7 +12,6 @@ function Search(){
     const [events, setEvents] = useState([])
     const [value, setValue] = useState('')
     const [searching, setSearching] = useState(false);
-    const [target, setTarget] = useState(null);
     const searchRef = useRef(null)
 
 
@@ -23,7 +22,7 @@ function Search(){
         .then (resp => resp.json())
         .then(data => {
             setEvents(data._embedded.events)
-            console.log(data)
+            // console.log(data)
             })
     }, [])
 
@@ -37,15 +36,15 @@ function Search(){
             // console.log(event.name)
             const searchTerm = value.toLowerCase()
             const searchName = event.name.toLowerCase()
-            return searchTerm && searchName.startsWith(searchTerm)
+            return searchTerm && searchName.includes(searchTerm)
         }).map((event)=>{
-            console.log(event.name)
+            // console.log(event.name)
             return(
                 <div className='list-group' key={event.id}>
                     <a href="#" className='list-group-item list-group-item-action' aria-current="true">
                         <div className='d-flex w-100 justify-content-between'>
-                            <h5 class="mb-1">{event.name}</h5>
-                            <p class="mb-1">Some placeholder content in a paragraph.</p>
+                            <h5 className="mb-1">{event.name}</h5>
+                            <p className="mb-1">Some placeholder content in a paragraph.</p>
                             <small>3 days ago</small>
                         </div>
                     </a>
@@ -58,7 +57,7 @@ function Search(){
     const searchChange =(event) => {
         setValue(event.target.value)
         setSearching(true);
-        setTarget(searchRef.current);
+        console.log(searchRef.current)
     }
 
     const submitSearch = (searchTerm) => {
@@ -68,7 +67,7 @@ function Search(){
 
     return(
         <div className='search-container'>
-            <Form inline>
+            <Form>
                 <Row>
                     <Col xs={8}>
                         <Form.Control

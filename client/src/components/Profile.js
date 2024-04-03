@@ -1,6 +1,7 @@
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
+import Stack from 'react-bootstrap/Stack'
 
 function Profile(){
 
@@ -13,6 +14,7 @@ function Profile(){
             <Row>
                 <Col xs={8}>
                     {/* first 16:9 ratio chosen */}
+                    {/* image is not reactive??? */}
                     <img
                         src="https://s1.ticketm.net/dam/a/8cc/0850a9c7-f269-4506-87f5-0acb3e2e08cc_SOURCE"
                         height={500}
@@ -23,16 +25,27 @@ function Profile(){
                     <p>Some information about the show</p>
                     
                 </Col>
-                <Col>
-                    <Row></Row>
+                <Col className='d-flex justify-content-center'>
+                    <Stack className='d-flex justify-content-center '>
+                        <h3 className='text-center'>X of Y Stars - an icon?</h3>
+                        <h3 className='text-center'>Write a review</h3>
+                        <p className='text-center'>Purchase tickets here</p>
+                        <p className='text-center'>Price ranges</p>
+                    </Stack>
+                    {/* <Row></Row>
                     <Row>
-                        <h3>X of Y Stars - an icon?</h3>
-                        <h3>Write a review</h3>
+                        <Col className='d-flex justify-content-center'>
+                            <h3>X of Y Stars - an icon?</h3>
+                            
+                        </Col>
                     </Row>
                     <Row>
-                        <p>Purchase tickets here</p>
-                        <p>Price ranges</p>
-                    </Row>
+                        <Col className='d-flex justify-content-center'>
+                            <h3>Write a review</h3>
+                            <p>Purchase tickets here</p>
+                            <p>Price ranges</p>
+                        </Col>
+                    </Row> */}
                     
                 </Col>
             </Row>
