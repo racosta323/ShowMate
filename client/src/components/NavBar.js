@@ -2,11 +2,12 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Col from 'react-bootstrap/Col';
 
-import SearchBar from './SearchBar';
-
+// import SearchBar from './SearchBar';
 // import Search from './Search';
 
-function NavBar (){
+import SearchBarContainer from './SearchBarContainer';
+
+function NavBar ({ setResults }){
     return(
         
             <Navbar 
@@ -20,7 +21,8 @@ function NavBar (){
                 </Col>
             
                     <Col xs={4}>
-                        <SearchBar/>
+                        <SearchBarContainer/>
+                        {/* <SearchBar setResults={setResults}/> */}
                         {/* {Search()} */}
                         {/* <Form inline>
                             <Row>

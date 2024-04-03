@@ -5,7 +5,9 @@ import Row from 'react-bootstrap/Row';
 
 import { useState } from 'react'
 
-function SearchBar(){
+import SearchResultsList from './SearchResultsList';
+
+function SearchBar({ setResults }){
 
     const [input, setInput] = useState("")
 
@@ -20,12 +22,10 @@ function SearchBar(){
         fetch(url)
         .then (resp => resp.json())
         .then(data => {
-            // console.log(data._embedded.events)
             const results = data._embedded.events.filter((event)=>{
-                // console.log(event)
-                return event && event.name && event.name.toLowerCase().includes(value)
+                return value && event && event.name && event.name.toLowerCase().includes(value)
             })
-            console.log(results)
+            setResults(results)
         })
     }
 
@@ -43,7 +43,9 @@ function SearchBar(){
                             // value={value}
                             // onChange={searchChange}
                         />
+                        <SearchResultsList />
                     </Col>
+    
                     <Col>
                         <Button variant="success" type="submit">Submit</Button>
                     </Col>
