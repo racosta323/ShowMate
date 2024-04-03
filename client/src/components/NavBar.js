@@ -2,8 +2,9 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Col from 'react-bootstrap/Col';
 
+import SearchBar from './SearchBar';
 
-import Search from './Search';
+// import Search from './Search';
 
 function NavBar (){
     return(
@@ -19,7 +20,8 @@ function NavBar (){
                 </Col>
             
                     <Col xs={4}>
-                        {Search()}
+                        <SearchBar/>
+                        {/* {Search()} */}
                         {/* <Form inline>
                             <Row>
                                 <Col xs={8}>
