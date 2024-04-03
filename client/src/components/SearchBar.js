@@ -47,7 +47,7 @@ function SearchBar({ setResults }){
                     </Col>
     
                     <Col>
-                        <Button variant="success" type="submit">Submit</Button>
+                        <Button variant="dark" type="submit">Submit</Button>
                     </Col>
                 </Row>
             </Form>
