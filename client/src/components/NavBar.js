@@ -12,7 +12,7 @@ function NavBar (){
             // expand="lg" 
             bg="danger"
             data-bs-theme="dark"
-            className='my-2'
+            className='mt-2 mx-1'
             >
                 <Col>
                     <Navbar.Brand href="#home" className='mx-3'>Navbar with text</Navbar.Brand>
