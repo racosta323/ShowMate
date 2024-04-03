@@ -2,10 +2,9 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Col from 'react-bootstrap/Col';
 
+import SearchBarContainer from './SearchBarContainer';
 
-import Search from './Search';
-
-function NavBar (){
+function NavBar ({ setResults }){
     return(
         
             <Navbar 
@@ -19,23 +18,7 @@ function NavBar (){
                 </Col>
             
                     <Col xs={4}>
-                        {Search()}
-                        {/* <Form inline>
-                            <Row>
-                                <Col xs={8}>
-                                    <Form.Control
-                                    type="text"
-                                    placeholder="Search for shows across the US"
-                                    className="mr-sm-2"
-                                    data-bs-theme="light"
-                                    />
-                                </Col>
-                                {Search()}
-                                <Col>
-                                    <Button variant="success" type="submit">Submit</Button>
-                                </Col>
-                            </Row>
-                        </Form> */}
+                        <SearchBarContainer/>
                     </Col>
                     <Col>
                         <Nav>
