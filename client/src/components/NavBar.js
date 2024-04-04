@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 
 import SearchBarContainer from './SearchBarContainer';
 
-function NavBar ({ setResults }){
+function NavBar (){
     return(
         
             <Navbar 

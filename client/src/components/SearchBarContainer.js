@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 
 
 import SearchBar from './SearchBar';
-import SearchResultsList from './SearchResultsList';
+import SearchResultsList from './DO NOT USE - SearchResultsList';
 
 function SearchBarContainer(){
 
