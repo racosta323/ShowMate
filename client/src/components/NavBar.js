@@ -2,7 +2,9 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Col from 'react-bootstrap/Col';
 
-import SearchBarContainer from './SearchBarContainer';
+import SearchBar from './SearchBar'
+
+// import SearchBarContainer from './SearchBarContainer';
 
 function NavBar (){
     return(
@@ -18,7 +20,8 @@ function NavBar (){
                 </Col>
             
                     <Col xs={4}>
-                        <SearchBarContainer/>
+                        <SearchBar/>
+                        {/* <SearchBarContainer/> */}
                     </Col>
                     <Col>
                         <Nav>
