@@ -29,21 +29,21 @@ class Search(Resource):
         url= f"https://musicbrainz.org/ws/2/artist/?query={term}&fmt=json"
         response = requests.get(url)
         data = response.json()
-        artist_info = data["artists"][0]
-        artist_tag = artist_info["tags"][0]
+        artists = data["artists"]
+        # artist_tag = artist_info["tags"][0]
 
-        mbid = artist_info["id"]
-        artist_name = artist_info["name"]
-        genre = artist_tag["name"]
+        # mbid = artist_info["id"]
+        # artist_name = artist_info["name"]
+        # genre = artist_tag["name"]
 
-        response = {
-            "mbid": mbid,
-            "artist_name": artist_name,
-            "genre": genre
-        }
+        # response = {
+        #     "mbid": mbid,
+        #     "artist_name": artist_name,
+        #     "genre": genre
+        # }
 
 
-        return make_response(response, 200)
+        return make_response(artists, 200)
 
 
 
