@@ -30,6 +30,10 @@ class Search(Resource):
         response = requests.get(url)
         data = response.json()
         artists = data["artists"]
+
+
+        #how to get images
+        #https://musicbrainz.org/ws/2/artist/859d0860-d480-4efd-970c-c05d5f1776b8?inc=url-rels&fmt=json
         # artist_tag = artist_info["tags"][0]
 
         # mbid = artist_info["id"]
