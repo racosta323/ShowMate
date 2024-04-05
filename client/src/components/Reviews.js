@@ -34,9 +34,8 @@ function Reviews(){
                             <h1 className='text-uppercase'>Artist Name</h1>
                             <h3>User Reviews</h3>
                         </Row>
-                        <Row className='my-5'>
-                            <hr></hr>
-                        </Row>
+                        <ReviewList/>
+                        <ReviewList/>
                         <ReviewList/>
                     </Col>
                 </Row>
