@@ -1,6 +1,7 @@
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
+import Container from 'react-bootstrap/Container'
 
 
 
@@ -9,10 +10,12 @@ function Profile(){
     
 
     return(
-        <>
-            <Row>
-                <h4 className='mt-5'>Genre</h4>
-                <h1>ARTIST NAME</h1> 
+        <Container>
+            <Row >
+                <Col className='mt-5'>
+                    <h4>Genre</h4>
+                    <h1>ARTIST NAME</h1> 
+                </Col>
             </Row>
             <Row>
                 <Col xs={8}>
@@ -23,9 +26,6 @@ function Profile(){
                         height={500}
                         width={800}
                     />
-                    <h2>Concert Info</h2>
-                    <p>Some information about the show</p>
-                    
                 </Col>
                 <Col className='d-flex justify-content-center'>
                     <Stack className='d-flex justify-content-center '>
@@ -34,11 +34,21 @@ function Profile(){
                         <p className='text-center'>Purchase tickets here</p>
                         <p className='text-center'>Price ranges</p>
                     </Stack>
-                    
                 </Col>
+                <Row className='mt-5'>
+                    <Col xs={8}>
+                        <h2>User Uploads</h2>
+                        <p>Image Carousel</p>
+                    </Col>
+                    <Col className='py-5'>   
+                        <Row className='bg-body-secondary p-5 mt-4'>
+                            <h2>Something could go here</h2>
+                        </Row>
+                    </Col>
+                </Row>
             </Row>
-            
-        </>
+
+        </Container>
     )
 }
 

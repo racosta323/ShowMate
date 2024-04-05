@@ -59,7 +59,7 @@ function SearchBar(){
                         <Form.Control
                             type="text"
                             placeholder="Search for shows across the US"
-                            className="mr-sm-2"
+                            className="mr-sm-2 search"
                             data-bs-theme="light"
                             onChange={(e)=>{handleChange(e.target.value)}}
                             // value={value}

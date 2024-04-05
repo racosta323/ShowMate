@@ -14,3 +14,7 @@
 .list-group-item:hover {
   background-color: #f7f7f7; /* Change background color on hover */
 }
+
+.search.form-control::placeholder {
+  color: red;
+}
