@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
 import ReviewList from './ReviewList'
+import NoReview from './NoReview'
 
 function Reviews(){
 
@@ -55,6 +56,7 @@ function Reviews(){
                             <h3>User Reviews</h3>
                         </Row>
                         {renderList}
+                        <NoReview/>
                     </Col>
                 </Row>
             </Row>
