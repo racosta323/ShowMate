@@ -13,10 +13,12 @@ import { Outlet } from "react-router-dom";
 function App() {
 
   return (
-    <Container className="bg-light">
+    <>
       <NavBar/>
+    <Container className="bg-light">
       <Outlet/>
     </Container>
+    </>
     )
 }
 

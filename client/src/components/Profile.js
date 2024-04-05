@@ -19,7 +19,6 @@ function Profile(){
                         src="https://s1.ticketm.net/dam/a/8cc/0850a9c7-f269-4506-87f5-0acb3e2e08cc_SOURCE"
                         height={500}
                         width={800}
-                        alt
                     />
                     <h2>Concert Info</h2>
                     <p>Some information about the show</p>

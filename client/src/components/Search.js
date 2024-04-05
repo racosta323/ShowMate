@@ -8,8 +8,9 @@ function Search(){
 
     return(
         <Container>
+            <Row></Row>
             <Row className='m-5'></Row>
-            <Row>
+            <Row className='my-5'>
                 <Col>
                     <h2>Search 'Search Term'</h2>
                 </Col>
