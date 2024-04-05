@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 
 
 import SearchList from './SearchList'
+import NoResults from './NoResults'
 
 function Search(){
 
@@ -14,10 +15,7 @@ function Search(){
                         <h2 className='fs-1'>Search 'Search Term'</h2>
                         <hr className='mb-5'></hr>
                         
-                        <SearchList/>
-                        <SearchList/>
-                        <SearchList/>
-                        <SearchList/>
+                        <NoResults/>
                         <p className='text-end'>Don't see what you're looking for? </p>
                         <p className='text-end fs-4 mb-5'>Create a profile (ICON)</p>
                     </Col>
