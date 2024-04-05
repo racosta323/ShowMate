@@ -37,17 +37,47 @@ function Profile(){
                     {/* image is not reactive??? */}
                     <img
                         src="https://s1.ticketm.net/dam/a/8cc/0850a9c7-f269-4506-87f5-0acb3e2e08cc_SOURCE"
+                        
                         height={500}
                         width={800}
                     />
                 </Col>
                 <Col className='d-flex justify-content-center'>
-                    <Stack className='d-flex justify-content-center '>
-                        <h3 className='text-center'><span className='fs-1 fw-bold'>X</span> / Y Stars - an icon?</h3>
-                        <h3 className='text-center'>Write a review</h3>
-                        <p className='text-center'>Purchase tickets here</p>
-                        <p className='text-center'>Price ranges</p>
-                    </Stack>
+                    <Row>
+                        <Stack direction='horizontal' className='d-flex justify-content-center'>
+                            <Col>
+                                <h3 className='text-center'>
+                                    <span className='fs-1 fw-bold'>
+                                        4
+                                    </span> / {' '}
+                                    <span className='text-warning'>
+                                        10 {' '}
+                                    </span>
+                                    <i class="bi bi-star-fill text-warning fs-1" ></i>
+                                </h3>
+                                <p className='text-center'>Number of Reviews: 200</p>
+                            </Col>
+                            <Col></Col>
+                            <Col>
+                                Other side
+                            </Col>
+                        </Stack>
+                        <Row>
+                            <Col>
+                                <p className='text-center'>Purchase tickets here</p>
+                                <p className='text-center'>Price ranges</p>
+                            </Col>
+                        </Row>
+                    </Row>
+                    
+                    {/* <Row>
+                       <Col>
+                            <h3 className='text-center'>Read all reviews</h3>
+                            <p className='text-center'>Purchase tickets here</p>
+                            <p className='text-center'>Price ranges</p>
+                       </Col>
+                    </Row> */}
+                        
                 </Col>
                 <Row className='mt-5'>
                     <Col xs={8}>
