@@ -83,6 +83,11 @@ class Artists(Resource):
         except:
             pass
 
+        try:
+            pass
+        except:
+            pass
+
         return make_response(artist.to_dict(), 201)
 
 api.add_resource(Artists, '/artists')    

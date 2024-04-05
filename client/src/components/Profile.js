@@ -63,11 +63,11 @@ function Profile(){
                                 
                                 <Button>
                                     <Stack direction='horizontal'>
-                                        <i class="bi bi-star-fill text-light fs-1 me-2" ></i>
-                                        <h3 className='mt-2'>Review</h3>
+                                        <i class="bi bi-pencil-square text-light fs-1 me-2" ></i>
+                                        <h3 className='mt-3'>Review</h3>
                                     </Stack>
                                 </Button>
-                                <p className='mx-4'>Write a review</p>
+                                <p className='ms-4'>Write a review</p>
                             </Col>
                         </Stack>
                         <Row>
