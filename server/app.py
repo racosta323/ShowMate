@@ -22,7 +22,7 @@ from models import Artist
 def index():
     return '<h1>Project Server</h1>'
 
-
+#mbid
 class Search(Resource):
     def get(self, term):
 
@@ -53,7 +53,7 @@ class Search(Resource):
 
 api.add_resource(Search, '/search/<string:term>')
 
-
+#wikipedia
 class GetSearchById(Resource):
     def get(self, id):
 
@@ -72,6 +72,20 @@ class GetSearchById(Resource):
 
 api.add_resource(GetSearchById, '/search/<int:id>')
 
+class Artists(Resource):
+    def post(self):
+        request_body = request.json
+
+        try:
+            artist = artist = Artist(name=request_body["name"], genre=request_body["genre"])
+            db.session.add(artist)
+            db.session.commit()
+        except:
+            pass
+
+        return make_response(artist.to_dict(), 201)
+
+api.add_resource(Artists, '/artists')    
 
 
 
