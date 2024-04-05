@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
@@ -7,14 +10,25 @@ import Container from 'react-bootstrap/Container'
 
 function Profile(){
 
-    
+    const[artist, setArtist] = useState({})
+
+    const params = useParams()
+    const artistId = params.id
+
+    useEffect(()=>{
+        fetch(`/artists/${artistId}`)
+        .then(resp=>resp.json())
+        .then(data => setArtist(data))
+    }, [artistId])
+
+
 
     return(
         <Container>
             <Row >
                 <Col className='mt-5'>
-                    <h4>Genre</h4>
-                    <h1>ARTIST NAME</h1> 
+                    <h4>{artist.genre}</h4>
+                    <h1>{artist.name}</h1> 
                 </Col>
             </Row>
             <Row>
