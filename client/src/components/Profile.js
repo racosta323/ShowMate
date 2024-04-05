@@ -22,13 +22,13 @@ function Profile(){
     }, [artistId])
 
 
-
     return(
         <Container>
             <Row >
+                <Row className='mt-5'></Row>
                 <Col className='mt-5'>
                     <h4>{artist.genre}</h4>
-                    <h1>{artist.name}</h1> 
+                    <h1 className='text-uppercase'>{artist.name}</h1> 
                 </Col>
             </Row>
             <Row>
