@@ -7,9 +7,9 @@ function Profile(){
 
     return(
         <>
-            <Row className='mt-5'>
-                <h4>Genre</h4>
-                <h1>TITLE</h1> 
+            <Row>
+                <h4 className='mt-5'>Genre</h4>
+                <h1>ARTIST NAME</h1> 
             </Row>
             <Row>
                 <Col xs={8}>
