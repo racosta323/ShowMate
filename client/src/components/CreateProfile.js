@@ -1,10 +1,21 @@
+import { useState } from 'react'
+
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
-function CreateProfile({ show, handleClose }){
+function CreateProfile(){
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return(
         <>
+            <Button variant="primary" onClick={handleShow}>
+                Launch demo modal
+             </Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                 <Modal.Title>Modal heading</Modal.Title>

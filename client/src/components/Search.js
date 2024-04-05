@@ -10,11 +10,6 @@ import CreateProfile from './CreateProfile'
 
 function Search(){
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     return(
         <Container className='py-5'>
                 <Row className='py-5'>
@@ -24,8 +19,7 @@ function Search(){
                         
                         <NoResults/>
                         <p className='text-end'>Don't see what you're looking for? </p>
-                        <button className='text-end fs-4 mb-5' onClick={handleShow}>Create a profile (ICON)</button>
-                        <CreateProfile show={show} handleClose={handleClose}/>
+                        <CreateProfile/>
                     </Col>
                     <Col className='py-5'>   
                         <Row className='bg-body-secondary p-5 mt-4'>
