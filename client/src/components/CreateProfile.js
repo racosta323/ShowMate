@@ -3,6 +3,8 @@ import { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 function CreateProfile(){
 
@@ -13,9 +15,13 @@ function CreateProfile(){
 
     return(
         <>
-            <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
-             </Button>
+            <Row >
+                <Col className="d-flex justify-content-end">
+                    <Button variant="dark" onClick={handleShow}>
+                        Launch demo modal
+                    </Button>
+                </Col>
+            </Row>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                 <Modal.Title>Modal heading</Modal.Title>
