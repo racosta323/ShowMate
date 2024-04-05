@@ -7,7 +7,7 @@ from config import db
 class Artist(db.Model, SerializerMixin):
     __tablename__ = 'artists'
 
-    serialize_rules = ''
+    serialize_rules = ('-reviews.artist', '-reviews.artist_id')
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True, nullable=False)
@@ -23,7 +23,7 @@ class Artist(db.Model, SerializerMixin):
 class Review(db.Model, SerializerMixin):
     __tablename__ = 'reviews'
 
-    serialize_rules = ''
+    serialize_rules = ('-artist.reviews',)
 
     id = db.Column(db.Integer, primary_key=True)
     subject = db.Column(db.String, nullable=False)
