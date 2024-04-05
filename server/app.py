@@ -87,6 +87,16 @@ class Artists(Resource):
 
 api.add_resource(Artists, '/artists')    
 
+class ArtistById(Resource):
+    def get(self, id):
+        try:
+            artist = Artist.query.get(id)
+        except:
+            pass
+
+        return make_response(artist.to_dict())
+
+api.add_resource(ArtistById, '/artists/<int:id>')
 
 
 if __name__ == '__main__':
