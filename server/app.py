@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # Standard library imports
+import ipdb
 
 # Remote library imports
 from flask import request, make_response
@@ -11,9 +12,8 @@ from bs4 import BeautifulSoup
 # Local imports
 from config import app, db, api
 
-
-import ipdb
 # Add your model imports
+from models import Artist
 
 
 # Views go here!

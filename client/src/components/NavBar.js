@@ -27,7 +27,7 @@ function NavBar (){
                     </Col>
                     <Col>
                         <Nav>
-                            <Nav.Link>Home</Nav.Link>
+                            <Nav.Link className='fw-bold'>Home</Nav.Link>
                             <Nav.Link>Dashboard</Nav.Link>
                         </Nav>
                     </Col>

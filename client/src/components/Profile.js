@@ -29,7 +29,7 @@ function Profile(){
                 </Col>
                 <Col className='d-flex justify-content-center'>
                     <Stack className='d-flex justify-content-center '>
-                        <h3 className='text-center'>X of Y Stars - an icon?</h3>
+                        <h3 className='text-center'><span className='fs-1 fw-bold'>X</span> / Y Stars - an icon?</h3>
                         <h3 className='text-center'>Write a review</h3>
                         <p className='text-center'>Purchase tickets here</p>
                         <p className='text-center'>Price ranges</p>
@@ -41,7 +41,7 @@ function Profile(){
                         <p>Image Carousel</p>
                     </Col>
                     <Col className='py-5'>   
-                        <Row className='bg-body-secondary p-5 mt-4'>
+                        <Row className='bg-body-secondary p-5 mt-1'>
                             <h2>Something could go here</h2>
                         </Row>
                     </Col>
