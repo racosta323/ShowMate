@@ -17,10 +17,10 @@ function ReviewList(){
                 <Row >
                     <Col xs={8}> 
                         <Stack direction="horizontal">
-                            <i className="bi bi-person-circle mx-3"></i>
-                            <p className="mt-3">Username</p>
+                            <i className="bi bi-person-circle mx-3 text-primary"></i>
+                            <p className="mt-3 text-primary">Username</p>
                         </Stack>
-                        <h4 className="ms-3">Subject</h4>
+                        <h4 className="ms-3 fw-bold">Subject</h4>
                     </Col>
                     <Col> 
                         <h6 className="text-end mt-3">
