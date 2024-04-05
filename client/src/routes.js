@@ -1,6 +1,7 @@
 import App from './components/App'
 import Profile from './components/Profile'
 import Search from './components/Search'
+import Reviews from './components/Reviews'
 
 
 import { createBrowserRouter } from 'react-router-dom'
@@ -17,6 +18,10 @@ const routes = [
             {
                 path: 'profile/:id',
                 element: <Profile/>
+            },
+            {
+                path: 'reviews/:id',
+                element: <Reviews/>
             }
         ]
     }
