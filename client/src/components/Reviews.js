@@ -4,6 +4,8 @@ import Stack from 'react-bootstrap/Stack'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
+import ReviewList from './ReviewList'
+
 function Reviews(){
     return(
         <Container>
@@ -35,9 +37,7 @@ function Reviews(){
                         <Row className='my-5'>
                             <hr></hr>
                         </Row>
-                        <Row className='border border-dark'>
-                            <Col> something </Col>
-                        </Row>
+                        <ReviewList/>
                     </Col>
                 </Row>
             </Row>
