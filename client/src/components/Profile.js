@@ -54,7 +54,7 @@ function Profile(){
                                     <span className='text-warning'>
                                         10 {' '}
                                     </span>
-                                    <i class="bi bi-star-fill text-warning fs-1" ></i>
+                                    <i className="bi bi-star-fill text-warning fs-1" ></i>
                                 </h3>
                                 <p className='text-center'># of Reviews: 200</p>
                             </Col>
@@ -63,7 +63,7 @@ function Profile(){
                                 
                                 <Button>
                                     <Stack direction='horizontal'>
-                                        <i class="bi bi-pencil-square text-light fs-1 me-2" ></i>
+                                        <i className="bi bi-pencil-square text-light fs-1 me-2" ></i>
                                         <h3 className='mt-3'>Review</h3>
                                     </Stack>
                                 </Button>

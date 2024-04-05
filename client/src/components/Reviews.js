@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
@@ -7,6 +10,24 @@ import Button from 'react-bootstrap/Button'
 import ReviewList from './ReviewList'
 
 function Reviews(){
+
+        const[artist, setArtist] = useState({})
+
+        const params = useParams()
+        const artistId = params.id
+
+    useEffect(()=>{
+        fetch(`/artists/${artistId}`)
+        .then(resp=>resp.json())
+        .then(data => setArtist(data))
+    }, [artistId])
+
+    const renderList = artist.reviews ? artist.reviews.map((review)=>{
+        return <ReviewList review={review}/>
+    }) : console.log("loading")
+
+    // console.log(renderList)
+
     return(
         <Container>
             <Row>
@@ -30,12 +51,10 @@ function Reviews(){
                     {/* other side */}
                     <Col xs={8} className='ps-5'>
                         <Row>
-                            <h1 className='text-uppercase'>Artist Name</h1>
+                            <h1 className='text-uppercase'>{artist.name}</h1>
                             <h3>User Reviews</h3>
                         </Row>
-                        <ReviewList/>
-                        <ReviewList/>
-                        <ReviewList/>
+                        {renderList}
                     </Col>
                 </Row>
             </Row>

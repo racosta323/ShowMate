@@ -5,8 +5,10 @@ import Stack from "react-bootstrap/Stack"
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
-function ReviewList(){
+function ReviewList({ review }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
+
+    console.log(review)
 
     return(
         <>
@@ -20,17 +22,17 @@ function ReviewList(){
                             <i className="bi bi-person-circle mx-3 text-primary"></i>
                             <p className="mt-3 text-primary">Username</p>
                         </Stack>
-                        <h4 className="ms-3 fw-bold">Subject</h4>
+                        <h4 className="ms-3 fw-bold">{review.subject}</h4>
                     </Col>
                     <Col> 
                         <h6 className="text-end mt-3">
                             <span className='fw-bold'>
-                                4
+                                {review.stars}
                             </span> / {' '}
                             <span className='text-warning'>
                                 10 {' '}
                             </span>
-                            <i class="bi bi-star-fill text-warning" ></i>
+                            <i className="bi bi-star-fill text-warning" ></i>
                             {/* {' '} see review */}
                         </h6>
                         
@@ -38,7 +40,7 @@ function ReviewList(){
                 </Row>
                 <Row className="ms-2">
                     <ResponsiveEllipsis
-                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quam quisque id diam vel quam elementum pulvinar etiam. Penatibus et magnis dis parturient montes nascetur ridiculus mus. Dui faucibus in ornare quam viverra orci sagittis eu. Non pulvinar neque laoreet suspendisse interdum consectetur. Facilisis magna etiam tempor orci. Ullamcorper malesuada proin libero nunc. Erat nam at lectus urna duis convallis. Urna nunc id cursus metus aliquam eleifend mi in nulla. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque. Nullam non nisi est sit amet facilisis magna etiam tempor. Eget arcu dictum varius duis at consectetur lorem donec. Lobortis mattis aliquam faucibus purus in massa tempor nec feugiat."
+                        text={review.review}
                         maxLine={3}
                         ellipsis="..."
                         trimRight

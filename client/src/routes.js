@@ -20,7 +20,7 @@ const routes = [
                 element: <Profile/>
             },
             {
-                path: 'reviews/:id',
+                path: 'profile/:id/reviews',
                 element: <Reviews/>
             }
         ]
