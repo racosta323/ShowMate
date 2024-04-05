@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
 import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
 
 
 
@@ -45,7 +46,7 @@ function Profile(){
                 <Col className='d-flex justify-content-center'>
                     <Row>
                         <Stack direction='horizontal' className='d-flex justify-content-center'>
-                            <Col>
+                            <Col xs={6}>
                                 <h3 className='text-center'>
                                     <span className='fs-1 fw-bold'>
                                         4
@@ -55,11 +56,18 @@ function Profile(){
                                     </span>
                                     <i class="bi bi-star-fill text-warning fs-1" ></i>
                                 </h3>
-                                <p className='text-center'>Number of Reviews: 200</p>
+                                <p className='text-center'># of Reviews: 200</p>
                             </Col>
-                            <Col></Col>
-                            <Col>
-                                Other side
+                           <Col xs={1}></Col>
+                            <Col xs={6}>
+                                
+                                <Button>
+                                    <Stack direction='horizontal'>
+                                        <i class="bi bi-star-fill text-light fs-1 me-2" ></i>
+                                        <h3 className='mt-2'>Review</h3>
+                                    </Stack>
+                                </Button>
+                                <p className='mx-4'>Write a review</p>
                             </Col>
                         </Stack>
                         <Row>
