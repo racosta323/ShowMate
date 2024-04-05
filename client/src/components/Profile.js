@@ -34,20 +34,6 @@ function Profile(){
                         <p className='text-center'>Purchase tickets here</p>
                         <p className='text-center'>Price ranges</p>
                     </Stack>
-                    {/* <Row></Row>
-                    <Row>
-                        <Col className='d-flex justify-content-center'>
-                            <h3>X of Y Stars - an icon?</h3>
-                            
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className='d-flex justify-content-center'>
-                            <h3>Write a review</h3>
-                            <p>Purchase tickets here</p>
-                            <p>Price ranges</p>
-                        </Col>
-                    </Row> */}
                     
                 </Col>
             </Row>

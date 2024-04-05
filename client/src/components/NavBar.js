@@ -18,7 +18,7 @@ function NavBar (){
             >
                <Container>
                 <Col>
-                        <Navbar.Brand href="#home" className='mx-3'>Navbar with text</Navbar.Brand>
+                        <Navbar.Brand href="#home" className='mx-3 fs-3'>ShowMate</Navbar.Brand>
                     </Col>
             
                     <Col xs={4}>

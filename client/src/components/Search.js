@@ -18,8 +18,10 @@ function Search(){
                         <hr className='mb-5'></hr>
                         
                         <NoResults/>
+                        <SearchList/>
                         <p className='text-end'>Don't see what you're looking for? </p>
                         <CreateProfile/>
+                        
                     </Col>
                     <Col className='py-5'>   
                         <Row className='bg-body-secondary p-5 mt-4'>
