@@ -9,14 +9,9 @@ import Col from 'react-bootstrap/Col'
 import { useFormik } from 'formik'
 
 
-function CreateReview(){
+function CreateReview({ show, handleShow, handleClose }){
 
     const navigate = useNavigate()
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
    const formik = useFormik({
         initialValues: {
@@ -56,13 +51,6 @@ function CreateReview(){
 
     return(
         <>
-            <Row >
-                <Col className="d-flex justify-content-end">
-                    <Button variant="dark" onClick={handleShow}>
-                        Create a Profile
-                    </Button>
-                </Col>
-            </Row>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Create an Artist Profile</Modal.Title>
