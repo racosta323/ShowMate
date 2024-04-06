@@ -15,6 +15,7 @@ function ReviewList({ review }){
             <Row className='my-5'>
                 <hr></hr>
             </Row>
+            
             <Row className='border border-secondary-subtle rounded'>
                 <Row >
                     <Col xs={8}> 
@@ -38,17 +39,25 @@ function ReviewList({ review }){
                         
                     </Col>
                 </Row>
-                <Row className="ms-2">
+                <Row className="mb-2">
                     <ResponsiveEllipsis
                         text={review.review}
                         maxLine={3}
                         ellipsis="..."
                         trimRight
                         basedOn="letters"
+                        className="mb-3 ms-4"
                     />
-                    <h6 className="text-end">See full review</h6>
                 </Row>
-                
+                <Row>
+                    <Col>
+                        <h6><span  className="fw-bold ms-3">Concert:</span> Renaissance</h6>    
+                        <h6><span  className="fw-bold ms-3">Concert Location:</span> D.C.</h6>       
+                    </Col> 
+                    <Col>
+                        <h6 className="text-end">See full review (open when clicked)</h6>
+                    </Col>
+                </Row>        
             </Row>
             
         </>
