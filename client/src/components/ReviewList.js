@@ -39,7 +39,7 @@ function ReviewList({ review }){
                         
                     </Col>
                 </Row>
-                <Row className="mb-2">
+                <Row>
                     <p className="ms-3 text-secondary smaller">Review Date</p>
                     <ResponsiveEllipsis
                         text={review.review}
@@ -47,8 +47,13 @@ function ReviewList({ review }){
                         ellipsis="..."
                         trimRight
                         basedOn="letters"
-                        className="mb-3 ms-3 lh-sm review"
+                        className="mb-3 ms-3 lh-sm"
                     />
+                </Row>
+                <Row>
+                    <Col>
+                        <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6>
+                    </Col>
                 </Row>
                 <Row>
                     <Col>
@@ -61,14 +66,7 @@ function ReviewList({ review }){
                             DATE
                         </p>
                     </Col>
-                    {/* <Col>
-                        <p className="fs-smaller"><span  className="fw-bold ms-3">Show:</span> Renaissance</p>    
-                        <p><span  className="fw-bold ms-3">Show Location:</span> D.C.</p> 
-                        <p><span  className="fw-bold ms-3">Show Date:</span> D.C.</p> 
-                    </Col>  */}
-                    <Col className="pt-5">
-                        <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6>
-                    </Col>
+                    
                 </Row>        
             </Row>
             
