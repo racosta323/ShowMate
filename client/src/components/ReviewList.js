@@ -8,8 +8,6 @@ import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 function ReviewList({ review }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
-    console.log(review)
-
     return(
         <>
             <Row className='my-5'>

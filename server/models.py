@@ -14,7 +14,6 @@ class Artist(db.Model, SerializerMixin):
     genre = db.Column(db.String)
     tm_id = db.Column(db.Integer)
     mbid = db.Column(db.Integer)
-    # show = db.Column(db.String, nullable=False)
 
     reviews = db.relationship('Review', back_populates='artist')
 
@@ -32,6 +31,9 @@ class Review(db.Model, SerializerMixin):
     stars = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
+    show = db.Column(db.String, nullable=False)
+    location = db.Column(db.String, nullable=False)
+    show_date = db.Column(db.DateTime)
 
     artist_id = db.Column(db.Integer, db.ForeignKey('artists.id'))
     # user_id = db.Column(db.Integer, db.ForeignKey(''))
