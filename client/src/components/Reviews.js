@@ -23,11 +23,24 @@ function Reviews(){
         .then(data => setArtist(data))
     }, [artistId])
 
-    const renderList = artist.reviews ? artist.reviews.map((review)=>{
-        return <ReviewList review={review}/>
-    }) : console.log("loading")
 
-    // console.log(renderList)
+    const renderList = () => {
+        if (!artist.reviews || artist.reviews.length == 0){
+           return <NoReview />
+        } else {
+            return artist.reviews.map((review)=>{
+                console.log(review)
+                return <ReviewList review={review}/>
+            })
+        }
+    }
+    
+
+    // const renderList = artist.reviews ? artist.reviews.map((review)=>{
+    //         return <ReviewList review={review}/>
+    // }) : false
+
+    console.log(artist.reviews)
 
     return(
         <Container>
@@ -55,8 +68,8 @@ function Reviews(){
                             <h1 className='text-uppercase'>{artist.name}</h1>
                             <h3>User Reviews</h3>
                         </Row>
-                        {renderList}
-                        <NoReview/>
+                        {renderList()}
+                        {/* {artist.reviews || artist.reviews == [] ? renderList : <NoReview/>} */}
                     </Col>
                 </Row>
             </Row>
