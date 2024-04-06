@@ -23,7 +23,7 @@ function ReviewList({ review }){
                             <i className="bi bi-person-circle mx-3 text-primary"></i>
                             <p className="mt-3 text-primary">Username</p>
                         </Stack>
-                        <h4 className="ms-3 fw-bold">{review.subject}</h4>
+                        <h5 className="ms-3 fw-bold">{review.subject}</h5>
                     </Col>
                     <Col> 
                         <h6 className="text-end mt-3">
@@ -40,22 +40,34 @@ function ReviewList({ review }){
                     </Col>
                 </Row>
                 <Row className="mb-2">
+                    <p className="ms-3 text-secondary smaller">Review Date</p>
                     <ResponsiveEllipsis
                         text={review.review}
                         maxLine={3}
                         ellipsis="..."
                         trimRight
                         basedOn="letters"
-                        className="mb-3 ms-4"
+                        className="mb-3 ms-3 lh-sm review"
                     />
                 </Row>
                 <Row>
                     <Col>
-                        <h6><span  className="fw-bold ms-3">Concert:</span> Renaissance</h6>    
-                        <h6><span  className="fw-bold ms-3">Concert Location:</span> D.C.</h6>       
-                    </Col> 
-                    <Col>
-                        <h6 className="text-end">See full review (open when clicked)</h6>
+                        <p className="smaller">
+                            <span  className="fw-bold ms-3">Show: </span> 
+                            Renaissance <br />
+                            <span  className="fw-bold ms-3">Show Location: </span> 
+                            D.C. <br />
+                            <span  className="fw-bold ms-3">Show Date: </span> 
+                            DATE
+                        </p>
+                    </Col>
+                    {/* <Col>
+                        <p className="fs-smaller"><span  className="fw-bold ms-3">Show:</span> Renaissance</p>    
+                        <p><span  className="fw-bold ms-3">Show Location:</span> D.C.</p> 
+                        <p><span  className="fw-bold ms-3">Show Date:</span> D.C.</p> 
+                    </Col>  */}
+                    <Col className="pt-5">
+                        <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6>
                     </Col>
                 </Row>        
             </Row>

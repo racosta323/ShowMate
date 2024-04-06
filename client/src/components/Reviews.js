@@ -29,18 +29,11 @@ function Reviews(){
            return <NoReview />
         } else {
             return artist.reviews.map((review)=>{
-                console.log(review)
                 return <ReviewList review={review}/>
             })
         }
     }
     
-
-    // const renderList = artist.reviews ? artist.reviews.map((review)=>{
-    //         return <ReviewList review={review}/>
-    // }) : false
-
-    console.log(artist.reviews)
 
     return(
         <Container>
@@ -59,7 +52,7 @@ function Reviews(){
                         </Row>
                         <Row className='my-4'></Row>
                         <Row className='border border-dark h-100'>
-                            <Col>Something here</Col>
+                            <Col className='h-100'>Something here</Col>
                         </Row>
                     </Col>
                     {/* other side */}
@@ -69,7 +62,6 @@ function Reviews(){
                             <h3>User Reviews</h3>
                         </Row>
                         {renderList()}
-                        {/* {artist.reviews || artist.reviews == [] ? renderList : <NoReview/>} */}
                     </Col>
                 </Row>
             </Row>
