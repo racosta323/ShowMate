@@ -18,13 +18,13 @@ function CreateProfile(){
             <Row >
                 <Col className="d-flex justify-content-end">
                     <Button variant="dark" onClick={handleShow}>
-                        Create a Profile
+                        Write a review
                     </Button>
                 </Col>
             </Row>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Create an Artist Profile</Modal.Title>
+                    <Modal.Title>Review a show</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Form>
@@ -38,7 +38,7 @@ function CreateProfile(){
                     </Form.Group>
                     <Form.Group
                     className="mb-3"
-                    controlId="genre"
+                    controlId="exampleForm.ControlInput2"
                     >
                         <Form.Label>Genre</Form.Label>
                         <Form.Control
