@@ -10,11 +10,11 @@ function ReviewList({ review }){
 
     return(
         <>
-            <Row className='my-5'>
+            <Row className='my-1'>
                 <hr></hr>
             </Row>
             
-            <Row className='border border-secondary-subtle rounded'>
+            <Row className='border border-secondary-subtle rounded mt-5'>
                 <Row >
                     <Col xs={8}> 
                         <Stack direction="horizontal">
