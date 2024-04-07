@@ -29,7 +29,7 @@ class Review(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     subject = db.Column(db.String, nullable=False)
     review = db.Column(db.String)
-    stars = db.Column(db.Integer)
+    stars = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
     show = db.Column(db.String, nullable=False)

@@ -5,21 +5,11 @@ import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
 import Container from 'react-bootstrap/Container'
 
-function Stars( { stars, handleChange }){
+function Stars( { key, handleClick, rating}){
 
     const [hover, setHover] = useState(null)
-    const [rating, setRating] = useState(null)
-
-    const handleClick = (currentRating) => {
-        console.log(currentRating)
-        
-        setRating(currentRating)
-        stars = currentRating
-        console.log(stars)
-    }
     
-
-
+   
     return(
         <Container >
             <Row >
@@ -27,17 +17,15 @@ function Stars( { stars, handleChange }){
                     {[...Array(5)].map((star, index)=>{
 
                     const currentRating = index+1
-                    stars = rating
-                    // console.log(stars)
+                    
 
                     return (
                         <label>
                             <input
+                                key={key}
                                 as="input"
                                 type='radio'
                                 name='stars'
-                                value={stars}
-                                onChange={handleChange}
                                 onClick={()=> handleClick(currentRating)}
                             />
                             <i 

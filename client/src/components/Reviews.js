@@ -29,7 +29,7 @@ function Reviews(){
            return <NoReview />
         } else {
             return artist.reviews.map((review)=>{
-                return <ReviewList review={review}/>
+                return <ReviewList review={review} key={artistId}/>
             })
         }
     }

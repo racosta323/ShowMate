@@ -29,7 +29,7 @@ function ReviewList({ review }){
                                 {review.stars}
                             </span> / {' '}
                             <span className='text-warning'>
-                                10 {' '}
+                                5 {' '}
                             </span>
                             <i className="bi bi-star-fill text-warning" ></i>
                             {/* {' '} see review */}

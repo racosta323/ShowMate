@@ -14,10 +14,10 @@ import Stars from './Stars'
 
 
 function CreateReview({ show, handleShow, handleClose }){
-
-    
     
     const navigate = useNavigate()
+
+    const [rating, setRating] = useState(null)
     
     const params = useParams()
     const artistId = params.id
@@ -31,7 +31,7 @@ function CreateReview({ show, handleShow, handleClose }){
             date: '',
             review: '',
             artistId: artistId,
-            stars: ''
+            stars: 'nada'
         },
         onSubmit: async (values) => {
             try{
@@ -62,6 +62,14 @@ function CreateReview({ show, handleShow, handleClose }){
             window.location.reload()
         }
    })
+
+   const handleClick = (currentRating) => {
+        setRating(currentRating)
+        formik.values.stars = currentRating
+        console.log(formik.values.stars)
+   }
+
+   console.log(formik.values.stars)
    
     return(
         <>
@@ -76,7 +84,14 @@ function CreateReview({ show, handleShow, handleClose }){
                         <span className='fw-bold'>Artist Name</span>
                     </p>
                     <Row>
-                        <Stars stars={formik.values.stars} handleChange={formik.handleChange}/>
+                        <Stars 
+                            stars={formik.values.stars} 
+                            handleChange={formik.handleChange} 
+                            key={formik.values.id} 
+                            handleClick={handleClick}
+                            rating={rating}
+            
+                        />
                     </Row>
                     
                     <Form.Group className="mb-3" controlId="subject">
