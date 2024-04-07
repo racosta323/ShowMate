@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 from config import app, db, api
 
 # Add your model imports
-from models import Artist
+from models import Artist, Review
 
 
 # Views go here!
@@ -77,7 +77,7 @@ class Artists(Resource):
         request_body = request.json
 
         try:
-            artist = artist = Artist(name=request_body["name"], genre=request_body["genre"])
+            artist =  Artist(name=request_body["name"], genre=request_body["genre"])
             db.session.add(artist)
             db.session.commit()
         except:
@@ -102,6 +102,31 @@ class ArtistById(Resource):
         return make_response(artist.to_dict())
 
 api.add_resource(ArtistById, '/artists/<int:id>')
+
+class Reviews(Resource):
+    def post(self):
+        request_body = request.json
+
+        try:
+            artist =  Review(
+                subject=request_body["subject"], 
+                show=["name"], location=["location"], 
+                show_date=["date"], 
+                review=["review"], 
+                artist_id= ["artistID"])
+            db.session.add(artist)
+            db.session.commit()
+        except:
+            pass
+
+        try:
+            pass
+        except:
+            pass
+
+        return make_response(artist.to_dict(), 201)
+
+api.add_resource(Reviews, '/reviews')   
 
 
 if __name__ == '__main__':

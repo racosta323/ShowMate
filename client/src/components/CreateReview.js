@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+
 
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
@@ -9,16 +10,25 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { useFormik } from 'formik'
 
+import Stars from './Stars'
+
 
 function CreateReview({ show, handleShow, handleClose }){
 
     const navigate = useNavigate()
+    
+    const params = useParams()
+    const artistId = params.id
 
-   const formik = useFormik({
+    const formik = useFormik({
         initialValues: {
             id: '',
+            subject: '',
             name: '',
-            genre: ''
+            location: '',
+            date: '',
+            review: '',
+            artistId: artistId
         },
         onSubmit: async (values) => {
             try{
@@ -58,12 +68,14 @@ function CreateReview({ show, handleShow, handleClose }){
                 </Modal.Header>
                 <Modal.Body>
                 <Form>
-                    <p className='mb-4'>
+                    <p className='mt-4'>
                         Share your review of a show you attended for: <br/> 
-                        <span className='fs-5'>Artist Name</span>
+                        <span className='fs-5 fw-bold'>Artist Name</span>
                     </p>
+                    <Row>
+                        <Stars />
+                    </Row>
                     
-
                     <Form.Group className="mb-3" controlId="subject">
                         <Form.Label className='fw-bold'>Subject</Form.Label>
                         <Form.Control
@@ -72,7 +84,7 @@ function CreateReview({ show, handleShow, handleClose }){
                             name='subject'
                             placeholder="Give your review a headline"
                             onChange={formik.handleChange}
-                            value={formik.values.name}
+                            value={formik.values.subject}
                             className='border-top-0 border-end-0 border-start-0 rounded-0'
                             autoFocus
                         />
@@ -85,7 +97,7 @@ function CreateReview({ show, handleShow, handleClose }){
                             placeholder='Which event had you attended?'
                             name='name'
                             onChange={formik.handleChange}
-                            value={formik.values.genre}
+                            value={formik.values.name}
                             className='border-top-0 border-end-0 border-start-0 rounded-0'
                         />
                     </Form.Group>
@@ -97,7 +109,7 @@ function CreateReview({ show, handleShow, handleClose }){
                             placeholder='Where was the show?'
                             name='location'
                             onChange={formik.handleChange}
-                            value={formik.values.genre}
+                            value={formik.values.location}
                             className='border-top-0 border-end-0 border-start-0 rounded-0'
                         />
                     </Form.Group>
@@ -109,7 +121,7 @@ function CreateReview({ show, handleShow, handleClose }){
                             placeholder='When did you attend?'
                             name='date'
                             onChange={formik.handleChange}
-                            value={formik.values.genre}
+                            value={formik.values.date}
                             className='border-top-0 border-end-0 border-start-0 rounded-0'
                         />
                     </Form.Group>
@@ -124,11 +136,10 @@ function CreateReview({ show, handleShow, handleClose }){
                             placeholder=''
                             name='review'
                             onChange={formik.handleChange}
-                            value={formik.values.genre}
+                            value={formik.values.review}
                         />  
                        </InputGroup>
                     </Form.Group>
-                    
                 </Form>
                 </Modal.Body>
                 <Modal.Footer>

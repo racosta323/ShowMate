@@ -22,3 +22,8 @@
 .smaller{
   font-size: small;
 }
+
+input[type=radio]{
+  display: none;
+}
+
