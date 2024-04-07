@@ -9,10 +9,14 @@ import Button from 'react-bootstrap/Button'
 
 import ReviewList from './ReviewList'
 import NoReview from './NoReview'
+import CreateReview from './CreateReview'
 
 function Reviews(){
 
         const[artist, setArtist] = useState({})
+        const [show, setShow] = useState(false);
+        const handleClose = () => setShow(false);
+        const handleShow = () => setShow(true);
 
         const params = useParams()
         const artistId = params.id
@@ -26,7 +30,7 @@ function Reviews(){
 
     const renderList = () => {
         if (!artist.reviews || artist.reviews.length == 0){
-           return <NoReview />
+           return <NoReview handleClose={handleClose} handleShow={handleShow} show={show}/>
         } else {
             return artist.reviews.map((review)=>{
                 return <ReviewList review={review} key={artistId}/>
@@ -64,10 +68,11 @@ function Reviews(){
                             </Col>
                             <Col>
                                 <Col className='mt-4'></Col>
-                                <Button>
+                                <Button onClick={handleShow}>
                                     <Stack direction='horizontal'>
                                         <i className="bi bi-pencil-square text-light fs-6 me-2" ></i>
                                         <h6 className='mt-1'>Review</h6>
+                                        <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}/>
                                     </Stack>
                                 </Button>
                             </Col>

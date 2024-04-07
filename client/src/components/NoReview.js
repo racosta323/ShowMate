@@ -9,13 +9,9 @@ import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
 import CreateReview from "./CreateReview"
 
-function NoReview({ review }){
+function NoReview({ handleClose, handleShow, show }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
-
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+    
     return(
         <>
             <Row className='my-5'>
