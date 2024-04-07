@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { useFormik } from 'formik'
@@ -51,37 +52,81 @@ function CreateReview({ show, handleShow, handleClose }){
 
     return(
         <>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Create an Artist Profile</Modal.Title>
+                    <Modal.Title>Write a Show Review</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Form>
-                    <Form.Group className="mb-3" controlId="name">
-                        <Form.Label>Artist Name</Form.Label>
+                    <p className='mb-4'>
+                        Share your review of a show you attended for: <br/> 
+                        <span className='fs-5'>Artist Name</span>
+                    </p>
+                    
+
+                    <Form.Group className="mb-3" controlId="subject">
+                        <Form.Label className='fw-bold'>Subject</Form.Label>
                         <Form.Control
                             as="input"
-                            type="name"
-                            name='name'
-                            placeholder="name"
+                            type="subject"
+                            name='subject'
+                            placeholder="Give your review a headline"
                             onChange={formik.handleChange}
                             value={formik.values.name}
+                            className='border-top-0 border-end-0 border-start-0 rounded-0'
                             autoFocus
                         />
                     </Form.Group>
-                    <Form.Group
-                    className="mb-3"
-                    controlId="genre"
-                    >
-                        <Form.Label>Genre</Form.Label>
+                    <Form.Group className="mb-3" controlId="name">
+                        <Form.Label className='fw-bold'>Name of Show</Form.Label>
                         <Form.Control
                             as="input"
-                            type='genre'
-                            placeholder='genre'
-                            name='genre'
+                            type='name'
+                            placeholder='Which event had you attended?'
+                            name='name'
                             onChange={formik.handleChange}
                             value={formik.values.genre}
+                            className='border-top-0 border-end-0 border-start-0 rounded-0'
                         />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="location">
+                        <Form.Label className='fw-bold'>Location</Form.Label>
+                        <Form.Control
+                            as="input"
+                            type='location'
+                            placeholder='Where was the show?'
+                            name='location'
+                            onChange={formik.handleChange}
+                            value={formik.values.genre}
+                            className='border-top-0 border-end-0 border-start-0 rounded-0'
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="date">
+                        <Form.Label className='fw-bold'>Date of Show</Form.Label>
+                        <Form.Control
+                            as="input"
+                            type='date'
+                            placeholder='When did you attend?'
+                            name='date'
+                            onChange={formik.handleChange}
+                            value={formik.values.genre}
+                            className='border-top-0 border-end-0 border-start-0 rounded-0'
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="review">
+                       <InputGroup>
+                       <InputGroup.Text className='fw-bold'>Review</InputGroup.Text>
+                        <Form.Control
+                            as="textarea"
+                            aria-label="With textarea"
+                            rows={5}
+                            type='review'
+                            placeholder=''
+                            name='review'
+                            onChange={formik.handleChange}
+                            value={formik.values.genre}
+                        />  
+                       </InputGroup>
                     </Form.Group>
                     
                 </Form>

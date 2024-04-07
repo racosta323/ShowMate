@@ -63,7 +63,7 @@ function CreateProfile(){
                     </Button>
                 </Col>
             </Row>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Create an Artist Profile</Modal.Title>
                 </Modal.Header>
