@@ -107,8 +107,7 @@ api.add_resource(ArtistById, '/artists/<int:id>')
 class Reviews(Resource):
     def post(self):
         request_body = request.json
-        ipdb.set_trace()
-        date_object = datetime.strptime(request.get_json()["date"], '%m/%d/%Y').date()
+        date_object = datetime.strptime(request.get_json()["date"], '%Y-%m-%d').date()
 
         try:
             review= Review(
@@ -120,7 +119,6 @@ class Reviews(Resource):
                 artist_id=request_body["artistId"],
                 stars=request_body["stars"]
             )
-            ipdb.set_trace()
             db.session.add(review)
             db.session.commit()
             return make_response(review.to_dict(), 201)
