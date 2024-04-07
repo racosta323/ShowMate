@@ -19,6 +19,7 @@ class Artist(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f'<Artist id={self.id}, name={self.name}, genre={self.genre}>'
+    
 
 class Review(db.Model, SerializerMixin):
     __tablename__ = 'reviews'
@@ -41,4 +42,4 @@ class Review(db.Model, SerializerMixin):
     artist = db.relationship('Artist', back_populates='reviews')
 
     def __repr__(self):
-        return f'<Artist id={self.id}, subject={self.subject}, review={self.review} stars={self.stars}, artist_id={self.artist_id}>'
+        return f'<Review id={self.id}, subject={self.subject}, review={self.review} stars={self.stars}, artist_id={self.artist_id}, date={self.show_date}>'

@@ -15,6 +15,8 @@ import Stars from './Stars'
 
 function CreateReview({ show, handleShow, handleClose }){
 
+    
+    
     const navigate = useNavigate()
     
     const params = useParams()
@@ -28,21 +30,22 @@ function CreateReview({ show, handleShow, handleClose }){
             location: '',
             date: '',
             review: '',
-            artistId: artistId
+            artistId: artistId,
+            stars: ''
         },
         onSubmit: async (values) => {
             try{
-                const artistResponse = await fetch('/artists',{
+                const reviewResponse = await fetch('/reviews',{
                     method: 'POST',
                     headers: {
                         "Content-Type": 'application/json'
                     },
                     body: JSON.stringify(values, null, 2)
                 })
-                if(artistResponse.status ===201){
-                    const artistData = await artistResponse.json()
-                    formik.values.id = artistData.id
-                }
+                // if(reviewResponse.status ===201){
+                //     const reviewData = await reviewResponse.json()
+                //     formik.values.id = reviewData.id
+                // }
                 // .then (resp=> {
                 //     if(resp.ok){
                 //         resp.json().then(artist=>{
@@ -55,29 +58,29 @@ function CreateReview({ show, handleShow, handleClose }){
             } catch(error){
 
             }
-            navigate(`/profile/${formik.values.id}`)
+            navigate(`/profile/${formik.values.artistId}/reviews`)
             window.location.reload()
         }
    })
-
+   
     return(
         <>
             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Write a Show Review</Modal.Title>
+                    <Modal.Title className='fs-5'>Write a Show Review</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Form>
                     <p className='mt-4'>
                         Share your review of a show you attended for: <br/> 
-                        <span className='fs-5 fw-bold'>Artist Name</span>
+                        <span className='fw-bold'>Artist Name</span>
                     </p>
                     <Row>
-                        <Stars />
+                        <Stars stars={formik.values.stars} handleChange={formik.handleChange}/>
                     </Row>
                     
                     <Form.Group className="mb-3" controlId="subject">
-                        <Form.Label className='fw-bold'>Subject</Form.Label>
+                        <Form.Label className='fw-bold smaller'>Subject</Form.Label>
                         <Form.Control
                             as="input"
                             type="subject"
@@ -85,12 +88,12 @@ function CreateReview({ show, handleShow, handleClose }){
                             placeholder="Give your review a headline"
                             onChange={formik.handleChange}
                             value={formik.values.subject}
-                            className='border-top-0 border-end-0 border-start-0 rounded-0'
+                            className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
                             autoFocus
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="name">
-                        <Form.Label className='fw-bold'>Name of Show</Form.Label>
+                        <Form.Label className='fw-bold smaller'>Name of Show</Form.Label>
                         <Form.Control
                             as="input"
                             type='name'
@@ -102,7 +105,7 @@ function CreateReview({ show, handleShow, handleClose }){
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="location">
-                        <Form.Label className='fw-bold'>Location</Form.Label>
+                        <Form.Label className='fw-bold smaller'>Location</Form.Label>
                         <Form.Control
                             as="input"
                             type='location'
@@ -114,7 +117,7 @@ function CreateReview({ show, handleShow, handleClose }){
                         />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="date">
-                        <Form.Label className='fw-bold'>Date of Show</Form.Label>
+                        <Form.Label className='fw-bold smaller'>Date of Show</Form.Label>
                         <Form.Control
                             as="input"
                             type='date'

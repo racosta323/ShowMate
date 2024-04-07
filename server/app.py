@@ -2,6 +2,7 @@
 
 # Standard library imports
 import ipdb
+from datetime import datetime
 
 # Remote library imports
 from flask import request, make_response
@@ -106,16 +107,23 @@ api.add_resource(ArtistById, '/artists/<int:id>')
 class Reviews(Resource):
     def post(self):
         request_body = request.json
+        ipdb.set_trace()
+        date_object = datetime.strptime(request.get_json()["date"], '%m/%d/%Y').date()
 
         try:
-            artist =  Review(
+            review= Review(
                 subject=request_body["subject"], 
-                show=["name"], location=["location"], 
-                show_date=["date"], 
-                review=["review"], 
-                artist_id= ["artistID"])
-            db.session.add(artist)
+                show=request_body["name"], 
+                location=request_body["location"], 
+                show_date=date_object, 
+                review=request_body["review"], 
+                artist_id=request_body["artistId"],
+                stars=request_body["stars"]
+            )
+            ipdb.set_trace()
+            db.session.add(review)
             db.session.commit()
+            return make_response(review.to_dict(), 201)
         except:
             pass
 
@@ -124,7 +132,7 @@ class Reviews(Resource):
         except:
             pass
 
-        return make_response(artist.to_dict(), 201)
+        
 
 api.add_resource(Reviews, '/reviews')   
 
