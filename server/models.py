@@ -43,22 +43,22 @@ class Review(db.Model, SerializerMixin):
     user = db.relationship('User', back_populates='reviews')
 
     def __repr__(self):
-        return f'<Review id={self.id}, subject={self.subject}, review={self.review} stars={self.stars}, artist_id={self.artist_id}, date={self.show_date}>'
+        return f'<Review id={self.id}, subject={self.subject}, review={self.review} stars={self.stars}, artist_id={self.artist_id}, date={self.show_date} user_id={self.user_id}>'
     
 
-    class User(db.Model, SerializerMixin):
-        __tablename__ = 'users'
+class User(db.Model, SerializerMixin):
+    __tablename__ = 'users'
 
-        serialize_rules=('-reviews.user',)
+    serialize_rules=('-reviews.user', '-reviews.artist_id', '-reviews.user_id')
 
-        id = db.Column(db.Integer, primary_key=True)
-        first_name = db.Column(db.String, nullable=False)
-        last_name = db.Column(db.String, nullable=False)
-        username = db.Column(db.String)
-        password = db.Column (db.String)
-        created_at = db.Column(db.DateTime, server_default=db.func.now())
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String, nullable=False)
+    last_name = db.Column(db.String, nullable=False)
+    username = db.Column(db.String)
+    password = db.Column (db.String)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
 
-        reviews = db.relationship('Review', back_populates='user')
+    reviews = db.relationship('Review', back_populates='user')
 
-        def __repr__(self):
-            return f'<User id={self.id}, first_name = {self.first_name}, last_name = {self.last_name}, username = {self.username}, password = {self.password}>'
+    def __repr__(self):
+        return f'<User id={self.id}, first_name = {self.first_name}, last_name = {self.last_name}, username = {self.username}, password = {self.password}>'

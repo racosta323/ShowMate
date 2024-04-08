@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 from config import app, db, api
 
 # Add your model imports
-from models import Artist, Review
+from models import Artist, Review, User
 
 
 # Views go here!
@@ -130,10 +130,47 @@ class Reviews(Resource):
         except:
             pass
 
-        
-
 api.add_resource(Reviews, '/reviews')   
 
+
+# class Users(Resource):
+#     def post(self):
+#         request_body = request.json
+#         date_object = datetime.strptime(request.get_json()["date"], '%Y-%m-%d').date()
+
+#         try:
+#             review= Review(
+#                 subject=request_body["subject"], 
+#                 show=request_body["name"], 
+#                 location=request_body["location"], 
+#                 show_date=date_object, 
+#                 review=request_body["review"], 
+#                 artist_id=request_body["artistId"],
+#                 stars=request_body["stars"]
+#             )
+#             db.session.add(review)
+#             db.session.commit()
+#             return make_response(review.to_dict(), 201)
+#         except:
+#             pass
+
+#         try:
+#             pass
+#         except:
+#             pass
+
+# api.add_resource(Reviews, '/reviews')   
+
+class UserById(Resource):
+    def get(self, id):
+        try:
+            user = User.query.get(id)
+        except:
+            pass
+
+        return make_response(user.to_dict())
+
+api.add_resource(UserById, '/users/<int:id>')
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
