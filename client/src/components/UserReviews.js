@@ -49,6 +49,16 @@ function UserReviews( { reviews }){
                 <Row>
                     <Col>
                         <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6>
+                        <p className="text-end text-secondary smaller">
+                            <a href="#">
+                                Edit
+                            </a> 
+                        </p>
+                        <p className="text-end text-secondary smaller">
+                            <a href="#">
+                                Delete
+                            </a>
+                        </p>
                     </Col>
                 </Row>
                 <Row>
