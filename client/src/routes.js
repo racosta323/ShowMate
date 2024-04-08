@@ -17,11 +17,11 @@ const routes = [
                 element: <Search/>
             },
             {
-                path: 'profile/:id',
+                path: 'artists/:id',
                 element: <Profile/>
             },
             {
-                path: 'profile/:id/reviews',
+                path: 'artists/:id/reviews',
                 element: <Reviews/>
             },
             {

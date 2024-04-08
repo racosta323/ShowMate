@@ -69,7 +69,7 @@ function Profile(){
                         <Stack direction='horizontal' className='d-flex justify-content-center'>
                             <Col xs={6}>
                                 <h3 className='text-center'>
-                                    <a href={`/profile/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                                    <a href={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
                                         <span className='fs-1 fw-bold'>
                                             {averageStars * 2}
                                         </span> / {' '}
