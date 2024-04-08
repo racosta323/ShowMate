@@ -10,7 +10,7 @@ function ReviewList({ review }){
 
     return(
         <>
-            <Row className='my-1'>
+            <Row>
                 <hr></hr>
             </Row>
             
