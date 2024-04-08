@@ -8,6 +8,8 @@ import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 function ReviewList({ review }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
+    console.log(review)
+
     return(
         <>
             <Row className='border border-secondary-subtle rounded my-3'>
@@ -15,7 +17,7 @@ function ReviewList({ review }){
                     <Col xs={8}> 
                         <Stack direction="horizontal">
                             <i className="bi bi-person-circle mx-3 text-primary"></i>
-                            <p className="mt-3 text-primary">Username</p>
+                            <p className="mt-3 text-primary">{review.user.username}</p>
                         </Stack>
                         <h5 className="ms-3 fw-bold">{review.subject}</h5>
                     </Col>

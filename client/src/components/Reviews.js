@@ -64,17 +64,18 @@ function Reviews(){
                         <Row>
                             <Col >
                                 <Row>
+                                    <Col className='mt-2'>
+                                        <h3>User Reviews</h3>
+                                    </Col>
+                                    
+                                </Row>
+                                <Row>
                                     <Col>
                                         <h1 className='text-uppercase'>
                                             <a href={`/profile/${artistId}`} className='link-offset-2 link-underline link-underline-opacity-0'>
                                                 {artist.name}
                                             </a>
                                         </h1>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col className='mt-2'>
-                                        <h3>User Reviews</h3>
                                     </Col>
                                     <Col className="d-flex justify-content-end">
                                         <Button onClick={handleShow}>

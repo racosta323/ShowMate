@@ -25,7 +25,7 @@ class Artist(db.Model, SerializerMixin):
 class Review(db.Model, SerializerMixin):
     __tablename__ = 'reviews'
 
-    serialize_rules = ('-artist.reviews', '-user.reviews')
+    serialize_rules = ('-artist.reviews', '-user.reviews', '-user_id', '-user.password',)
 
     id = db.Column(db.Integer, primary_key=True)
     subject = db.Column(db.String, nullable=False)
