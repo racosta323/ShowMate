@@ -10,9 +10,7 @@ function ReviewList({ review }){
 
     return(
         <>
-            <Row className='my-1'>
-                <hr></hr>
-            </Row>
+            
             
             <Row className='border border-secondary-subtle rounded my-3'>
                 <Row >
