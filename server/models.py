@@ -14,6 +14,7 @@ class Artist(db.Model, SerializerMixin):
     genre = db.Column(db.String)
     tm_id = db.Column(db.Integer)
     mbid = db.Column(db.Integer)
+    profile_image = db.Column(db.String)
 
     reviews = db.relationship('Review', back_populates='artist')
 

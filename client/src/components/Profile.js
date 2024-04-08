@@ -26,6 +26,7 @@ function Profile(){
         .then(data => setArtist(data))
     }, [artistId])
 
+    console.log(artist)
 
     return(
         <Container>
@@ -41,8 +42,7 @@ function Profile(){
                     {/* first 16:9 ratio chosen */}
                     {/* image is not reactive??? */}
                     <Image
-                        src="https://s1.ticketm.net/dam/a/8cc/0850a9c7-f269-4506-87f5-0acb3e2e08cc_SOURCE"
-                        
+                        src={artist.profile_image}
                         max-height={500}
                         width={800}
                     />

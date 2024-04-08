@@ -78,7 +78,7 @@ class Artists(Resource):
         request_body = request.json
 
         try:
-            artist =  Artist(name=request_body["name"], genre=request_body["genre"])
+            artist =  Artist(name=request_body["name"], genre=request_body["genre"], profile_image=request_body['image'])
             db.session.add(artist)
             db.session.commit()
         except:
