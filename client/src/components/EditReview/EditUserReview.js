@@ -10,6 +10,8 @@ import Pencil from './Pencil'
 function EditUserReview( { reviews }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
+    console.log(reviews)
+
     return(
         <>
             <Row className='border border-secondary-subtle rounded mt-5'>

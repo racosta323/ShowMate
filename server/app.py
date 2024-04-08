@@ -132,6 +132,33 @@ class Reviews(Resource):
 
 api.add_resource(Reviews, '/reviews')   
 
+class ReviewById(Resource):
+    def get(self, id):
+        try:
+            review = Review.query.get(id)
+        except:
+            pass
+
+        return make_response(review.to_dict())
+    
+    def patch(self, id):
+        
+        try:
+            review = Review.query.get(id)
+
+            params = request.json
+
+            for attr in params:
+                setattr(review, attr, params[attr])
+
+            db.session.commit()
+            
+            return make_response(review.to_dict())
+        except:
+            pass
+
+api.add_resource(ReviewById, '/reviews/<int:id>')
+
 
 # class Users(Resource):
 #     def post(self):

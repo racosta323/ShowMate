@@ -22,6 +22,34 @@ function Pencil({ prop, text }){
     const formik = useFormik({
         initialValues: {
             subject: prop
+        },
+        onSubmit: async (values) => {
+            try{
+                const artistResponse = await fetch('/artists',{
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": 'application/json'
+                    },
+                    body: JSON.stringify(values, null, 2)
+                })
+                if(artistResponse.status ===201){
+                    const artistData = await artistResponse.json()
+                    formik.values.id = artistData.id
+                }
+                // .then (resp=> {
+                //     if(resp.ok){
+                //         resp.json().then(artist=>{
+                //             console.log(artist)
+                //         })
+                //     } else {
+                //         console.log('errors? handle them')
+                //     }
+                // })
+            } catch(error){
+
+            }
+            // navigate(`/profile/${formik.values.id}`)
+            // window.location.reload()
         }
     })
 
