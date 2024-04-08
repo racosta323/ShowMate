@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container'
 import SideProfile from './SideProfile'
 import UserReviews from './UserReviews'
 import NoUserReview from './NoUserReview'
+import EditUserReview from './EditUserReview'
 
 
 function UserProfile(){
@@ -29,7 +30,8 @@ function UserProfile(){
            return <NoUserReview/>
         } else {
             return user.reviews.map((review)=>{
-                return <UserReviews key={review.id} reviews={review}/>
+                return <EditUserReview key={review.id} reviews={review}/>
+                // return <UserReviews key={review.id} reviews={review}/>
             })
         }
     }

@@ -5,7 +5,7 @@ import Stack from 'react-bootstrap/Stack'
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
-function UserReviews( { reviews }){
+function EditUserReview( { reviews }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
     return(
@@ -86,7 +86,7 @@ function UserReviews( { reviews }){
                             {reviews.show_date}
                         </p>
                     </Col>
-                </Row>     
+                </Row>        
                 
             </Row>
             <hr className='mt-5'></hr>
@@ -94,4 +94,4 @@ function UserReviews( { reviews }){
     )
 }
 
-export default UserReviews
+export default EditUserReview
