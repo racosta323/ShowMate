@@ -12,6 +12,11 @@ function SideProfile({ data }){
                 <h2 className='fs-4 fw-bold '>{data.first_name} {data.last_name}</h2>
                 <h2>{data.username}</h2>
                 <p className='fs-7'>Profile created on: {data.created_at}</p>
+                <p>
+                    <a href="#" className='link-offset-2 link-underline link-underline-opacity-0'>
+                        Logout
+                    </a>
+                </p>
             </Col>
         </Row>
     )

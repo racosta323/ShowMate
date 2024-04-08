@@ -72,7 +72,7 @@ function Reviews(){
                                 <Row>
                                     <Col>
                                         <h1 className='text-uppercase'>
-                                            <a href={`/profile/${artistId}`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                                            <a href={`/artists/${artistId}`} className='link-offset-2 link-underline link-underline-opacity-0'>
                                                 {artist.name}
                                             </a>
                                         </h1>
