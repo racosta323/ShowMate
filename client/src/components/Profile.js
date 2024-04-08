@@ -62,7 +62,7 @@ function Profile(){
                                         <i className="bi bi-star-fill text-warning fs-1" ></i>
                                     </a>
                                 </h3>
-                                <p className='text-center'># of Reviews: 200</p>
+                                <p className='text-center'># of Reviews: {(artist.reviews).length}</p>
                             </Col>
                            <Col xs={1}></Col>
                             <Col xs={6}>
