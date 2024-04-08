@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useOutletContext } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -7,11 +7,14 @@ import Stack from 'react-bootstrap/Stack'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
+import CreateReview from './CreateReview'
+
 
 
 function Profile(){
 
-    const[artist, setArtist] = useState({})
+    const { artist, setArtist, show, setShow, handleClose, handleShow } = useOutletContext()
+    
 
     const params = useParams()
     const artistId = params.id
@@ -61,13 +64,14 @@ function Profile(){
                            <Col xs={1}></Col>
                             <Col xs={6}>
                                 
-                                <Button>
+                                <Button onClick={handleShow}>
                                     <Stack direction='horizontal'>
-                                        <i className="bi bi-pencil-square text-light fs-1 me-2" ></i>
-                                        <h3 className='mt-3'>Review</h3>
+                                        <i className="bi bi-pencil-square text-light fs-6" > </i>
+                                        <h3 className='fs-6 ms-2 mt-1'> Review</h3>
                                     </Stack>
                                 </Button>
-                                <p className='ms-4'>Write a review</p>
+                                <p>Write a review</p>
+                                <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}/>
                             </Col>
                         </Stack>
                         <Row>

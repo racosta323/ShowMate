@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useOutletContext } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -11,15 +11,14 @@ import ReviewList from './ReviewList'
 import NoReview from './NoReview'
 import CreateReview from './CreateReview'
 
+
 function Reviews(){
 
-        const[artist, setArtist] = useState({})
-        const [show, setShow] = useState(false);
-        const handleClose = () => setShow(false);
-        const handleShow = () => setShow(true);
+        const { artist, setArtist, show, setShow, handleClose, handleShow } = useOutletContext()
 
         const params = useParams()
         const artistId = params.id
+
 
     useEffect(()=>{
         fetch(`/artists/${artistId}`)
@@ -37,7 +36,7 @@ function Reviews(){
             })
         }
     }
-    
+
 
     return(
         <Container>
