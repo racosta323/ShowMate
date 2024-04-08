@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
+import Image from 'react-bootstrap/Image'
 
 import CreateReview from './CreateReview'
 
@@ -39,10 +40,10 @@ function Profile(){
                 <Col xs={8}>
                     {/* first 16:9 ratio chosen */}
                     {/* image is not reactive??? */}
-                    <img
+                    <Image
                         src="https://s1.ticketm.net/dam/a/8cc/0850a9c7-f269-4506-87f5-0acb3e2e08cc_SOURCE"
                         
-                        height={500}
+                        max-height={500}
                         width={800}
                     />
                 </Col>
