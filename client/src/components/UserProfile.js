@@ -17,6 +17,7 @@ function UserProfile(){
     const params = useParams()
     const userId = params.id
 
+
     useEffect(()=>{
         fetch(`/users/${userId}`)
         .then(resp=>resp.json())
@@ -32,6 +33,8 @@ function UserProfile(){
             })
         }
     }
+
+    
 
     return(
         <Container>

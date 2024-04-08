@@ -37,6 +37,7 @@ function Reviews(){
         }
     }
 
+    console.log(artist)
 
     return(
         <Container>
@@ -48,7 +49,7 @@ function Reviews(){
                         {/* image is not reactive??? */}
                         <Row>
                             <img
-                                src="https://s1.ticketm.net/dam/a/8cc/0850a9c7-f269-4506-87f5-0acb3e2e08cc_SOURCE"  
+                                src={artist.profile_image}  
                                 height={300}
                                 width={400}
                             />
