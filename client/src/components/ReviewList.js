@@ -14,7 +14,7 @@ function ReviewList({ review }){
                 <hr></hr>
             </Row>
             
-            <Row className='border border-secondary-subtle rounded mt-5'>
+            <Row className='border border-secondary-subtle rounded my-3'>
                 <Row >
                     <Col xs={8}> 
                         <Stack direction="horizontal">
