@@ -41,8 +41,7 @@ function Profile(){
 
    const averageStars = Object.keys(artist).length > 0 ? totalStars() / (artist.reviews).length : console.log('error')
 
-   console.log(averageStars)
-
+   const numberOfReviews = Object.keys(artist).length > 0 ? (artist.reviews).length : console.log('error')
 
 // {(artist.reviews).length}
 
@@ -72,7 +71,7 @@ function Profile(){
                                 <h3 className='text-center'>
                                     <a href={`/profile/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
                                         <span className='fs-1 fw-bold'>
-                                            4
+                                            {averageStars * 2}
                                         </span> / {' '}
                                         <span className='text-warning'>
                                             10 {' '}
@@ -80,7 +79,7 @@ function Profile(){
                                         <i className="bi bi-star-fill text-warning fs-1" ></i>
                                     </a>
                                 </h3>
-                                <p className='text-center'># of Reviews: </p>
+                                <p className='text-center'># of Reviews: {numberOfReviews}</p>
                             </Col>
                            <Col xs={1}></Col>
                             <Col xs={6}>
