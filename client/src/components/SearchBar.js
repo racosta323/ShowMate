@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row';
 
 import { useState } from 'react'
 
-// import SearchResultsList from './DO NOT USE - SearchResultsList';
 
 function SearchBar(){
 

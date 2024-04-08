@@ -62,7 +62,11 @@ function Reviews(){
                     <Col xs={8} className='ps-5'>
                         <Row>
                             <Col xs={10}>
-                                <h1 className='text-uppercase'>{artist.name}</h1>
+                                <h1 className='text-uppercase'>
+                                    <a href={`/profile/${artistId}`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                                        {artist.name}
+                                    </a>
+                                </h1>
                                 <h3>User Reviews</h3>
                             </Col>
                             <Col>
