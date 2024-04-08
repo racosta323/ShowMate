@@ -24,7 +24,7 @@ class Artist(db.Model, SerializerMixin):
 class Review(db.Model, SerializerMixin):
     __tablename__ = 'reviews'
 
-    serialize_rules = ('-artist.reviews',)
+    serialize_rules = ('-artist.reviews', '-user.reviews')
 
     id = db.Column(db.Integer, primary_key=True)
     subject = db.Column(db.String, nullable=False)
@@ -37,9 +37,10 @@ class Review(db.Model, SerializerMixin):
     show_date = db.Column(db.DateTime)
 
     artist_id = db.Column(db.Integer, db.ForeignKey('artists.id'))
-    # user_id = db.Column(db.Integer, db.ForeignKey(''))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     artist = db.relationship('Artist', back_populates='reviews')
+    user = db.relationship('User', back_populates='reviews')
 
     def __repr__(self):
         return f'<Review id={self.id}, subject={self.subject}, review={self.review} stars={self.stars}, artist_id={self.artist_id}, date={self.show_date}>'
@@ -48,7 +49,7 @@ class Review(db.Model, SerializerMixin):
     class User(db.Model, SerializerMixin):
         __tablename__ = 'users'
 
-        serialize_rules=('',)
+        serialize_rules=('-reviews.user',)
 
         id = db.Column(db.Integer, primary_key=True)
         first_name = db.Column(db.String, nullable=False)
@@ -56,6 +57,8 @@ class Review(db.Model, SerializerMixin):
         username = db.Column(db.String)
         password = db.Column (db.Column)
         created_at = db.Column(db.DateTime, server_default=db.func.now())
+
+        reviews = db.relationship('Review', back_populates='user')
 
         def __repr__(self):
             return f'<User id={self.id}, first_name = {self.first_name}, last_name = {self.last_name}, username = {self.username}, password = {self.password}>'
