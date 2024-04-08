@@ -4,13 +4,37 @@ import Stack from 'react-bootstrap/Stack'
 
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+import { useFormik } from 'formik'
 
 import Pencil from './Pencil'
 
 function EditUserReview( { reviews }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
-    console.log(reviews)
+
+    const formik = useFormik({
+        initialValues: {
+            subject: reviews.subject
+        },
+        onSubmit: async (values) => {
+            try{
+                const artistResponse = await fetch(`/reviews/${reviews.id}`,{
+                    method: 'PATCH',
+                    headers: {
+                        "Content-Type": 'application/json'
+                    },
+                    body: JSON.stringify(values, null, 2)
+                })
+                .then(resp=>resp.json())
+                .then(data=>console.log(data))
+            } catch(error){
+
+            }
+            // navigate(`/profile/${formik.values.id}`)
+            // window.location.reload()
+        }
+    })
+
 
     return(
         <>
@@ -18,7 +42,7 @@ function EditUserReview( { reviews }){
                 <Row >
                     <Col xs={8} className='mt-3'>
                         <h5 className="ms-3 fw-bold">
-                            <Pencil prop={reviews.subject} text="subject"/>
+                            <Pencil prop={reviews.subject} text="subject" id={reviews.id} formik={formik}/>
                         </h5>
                         
                     </Col>
@@ -56,7 +80,7 @@ function EditUserReview( { reviews }){
                     <Col>
                         <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6>
                         <p className="text-end text-secondary smaller">
-                            <a href="#">
+                            <a href="#" onClick={formik.handleSubmit}>
                                 Edit
                             </a> 
                         </p>
