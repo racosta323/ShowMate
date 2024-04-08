@@ -62,12 +62,12 @@ function Reviews(){
                     <Col xs={8} className='ps-5'>
                         <Row>
                             <Col xs={10}>
-                                <h1 className='text-uppercase'>{artist.name}</h1>
+                                <h1 className='text-uppercase my-5'>{artist.name}</h1>
                                 <h3>User Reviews</h3>
                             </Col>
-                            <Col>
-                                <Col className='mt-4'></Col>
-                                <Button onClick={handleShow}>
+                            <Col className='mt-5'>
+                                <Col className='mt-5'></Col>
+                                <Button onClick={handleShow} className='mt-4'>
                                     <Stack direction='horizontal'>
                                         <i className="bi bi-pencil-square text-light fs-6 me-2" ></i>
                                         <h6 className='mt-1'>Review</h6>
