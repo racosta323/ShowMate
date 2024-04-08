@@ -10,8 +10,6 @@ function ReviewList({ review }){
 
     return(
         <>
-            
-            
             <Row className='border border-secondary-subtle rounded my-3'>
                 <Row >
                     <Col xs={8}> 
