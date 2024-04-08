@@ -5,6 +5,7 @@ import Reviews from './components/Reviews'
 
 
 import { createBrowserRouter } from 'react-router-dom'
+import UserProfile from './components/UserProfile'
 
 const routes = [
     {
@@ -22,6 +23,10 @@ const routes = [
             {
                 path: 'profile/:id/reviews',
                 element: <Reviews/>
+            },
+            {
+                path: 'users/:id',
+                element: <UserProfile/>
             }
         ]
     }

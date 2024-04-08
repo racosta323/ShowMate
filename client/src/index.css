@@ -27,3 +27,7 @@ input[type=radio]{
   display: none;
 }
 
+.larger{
+  font-size: 56px;
+}
+
