@@ -22,7 +22,8 @@ function CreateProfile(){
         initialValues: {
             id: '',
             name: '',
-            genre: ''
+            genre: '',
+            image: ''
         },
         onSubmit: async (values) => {
             try{
@@ -75,7 +76,7 @@ function CreateProfile(){
                             as="input"
                             type="name"
                             name='name'
-                            placeholder="name"
+                            placeholder="Artist Name"
                             onChange={formik.handleChange}
                             value={formik.values.name}
                             autoFocus
@@ -89,10 +90,24 @@ function CreateProfile(){
                         <Form.Control
                             as="input"
                             type='genre'
-                            placeholder='genre'
+                            placeholder='Genre'
                             name='genre'
                             onChange={formik.handleChange}
                             value={formik.values.genre}
+                        />
+                    </Form.Group>
+                    <Form.Group
+                    className="mb-3"
+                    controlId="image"
+                    >
+                        <Form.Label>Image Link</Form.Label>
+                        <Form.Control
+                            as="input"
+                            type='text'
+                            placeholder='Paste an image link'
+                            name='image'
+                            onChange={formik.handleChange}
+                            value={formik.values.image}
                         />
                     </Form.Group>
                     

@@ -66,10 +66,8 @@ function CreateReview({ show, handleShow, handleClose }){
    const handleClick = (currentRating) => {
         setRating(currentRating)
         formik.values.stars = currentRating
-        console.log(formik.values.stars)
    }
 
-   console.log(formik.values.stars)
    
     return(
         <>

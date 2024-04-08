@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
+import Image from 'react-bootstrap/Image'
 
 import CreateReview from './CreateReview'
 
@@ -25,6 +26,24 @@ function Profile(){
         .then(data => setArtist(data))
     }, [artistId])
 
+ 
+   const totalStars = () => {
+        if(Object.keys(artist).length > 0){
+            console.log(artist.reviews)
+            return artist.reviews.reduce((accumulator, currentValue)=>{
+                return accumulator + currentValue.stars
+            }, 0)
+
+        } else {
+            console.log("nothing")
+        }
+   }
+
+   const averageStars = Object.keys(artist).length > 0 ? totalStars() / (artist.reviews).length : console.log('error')
+
+   const numberOfReviews = Object.keys(artist).length > 0 ? (artist.reviews).length : console.log('error')
+
+// {(artist.reviews).length}
 
     return(
         <Container>
@@ -39,10 +58,9 @@ function Profile(){
                 <Col xs={8}>
                     {/* first 16:9 ratio chosen */}
                     {/* image is not reactive??? */}
-                    <img
-                        src="https://s1.ticketm.net/dam/a/8cc/0850a9c7-f269-4506-87f5-0acb3e2e08cc_SOURCE"
-                        
-                        height={500}
+                    <Image
+                        src={artist.profile_image}
+                        max-height={500}
                         width={800}
                     />
                 </Col>
@@ -53,7 +71,7 @@ function Profile(){
                                 <h3 className='text-center'>
                                     <a href={`/profile/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
                                         <span className='fs-1 fw-bold'>
-                                            4
+                                            {averageStars * 2}
                                         </span> / {' '}
                                         <span className='text-warning'>
                                             10 {' '}
@@ -61,7 +79,7 @@ function Profile(){
                                         <i className="bi bi-star-fill text-warning fs-1" ></i>
                                     </a>
                                 </h3>
-                                <p className='text-center'># of Reviews: 200</p>
+                                <p className='text-center'># of Reviews: {numberOfReviews}</p>
                             </Col>
                            <Col xs={1}></Col>
                             <Col xs={6}>
