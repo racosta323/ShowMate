@@ -51,13 +51,15 @@ function Profile(){
                         <Stack direction='horizontal' className='d-flex justify-content-center'>
                             <Col xs={6}>
                                 <h3 className='text-center'>
-                                    <span className='fs-1 fw-bold'>
-                                        4
-                                    </span> / {' '}
-                                    <span className='text-warning'>
-                                        10 {' '}
-                                    </span>
-                                    <i className="bi bi-star-fill text-warning fs-1" ></i>
+                                    <a href={`/profile/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                                        <span className='fs-1 fw-bold'>
+                                            4
+                                        </span> / {' '}
+                                        <span className='text-warning'>
+                                            10 {' '}
+                                        </span>
+                                        <i className="bi bi-star-fill text-warning fs-1" ></i>
+                                    </a>
                                 </h3>
                                 <p className='text-center'># of Reviews: 200</p>
                             </Col>
