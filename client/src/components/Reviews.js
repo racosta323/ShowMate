@@ -41,7 +41,7 @@ function Reviews(){
     return(
         <Container>
             <Row>
-                <Row className='my-5'></Row>
+                <Row className='my-4'></Row>
                 <Row className='my-5'>
                     <Col>
                         {/* first 16:9 ratio chosen */}

@@ -38,7 +38,7 @@ function ReviewList({ review }){
                     </Col>
                 </Row>
                 <Row>
-                    <p className="ms-3 text-secondary smaller">Review Date</p>
+                    <p className="ms-3 text-secondary smaller">Date Posted: {review.created_at}</p>
                     <ResponsiveEllipsis
                         text={review.review}
                         maxLine={3}
@@ -57,11 +57,11 @@ function ReviewList({ review }){
                     <Col>
                         <p className="smaller">
                             <span  className="fw-bold ms-3">Show: </span> 
-                            Renaissance <br />
+                            {review.show} <br />
                             <span  className="fw-bold ms-3">Show Location: </span> 
-                            D.C. <br />
+                            {review.location} <br />
                             <span  className="fw-bold ms-3">Show Date: </span> 
-                            DATE
+                            {review.show_date}
                         </p>
                     </Col>
                     
