@@ -55,7 +55,7 @@ class Review(db.Model, SerializerMixin):
         first_name = db.Column(db.String, nullable=False)
         last_name = db.Column(db.String, nullable=False)
         username = db.Column(db.String)
-        password = db.Column (db.Column)
+        password = db.Column (db.String)
         created_at = db.Column(db.DateTime, server_default=db.func.now())
 
         reviews = db.relationship('Review', back_populates='user')
