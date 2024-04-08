@@ -43,3 +43,19 @@ class Review(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f'<Review id={self.id}, subject={self.subject}, review={self.review} stars={self.stars}, artist_id={self.artist_id}, date={self.show_date}>'
+    
+
+    class User(db.Model, SerializerMixin):
+        __tablename__ = 'users'
+
+        serialize_rules=('',)
+
+        id = db.Column(db.Integer, primary_key=True)
+        first_name = db.Column(db.String, nullable=False)
+        last_name = db.Column(db.String, nullable=False)
+        username = db.Column(db.String)
+        password = db.Column (db.Column)
+        created_at = db.Column(db.DateTime, server_default=db.func.now())
+
+        def __repr__(self):
+            return f'<User id={self.id}, first_name = {self.first_name}, last_name = {self.last_name}, username = {self.username}, password = {self.password}>'
