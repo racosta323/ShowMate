@@ -17,7 +17,11 @@ function ReviewList({ review }){
                     <Col xs={8}> 
                         <Stack direction="horizontal">
                             <i className="bi bi-person-circle mx-3 text-primary"></i>
-                            <p className="mt-3 text-primary">{review.user.username}</p>
+                            <p className="mt-3 text-primary">
+                                <a href={`/users/${review.user.id}`} className="link-offset-2 link-underline link-underline-opacity-0">
+                                    {review.user.username}
+                                </a>
+                            </p>
                         </Stack>
                         <h5 className="ms-3 fw-bold">{review.subject}</h5>
                     </Col>
