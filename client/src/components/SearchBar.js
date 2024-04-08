@@ -32,7 +32,7 @@ function SearchBar(){
         })
     }
 
-    console.log(results)
+    // console.log(results)
 
     //may be able to use if searching my db
     // const fetchData = (input) => {

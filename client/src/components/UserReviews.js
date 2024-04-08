@@ -5,20 +5,20 @@ import Stack from 'react-bootstrap/Stack'
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
-function UserReviews(){
+function UserReviews( { reviews }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
     return(
         <>
-            <Row className='border border-secondary-subtle rounded my-3'>
+            <Row className='border border-secondary-subtle rounded mt-5'>
                 <Row >
                     <Col xs={8} className='mt-3'> 
-                        <h5 className="ms-3 fw-bold">Subject</h5>
+                        <h5 className="ms-3 fw-bold">{reviews.subject}</h5>
                     </Col>
                     <Col> 
                         <h6 className="text-end mt-3">
                             <span className='fw-bold'>
-                                3
+                                {reviews.stars}
                             </span> / {' '}
                             <span className='text-warning'>
                                 5 {' '}
@@ -30,9 +30,9 @@ function UserReviews(){
                     </Col>
                 </Row>
                 <Row>
-                    <p className="ms-3 text-secondary smaller">Date Posted: DATE</p>
+                    <p className="ms-3 text-secondary smaller">Date Posted: {reviews.created_at}</p>
                     <ResponsiveEllipsis
-                        text="hello"
+                        text={reviews.review}
                         maxLine={3}
                         ellipsis="..."
                         trimRight
@@ -49,17 +49,18 @@ function UserReviews(){
                     <Col>
                         <p className="smaller">
                             <span  className="fw-bold ms-3">Show: </span> 
-                            show <br />
+                            {reviews.show} <br />
                             <span  className="fw-bold ms-3">Show Location: </span> 
-                            location <br />
+                            {reviews.location} <br />
                             <span  className="fw-bold ms-3">Show Date: </span> 
-                            show date
+                            {reviews.show_date}
                         </p>
                     </Col>
                     
                 </Row>        
+                
             </Row>
-            
+            <hr className='mt-5'></hr>
         </>
     )
 }
