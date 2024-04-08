@@ -83,8 +83,8 @@ function CreateProfile(){
                         />
                     </Form.Group>
                     <Form.Group
-                    className="mb-3"
-                    controlId="genre"
+                        className="mb-3"
+                        controlId="genre"
                     >
                         <Form.Label>Genre</Form.Label>
                         <Form.Control

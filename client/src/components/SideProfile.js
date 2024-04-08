@@ -3,8 +3,6 @@ import Col from 'react-bootstrap/Col'
 
 function SideProfile({ data }){
 
-    console.log(data)
-
     return(
         <Row className='my-2 bg-body-secondary border-start border-5 border-danger p-2'>
             <Col>
