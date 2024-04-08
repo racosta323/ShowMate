@@ -27,7 +27,7 @@ function Profile(){
     }, [artistId])
 
  
-   const averageStars = () => {
+   const totalStars = () => {
         if(Object.keys(artist).length > 0){
             console.log(artist.reviews)
             return artist.reviews.reduce((accumulator, currentValue)=>{
@@ -39,8 +39,10 @@ function Profile(){
         }
    }
 
+   const averageStars = Object.keys(artist).length > 0 ? totalStars() / (artist.reviews).length : console.log('error')
 
-  console.log( averageStars())
+   console.log(averageStars)
+
 
 // {(artist.reviews).length}
 
