@@ -26,7 +26,23 @@ function Profile(){
         .then(data => setArtist(data))
     }, [artistId])
 
-    console.log(artist)
+ 
+   const averageStars = () => {
+        if(Object.keys(artist).length > 0){
+            console.log(artist.reviews)
+            return artist.reviews.reduce((accumulator, currentValue)=>{
+                return accumulator + currentValue.stars
+            }, 0)
+
+        } else {
+            console.log("nothing")
+        }
+   }
+
+
+  console.log( averageStars())
+
+// {(artist.reviews).length}
 
     return(
         <Container>
@@ -62,7 +78,7 @@ function Profile(){
                                         <i className="bi bi-star-fill text-warning fs-1" ></i>
                                     </a>
                                 </h3>
-                                <p className='text-center'># of Reviews: {(artist.reviews).length}</p>
+                                <p className='text-center'># of Reviews: </p>
                             </Col>
                            <Col xs={1}></Col>
                             <Col xs={6}>
