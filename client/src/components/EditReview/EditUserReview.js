@@ -1,6 +1,6 @@
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Stack from 'react-bootstrap/Stack'
+import Button from 'react-bootstrap/Button'
 
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
@@ -38,7 +38,7 @@ function EditUserReview( { reviews }){
 
     return(
         <>
-            <Row className='border border-secondary-subtle rounded mt-5'>
+            <Row className='border border-secondary-subtle rounded mt-5 p-2'>
                 <Row >
                     <Col xs={8} className='mt-3'>
                         <h5 className="ms-3 fw-bold">
@@ -79,16 +79,6 @@ function EditUserReview( { reviews }){
                 <Row>
                     <Col>
                         <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6>
-                        <p className="text-end text-secondary smaller">
-                            <a href="#" onClick={formik.handleSubmit}>
-                                Edit
-                            </a> 
-                        </p>
-                        <p className="text-end text-secondary smaller">
-                            <a href="#">
-                                Delete
-                            </a>
-                        </p>
                     </Col>
                 </Row>
                 <Row>
@@ -117,6 +107,13 @@ function EditUserReview( { reviews }){
                         </p>
                     </Col>
                 </Row>        
+                <Row>
+                    <Col></Col>
+                    <Col></Col>
+                    <Col className='d-flex justify-content-end'>
+                        <Button onClick={formik.handleSubmit}>Submit Edits</Button>
+                    </Col>
+                </Row>
                 
             </Row>
             <hr className='mt-5'></hr>
