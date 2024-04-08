@@ -31,3 +31,14 @@ input[type=radio]{
   font-size: 56px;
 }
 
+.edit{
+  border: transparent;
+}
+
+.pencil:hover{
+  color: #0d6efd;
+  
+}
+
+
+

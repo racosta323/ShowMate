@@ -5,6 +5,8 @@ import Stack from 'react-bootstrap/Stack'
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
+import Subject from './Subject'
+
 function EditUserReview( { reviews }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
@@ -12,9 +14,12 @@ function EditUserReview( { reviews }){
         <>
             <Row className='border border-secondary-subtle rounded mt-5'>
                 <Row >
-                    <Col xs={8} className='mt-3'> 
-                        <h5 className="ms-3 fw-bold">{reviews.subject}</h5>
+                    <Col>
+                        <Subject subject={reviews.subject}/>
                     </Col>
+                    {/* <Col xs={8} className='mt-3'> 
+                        <h5 className="ms-3 fw-bold">{reviews.subject}</h5>
+                    </Col> */}
                     <Col> 
                         <h6 className="text-end mt-3">
                             <span className='fw-bold'>

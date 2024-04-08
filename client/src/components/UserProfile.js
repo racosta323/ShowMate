@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container'
 import SideProfile from './SideProfile'
 import UserReviews from './UserReviews'
 import NoUserReview from './NoUserReview'
-import EditUserReview from './EditUserReview'
+import EditUserReview from './EditReview/EditUserReview'
 
 
 function UserProfile(){
