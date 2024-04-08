@@ -71,9 +71,9 @@ function Reviews(){
                                     <Stack direction='horizontal'>
                                         <i className="bi bi-pencil-square text-light fs-6 me-2" ></i>
                                         <h6 className='mt-1'>Review</h6>
-                                        <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}/>
                                     </Stack>
                                 </Button>
+                                <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}/>
                             </Col>
                         </Row>
                         {renderList()}
