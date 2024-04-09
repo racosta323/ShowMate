@@ -38,6 +38,8 @@ function App() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  console.log(artist)
+
   let context = {
     artist: artist,
     setArtist: setArtist,

@@ -16,7 +16,6 @@ function Profile(){
 
     const { artist, setArtist, show, setShow, handleClose, handleShow } = useOutletContext()
     
-
     const params = useParams()
     const artistId = params.id
 

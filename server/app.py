@@ -74,6 +74,15 @@ class GetSearchById(Resource):
 api.add_resource(GetSearchById, '/search/<int:id>')
 
 class Artists(Resource):
+    def get(self):
+        try:
+            artists = Artist.query.all()
+            artists_list = [artist.to_dict() for artist in artists]
+            return make_response(artists_list)
+        except:
+            pass
+
+
     def post(self):
         request_body = request.json
 
