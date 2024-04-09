@@ -1,10 +1,11 @@
 import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import Stack from 'react-bootstrap/Stack'
 
 import SearchBar from './SearchBar'
-import Auth from './Auth'
 
 // import SearchBarContainer from './SearchBarContainer';
 
@@ -41,15 +42,24 @@ function NavBar({ setLoggedInUser, loggedInUser }){
                         </Nav>
                     </Col>
                     <Col className='d-flex flex-row-reverse mx-2'>
-                    {loggedInUser ? <>
-                        <Navbar.Text>
-                            Signed in as: <a href="" onClick={toggleClick}>{loggedInUser.first_name}</a>
-                        </Navbar.Text>
-                    </> : <>
-                        <Navbar.Text>
-                            <a href= "" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</a>
-                        </Navbar.Text>
-                    </>}    
+                    {loggedInUser ? 
+                        <>
+                            <Navbar.Text>
+                                <Stack direction='horizontal'>
+                                    Signed in as: {loggedInUser.first_name}
+                                    <i className="bi bi-person-fill fw-bold fs-5 p-2 text-light" onClick={toggleClick}></i>
+                                    <NavDropdown title="" id="nav-dropdown">
+                                    
+                                    </NavDropdown>
+                                </Stack>
+                            </Navbar.Text>
+                        </> : 
+                        <>
+                            <Navbar.Text>
+                                <a href= "" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</a>
+                            </Navbar.Text>
+                        </>
+                    }    
                     
                     </Col>
                </Container>

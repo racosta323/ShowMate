@@ -233,6 +233,19 @@ def login():
     else:
         return make_response({"error": "invalid username or password"}, 401)
 
+@app.route('/authorized')
+def authorized():
+    user_id = session.get('user_id')
+    if user_id:
+        user = User.query.filter_by(id=user_id).first()
+        return make_response(user.to_dict())
+    else:
+        return make_response({'error': 'unauthorized'}, 401)
+    
+@app.route('/logout')
+def logout():
+    session['user_id'] = None
+    return make_response({}, 204)    
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
