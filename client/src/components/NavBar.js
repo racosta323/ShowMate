@@ -25,43 +25,51 @@ function NavBar({ setLoggedInUser, loggedInUser }){
                 bg="danger"
                 data-bs-theme="dark"
                 className='mt-3'
+                collapseOnSelect
             >
                <Container>
-                <Col>
+                    <Col>
                         <Navbar.Brand href="#home" className='mx-3 fs-3'>ShowMate</Navbar.Brand>
+                        <Navbar.Toggle aria-controls='responsive-navbar-nav'/>
                     </Col>
             
                     <Col xs={4}>
                         <SearchBar/>
                         {/* <SearchBarContainer/> */}
                     </Col>
-                    <Col>
-                        <Nav>
-                            <Nav.Link className='fw-bold'>Home</Nav.Link>
-                            <Nav.Link>Dashboard</Nav.Link>
-                        </Nav>
-                    </Col>
-                    <Col className='d-flex flex-row-reverse mx-2'>
-                    {loggedInUser ? 
-                        <>
-                            <Navbar.Text>
-                                <Stack direction='horizontal'>
-                                    Signed in as: {loggedInUser.first_name}
-                                    <i className="bi bi-person-fill fw-bold fs-5 p-2 text-light" onClick={toggleClick}></i>
-                                    <NavDropdown title="" id="nav-dropdown">
-                                    
-                                    </NavDropdown>
-                                </Stack>
-                            </Navbar.Text>
-                        </> : 
-                        <>
-                            <Navbar.Text>
-                                <a href= "" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</a>
-                            </Navbar.Text>
-                        </>
-                    }    
-                    
-                    </Col>
+                    <Navbar.Collapse id="responsive-navbar-nav">
+
+                        <Col>
+                            <Nav>
+                                <Nav.Link className='fw-bold'>Home</Nav.Link>
+                                <Nav.Link>Dashboard</Nav.Link>
+                            </Nav>
+                        </Col>
+                        <Col className='d-flex flex-row-reverse mx-2'>
+                        {loggedInUser ? 
+                            <>
+                                <Navbar.Text>
+                                    <Stack direction='horizontal'>
+                                        Signed in as: {loggedInUser.first_name}
+                                        <i className="bi bi-person-fill fw-bold fs-5 p-2 text-light"></i>
+                                        <NavDropdown id="nav-dropdown">
+                                            <NavDropdown.Divider />
+                                            <NavDropdown.Item href="">
+                                                Logout
+                                            </NavDropdown.Item>
+                                        </NavDropdown>
+                                        
+                                    </Stack>
+                                </Navbar.Text>
+                            </> : 
+                            <>
+                                <Navbar.Text>
+                                    <a href= "" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</a>
+                                </Navbar.Text>
+                            </>
+                        }    
+                        </Col>
+                    </Navbar.Collapse>
                </Container>
             </Navbar>
    
