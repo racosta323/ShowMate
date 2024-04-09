@@ -40,12 +40,16 @@ function NavBar({ login, setLogin }){
                         </Nav>
                     </Col>
                     <Col className='d-flex flex-row-reverse mx-2'>
-                    <Navbar.Text>
-                        <a href= "#" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</a>
-                    </Navbar.Text>
-                        {/* <Navbar.Text>
-                            Signed in as: <a href="#login">Mark Otto</a>
-                        </Navbar.Text> */}
+                    {login ? <>
+                        <Navbar.Text>
+                            Signed in as: <a href="" onClick={toggleClick}>Mark Otto</a>
+                        </Navbar.Text>
+                    </>: <>
+                        <Navbar.Text>
+                            <a href= "" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</a>
+                        </Navbar.Text>
+                    </>}    
+                    
                     </Col>
                </Container>
             </Navbar>
