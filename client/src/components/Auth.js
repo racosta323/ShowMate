@@ -10,7 +10,7 @@ import Modal from 'react-bootstrap/Modal'
 import { useFormik } from 'formik'
 
 
-function Auth(){
+function Auth({ setUser }){
 
     const navigate = useNavigate()
 
@@ -20,7 +20,7 @@ function Auth(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-
+    console.log(signup)
     //NOTING THIS!!!!!
     function toggleSignup() {
         setSignup((currentSignup) => !currentSignup)
@@ -36,21 +36,29 @@ function Auth(){
         },
         onSubmit: async (values) => {
             try{
+                const endpoint = signup ? '/users' : '/login'
                 const userResponse = await fetch(
-                    '/users',{
+                    endpoint,{
                         method: 'POST',
                         headers: {
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify(values, null, 2)
                     })
-                    if(userResponse.status ===201){
-                        const userData = await userResponse.json()
-                        formik.values.id = userData.id
-                    }
-                    // .then (resp=>{resp.json()})
-                    // .then (data => console.log(data))
-            } catch (error){
+     
+                    // if(userResponse.status ===201){
+                    //     const userData = await userResponse.json()
+                    //     formik.values.id = userData.id
+                        
+                    // }
+                    .then (resp=>{
+                        if (resp.ok){
+                            resp.json().then(user=>setUser(user))
+                        } else {
+                            console.log('errors? handle them')
+                        }
+                    })
+            } catch(error){
 
             }
         } 

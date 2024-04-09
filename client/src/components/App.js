@@ -10,7 +10,7 @@ import Auth from "./Auth";
 
 function App() {
 
-  const [loggedInUser, setLoggedInUser ] = useState(true)
+  const [loggedInUser, setLoggedInUser ] = useState(null)
 
   const[artist, setArtist] = useState({})
   const [show, setShow] = useState(false);
@@ -30,7 +30,7 @@ function App() {
     <>
       <NavBar login={loggedInUser} setLogin={setLoggedInUser}/>
       <Container className="bg-light">
-       { !!loggedInUser ? <Outlet context={context}/> : <Auth/>}
+       { !!loggedInUser ? <Outlet context={context}/> : <Auth setUser={setLoggedInUser}/>}
       </Container>
     </>
     )
