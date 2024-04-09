@@ -50,7 +50,7 @@ class Review(db.Model, SerializerMixin):
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-    serialize_rules=('-reviews.user', '-reviews.artist_id', '-reviews.user_id', '-_password_hash')
+    serialize_rules=('-reviews.user', '-reviews.artist_id', '-reviews.user_id', '-_password_hash',)
 
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String, nullable=False)

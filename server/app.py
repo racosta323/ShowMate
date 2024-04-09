@@ -191,10 +191,11 @@ api.add_resource(ReviewById, '/reviews/<int:id>')
 class Users(Resource):
     def post(self):
         data = request.json
+        
         try:
-            user = User(first_name=data['firstName'], last_name=data['lastName'], username=data['userName'])
+            user = User(first_name=data['firstName'], last_name=data['lastName'], username=data['username'])
             user.password_hash = data['password']
-
+      
             db.session.add(user)
             db.session.commit()
 
