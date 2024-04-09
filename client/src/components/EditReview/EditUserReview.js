@@ -11,9 +11,12 @@ import { useFormik } from 'formik'
 
 import EditSubject from './EditSubject'
 import EditStars from './EditStars'
+import EditShow from './EditShow'
 
 function EditUserReview( { reviews }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
+
+    console.log(reviews)
 
     const [starToggle, setStarToggle] = useState(false)
     const [starEdit, setStarEdit] = useState(false)   
@@ -24,7 +27,10 @@ function EditUserReview( { reviews }){
     const formik = useFormik({
         initialValues: {
             subject: reviews.subject,
-            stars: reviews.stars
+            stars: reviews.stars,
+            show: reviews.show,
+            location: reviews.location,
+            showDate: reviews.show_date
         },
         onSubmit: async (values) => {
             try{
@@ -94,14 +100,19 @@ function EditUserReview( { reviews }){
                 </Row>
                 <Row>
                     <Col>
-                        <p className="smaller">
+                        <EditShow 
+                            id={reviews.id} 
+                            formik={formik}
+                            reviews={reviews} 
+                        />
+                        {/* <p className="smaller">
                             <span  className="fw-bold ms-3">
                                 Show: 
                             </span> 
                             {reviews.show} 
-                        </p>
+                        </p> */}
                     </Col>
-                    <Col>
+                    {/* <Col>
                         <p className="smaller">
                             <span  className="fw-bold ms-3">
                                 Show Location: 
@@ -116,7 +127,7 @@ function EditUserReview( { reviews }){
                             </span> 
                             {reviews.show_date}
                         </p>
-                    </Col>
+                    </Col> */}
                 </Row>        
                 <Row>
                     <Col></Col>
