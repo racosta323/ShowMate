@@ -10,6 +10,7 @@ function EditSubject({ text, formik }){
     const inputRef = useRef(null)
     
     function turnOnEdit(){
+        
         setInputClass('')
         setEditMode(true);
         //autofocus
