@@ -29,7 +29,7 @@ function App() {
 
   function logoutUser(){
     setLoggedInUser(null)
-    navigate('/')
+    navigate('/home')
   }
 
 

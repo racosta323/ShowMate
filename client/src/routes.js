@@ -2,6 +2,7 @@ import App from './components/App'
 import Profile from './components/Profile'
 import Search from './components/Search'
 import Reviews from './components/Reviews'
+import Home from './components/Home'
 
 
 import { createBrowserRouter } from 'react-router-dom'
@@ -12,6 +13,10 @@ const routes = [
         path:"/",
         element: <App/>,
         children: [
+            {
+                path: '/',
+                element: <Home/>
+            },
             {
                 path: 'search',
                 element: <Search/>
