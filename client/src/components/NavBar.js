@@ -4,10 +4,18 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
 import SearchBar from './SearchBar'
+import Auth from './Auth'
 
 // import SearchBarContainer from './SearchBarContainer';
 
-function NavBar (){
+function NavBar({ login, setLogin }){
+
+    
+
+    function toggleClick(){
+        setLogin((current)=> !current)
+    }
+
     return(
         
             <Navbar 
@@ -32,9 +40,12 @@ function NavBar (){
                         </Nav>
                     </Col>
                     <Col className='d-flex flex-row-reverse mx-2'>
-                        <Navbar.Text>
+                    <Navbar.Text>
+                        <a href= "#" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</a>
+                    </Navbar.Text>
+                        {/* <Navbar.Text>
                             Signed in as: <a href="#login">Mark Otto</a>
-                        </Navbar.Text>
+                        </Navbar.Text> */}
                     </Col>
                </Container>
             </Navbar>
