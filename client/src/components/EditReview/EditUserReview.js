@@ -45,74 +45,7 @@ function EditUserReview( { reviews }){
         }
     })
 
-    let stars = ()=>{
-        return(
-           <>
-            <h6 className="text-end mt-3">
-                <span className='fw-bold'>
-                    {reviews.stars}
-                </span> / {' '}
-                <span className='text-warning'>
-                    5 {' '}
-                </span>
-                <i className="bi bi-star-fill text-warning" ></i>
-                {/* {' '} see review */}
-            </h6>
-           </>
-        )
-    }
-
-    function handleEditClick(){
-        console.log(starInputRef.current)
-        setStarToggle(true)
-        setStarInputClass('')
-        setStarEdit(true)
-        // if (starInputRef != null){
-        //     starInputRef.current.focus()
-        // }
-        console.log(starInputRef.current)
-    }
-
-
-    let renderStars = () =>{
-        if (starToggle){
-            return (
-                <form>
-                    <input
-                        ref={starInputRef}
-                        type="stars"
-                        name="stars"
-                        value={formik.values["stars"]}
-                        readOnly={!starEdit}
-                        className={starInputClass}
-                        onBlur={()=>{
-                            setStarEdit(false)
-                            setStarEdit('border border-0 bg-light')
-                        }}
-                        onChange={formik.handleChange}
-                        style={{ width: '20px' }} 
-                    />               
-                    {/* <i as="button" className="ms-2 bi bi-pencil-fill pencil" onClick={turnOnEdit}></i> */}
-                    {/* <i as="button" className="ms-2 bi bi-pencil-fill pencil" onClick={turnOnEdit}></i> */}
-                </form>         
-                // <EditStars 
-                //     text="stars" 
-                //     id={reviews.id} 
-                //     formik={formik} 
-                //     reviews={reviews}
-                //     inputRef={starInputRef}
-                //     isEditMode={starEdit}
-                //     inputClass={starInputClass}
-                //     setEditMode={setStarEdit}
-                //     setInputClass={setStarInputClass}
-                // />
-            )
-        } else{
-            return stars()
-        }
-    }
-   
-
+    
     return(
         <>
             <Row className='border border-secondary-subtle rounded mt-5 p-2'>
@@ -120,42 +53,22 @@ function EditUserReview( { reviews }){
                     <Col>
                         <h5 className="fw-bold">
                             <EditSubject 
-                                // prop={reviews.subject} 
                                 text="subject" 
                                 id={reviews.id} 
                                 formik={formik} 
-                                // turnOnEdit={turnOnEdit}
-                                // inputClass={inputClass}
-                                // inputRef={inputRef}
-                                // isEditMode={isEditMode}
-                                // setEditMode={setEditMode}
-                                // setInputClass={setInputClass}
                             />
                         </h5>
                         
                     </Col>
                     <Col xs={4}> 
-                        
-                          
-                            <h5 className="fw-bold">
-                                <EditStars
-                                    // prop={reviews.subject} 
-                                    text="stars" 
-                                    id={reviews.id} 
-                                    formik={formik}
-                                    reviews={reviews} 
-                                    // turnOnEdit={turnOnEdit}
-                                    // inputClass={inputClass}
-                                    // inputRef={inputRef}
-                                    // isEditMode={isEditMode}
-                                    // setEditMode={setEditMode}
-                                    // setInputClass={setInputClass}
-                                />
-                            </h5>
-                                
-                            {/* {renderStars()}
-                            <i as="button" className="ms-2 bi bi-pencil-fill pencil" onClick={handleEditClick}></i> */}
-                
+                        <h5 className="fw-bold">
+                            <EditStars
+                                text="stars" 
+                                id={reviews.id} 
+                                formik={formik}
+                                reviews={reviews} 
+                            />
+                        </h5>                
                     </Col>
                 </Row>
                 <Row>
