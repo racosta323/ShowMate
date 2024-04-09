@@ -12,6 +12,7 @@ import { useFormik } from 'formik'
 import EditSubject from './EditSubject'
 import EditStars from './EditStars'
 import EditShow from './EditShow'
+import EditReview from './EditReview'
 
 function EditUserReview( { reviews }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
@@ -30,7 +31,8 @@ function EditUserReview( { reviews }){
             stars: reviews.stars,
             show: reviews.show,
             location: reviews.location,
-            showDate: reviews.show_date
+            showDate: reviews.show_date,
+            review: reviews.review
         },
         onSubmit: async (values) => {
             try{
@@ -78,20 +80,32 @@ function EditUserReview( { reviews }){
                     </Col>
                 </Row>
                 <Row>
+                    
                     <h5 className="ms-3 text-secondary">
                         <a href={`/artists/${reviews.artist.id}`} className='link-offset-2 link-underline link-underline-opacity-0'>
                             Artist: {reviews.artist.name}
                         </a>
                     </h5>
                     <p className="ms-3 text-secondary smaller">Date Posted: {reviews.created_at}</p>
-                    <ResponsiveEllipsis
-                        text={reviews.review}
-                        maxLine={3}
-                        ellipsis="..."
-                        trimRight
-                        basedOn="letters"
-                        className="mb-3 ms-3 lh-sm"
+                
+                
+                    <EditReview
+                        id={reviews.id} 
+                        formik={formik}
+                        reviews={reviews} 
                     />
+                    
+                    <Col>
+                        
+                        {/* <ResponsiveEllipsis
+                            text={reviews.review}
+                            maxLine={3}
+                            ellipsis="..."
+                            trimRight
+                            basedOn="letters"
+                            className="mb-3 ms-3 lh-sm"
+                        /> */}
+                    </Col>
                 </Row>
                 <Row>
                     <Col>
