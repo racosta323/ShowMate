@@ -218,6 +218,22 @@ class UserById(Resource):
 
 api.add_resource(UserById, '/users/<int:id>')
 
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.json
+    user = User.query.filter_by(username=data["username"]).first()
+
+    if not user:
+        return make_response({'error':'invalid username'}, 404)
+    
+    if user.authenticate(data['password']):
+        session['user_id'] = user.id
+        return make_response(user.to_dict(), 200)
+    else:
+        return make_response({"error": "invalid username or password"}, 401)
+
+
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
 
