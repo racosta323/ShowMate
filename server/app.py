@@ -5,7 +5,7 @@ import ipdb
 from datetime import datetime
 
 # Remote library imports
-from flask import request, make_response
+from flask import request, make_response, session
 import requests
 from flask_restful import Resource
 from bs4 import BeautifulSoup
@@ -187,6 +187,24 @@ api.add_resource(ReviewById, '/reviews/<int:id>')
 #             pass
 
 # api.add_resource(Reviews, '/reviews')   
+
+class Users(Resource):
+    def post(self):
+        data = request.json
+        try:
+            user = User(first_name=data['firstName'], last_name=data['lastName'], username=data['userName'])
+            user.password_hash = data['password']
+
+            db.session.add(user)
+            db.session.commit()
+
+            session['user_id'] = user.id
+            return make_response(user.to_dict(), 201)
+        except:
+            return make_response({'error': "something went wrong"}, 400)
+
+api.add_resource(Users, '/users')
+
 
 class UserById(Resource):
     def get(self, id):

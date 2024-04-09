@@ -1,7 +1,7 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
 
-from config import db
+from config import db, bcrypt
 
 # Models go here!
 class Artist(db.Model, SerializerMixin):
@@ -50,14 +50,28 @@ class Review(db.Model, SerializerMixin):
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-    serialize_rules=('-reviews.user', '-reviews.artist_id', '-reviews.user_id', '-password')
+    serialize_rules=('-reviews.user', '-reviews.artist_id', '-reviews.user_id', '-_password_hash')
 
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String, nullable=False)
     last_name = db.Column(db.String, nullable=False)
     username = db.Column(db.String)
-    password = db.Column (db.String)
+    _password_hash = db.Column (db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
+
+    @property
+    def password_hash(self):
+        return self._password_hash
+    
+    @password_hash.setter
+    def password_hash(self, password):
+        byte_obj = password.encode('utf-8')
+        bcrypt_hash = bcrypt.generate_password_hash(byte_obj)
+        hash_obj = bcrypt_hash.decode('utf-8')
+        self._password_hash = hash_obj
+        
+    def authenticate(self, password):
+        return bcrypt.check_password_hash(self.password_hash, password.encode('utf-8'))
 
     reviews = db.relationship('Review', back_populates='user')
 
