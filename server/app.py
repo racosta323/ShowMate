@@ -242,7 +242,7 @@ def authorized():
     else:
         return make_response({'error': 'unauthorized'}, 401)
     
-@app.route('/logout')
+@app.route('/logout', methods=['DELETE'])
 def logout():
     session['user_id'] = None
     return make_response({}, 204)    

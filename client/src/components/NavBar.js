@@ -9,13 +9,22 @@ import SearchBar from './SearchBar'
 
 // import SearchBarContainer from './SearchBarContainer';
 
-function NavBar({ setLoggedInUser, loggedInUser }){
+function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
 
     function toggleClick(){
+        console.log(loggedInUser)
         setLoggedInUser((current)=> !current)
     }
 
-    console.log(loggedInUser)
+    function handleLogout(){
+        fetch('/logout', {
+            method: 'DELETE'
+        }).then (resp=>{
+            if(resp.ok){
+                logoutUser()
+            }
+        })
+    }
 
 
     return(
@@ -54,7 +63,7 @@ function NavBar({ setLoggedInUser, loggedInUser }){
                                         <i className="bi bi-person-fill fw-bold fs-5 p-2 text-light"></i>
                                         <NavDropdown id="nav-dropdown">
                                             <NavDropdown.Divider />
-                                            <NavDropdown.Item href="">
+                                            <NavDropdown.Item href="" onClick={handleLogout}>
                                                 Logout
                                             </NavDropdown.Item>
                                         </NavDropdown>

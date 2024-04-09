@@ -46,7 +46,7 @@ function App() {
 
   return (
     <>
-      <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
+      <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} logoutUser={logoutUser}/>
       <Container className="bg-light">
        { !!loggedInUser ? <Outlet context={context}/> : <Auth setUser={setLoggedInUser}/>}
       </Container>
