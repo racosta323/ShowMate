@@ -10,7 +10,7 @@ function HomeCarousel({ artists }){
     const navigate = useNavigate()
 
     const renderArtists = artists ? artists.map((artist)=>{
-        console.log(artist)
+
         return(
             <Carousel.Item key={artist.id}>
                 <Row>
