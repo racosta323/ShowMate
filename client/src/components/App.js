@@ -19,6 +19,9 @@ function App() {
     .then(resp=>{
       resp.json().then(user => {
         setLoggedInUser(user)
+        if (resp.status == 401){
+          setLoggedInUser(false)
+        }
       })
     })
   }, [])
