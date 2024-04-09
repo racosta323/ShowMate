@@ -6,8 +6,11 @@ import Row from 'react-bootstrap/Row'
 
 
 import NavBar from "./NavBar";
+import Auth from "./Auth";
 
 function App() {
+
+  const [loggedInUser, setLoggedInUser ] = useState(null)
 
   const[artist, setArtist] = useState({})
   const [show, setShow] = useState(false);
@@ -26,9 +29,9 @@ function App() {
   return (
     <>
       <NavBar/>
-    <Container className="bg-light">
-      <Outlet context={context}/>
-    </Container>
+      <Container className="bg-light">
+       { !!loggedInUser ? <Outlet context={context}/> : <Auth/>}
+      </Container>
     </>
     )
 }
