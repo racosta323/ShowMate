@@ -8,13 +8,14 @@ import Auth from './Auth'
 
 // import SearchBarContainer from './SearchBarContainer';
 
-function NavBar({ login, setLogin }){
-
-    
+function NavBar({ setLoggedInUser, loggedInUser }){
 
     function toggleClick(){
-        setLogin((current)=> !current)
+        setLoggedInUser((current)=> !current)
     }
+
+    console.log(loggedInUser)
+
 
     return(
         
@@ -40,11 +41,11 @@ function NavBar({ login, setLogin }){
                         </Nav>
                     </Col>
                     <Col className='d-flex flex-row-reverse mx-2'>
-                    {login ? <>
+                    {loggedInUser ? <>
                         <Navbar.Text>
-                            Signed in as: <a href="" onClick={toggleClick}>Mark Otto</a>
+                            Signed in as: <a href="" onClick={toggleClick}>{loggedInUser.first_name}</a>
                         </Navbar.Text>
-                    </>: <>
+                    </> : <>
                         <Navbar.Text>
                             <a href= "" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</a>
                         </Navbar.Text>

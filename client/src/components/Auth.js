@@ -45,15 +45,11 @@ function Auth({ setUser }){
                         },
                         body: JSON.stringify(values, null, 2)
                     })
-     
-                    // if(userResponse.status ===201){
-                    //     const userData = await userResponse.json()
-                    //     formik.values.id = userData.id
-                        
-                    // }
                     .then (resp=>{
                         if (resp.ok){
-                            resp.json().then(user=>setUser(user))
+                            resp.json().then(user=>{
+                                setUser(user)
+                            })
                         } else {
                             console.log('errors? handle them')
                         }
@@ -78,76 +74,76 @@ function Auth({ setUser }){
                         <Col>
                             <Form>
                             {signup && <>
-                                    <Form.Group>
-                                        <Form.Label className='fw-bold smaller'>First Name</Form.Label>
-                                        <Form.Control
-                                            as='input'
-                                            type='firstName'
-                                            name='firstName'
-                                            placeholder='Enter your first name'
-                                            onChange={formik.handleChange}
-                                            value={formik.values.firstName}
-                                            required
-                                            autoFocus
-                                            className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
-                                        />
-                                    </Form.Group>
-                                    <Form.Group>
-                                        <Form.Label className='fw-bold smaller pt-4'>Last Name</Form.Label>
-                                        <Form.Control
-                                            as='input'
-                                            type='lastName'
-                                            name='lastName'
-                                            placeholder='Enter your last name'
-                                            onChange={formik.handleChange}
-                                            value={formik.values.lastName}
-                                            required
-                                            className='border-top-0 border-end-0 border-start-0 rounded-0 smaller mb-4'
-                                        />
-                                    </Form.Group>
-                                </>}
                                 <Form.Group>
-                                    <Form.Label className='fw-bold smaller'>Username</Form.Label>
+                                    <Form.Label className='fw-bold smaller'>First Name</Form.Label>
                                     <Form.Control
                                         as='input'
-                                        type='username'
-                                        name='username'
-                                        placeholder='Enter your username'
+                                        type='firstName'
+                                        name='firstName'
+                                        placeholder='Enter your first name'
                                         onChange={formik.handleChange}
-                                        value={formik.values.username}
+                                        value={formik.values.firstName}
                                         required
                                         autoFocus
-                                        className='border-top-0 border-end-0 border-start-0 rounded-0 smaller mb-3'
+                                        className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
                                     />
                                 </Form.Group>
                                 <Form.Group>
-                                    <Form.Label className='fw-bold smaller'>Password</Form.Label>
+                                    <Form.Label className='fw-bold smaller pt-4'>Last Name</Form.Label>
+                                    <Form.Control
+                                        as='input'
+                                        type='lastName'
+                                        name='lastName'
+                                        placeholder='Enter your last name'
+                                        onChange={formik.handleChange}
+                                        value={formik.values.lastName}
+                                        required
+                                        className='border-top-0 border-end-0 border-start-0 rounded-0 smaller mb-4'
+                                    />
+                                </Form.Group>
+                            </>}
+                            <Form.Group>
+                                <Form.Label className='fw-bold smaller'>Username</Form.Label>
+                                <Form.Control
+                                    as='input'
+                                    type='username'
+                                    name='username'
+                                    placeholder='Enter your username'
+                                    onChange={formik.handleChange}
+                                    value={formik.values.username}
+                                    required
+                                    autoFocus
+                                    className='border-top-0 border-end-0 border-start-0 rounded-0 smaller mb-3'
+                                />
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label className='fw-bold smaller'>Password</Form.Label>
+                                <Form.Control
+                                    as='input'
+                                    type='password'
+                                    name='password'
+                                    placeholder='Enter your password'
+                                    onChange={formik.handleChange}
+                                    value={formik.values.password}
+                                    required
+                                    className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
+                                />
+                            </Form.Group>
+                            {signup && <>
+                                <Form.Group>
+                                    <Form.Label className='fw-bold smaller pt-4 mt-2'>Password Confirmation</Form.Label>
                                     <Form.Control
                                         as='input'
                                         type='password'
-                                        name='password'
-                                        placeholder='Enter your password'
+                                        name='passwordConfirmation'
+                                        placeholder='Confirm your password'
+                                        // value={formik.values.name}
                                         onChange={formik.handleChange}
-                                        value={formik.values.password}
                                         required
                                         className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
                                     />
                                 </Form.Group>
-                                {signup && <>
-                                    <Form.Group>
-                                        <Form.Label className='fw-bold smaller pt-4 mt-2'>Password Confirmation</Form.Label>
-                                        <Form.Control
-                                            as='input'
-                                            type='password'
-                                            name='passwordConfirmation'
-                                            placeholder='Confirm your password'
-                                            // value={formik.values.name}
-                                            onChange={formik.handleChange}
-                                            required
-                                            className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
-                                        />
-                                    </Form.Group>
-                                </>}
+                            </>}
                             <Row >
                                 <Button className="mt-3 bg-dark" onClick={formik.handleSubmit}>Submit</Button>
                             </Row>
@@ -171,12 +167,6 @@ function Auth({ setUser }){
                                     </a>
                                 </p>
                             </> }
-                            {/* <p className="text-center">Don't have an account yet? </p>
-                            <p className="text-center">
-                                <a href="#"  onClick={toggleSignup}>
-                                    Sign up for an account
-                                </a>
-                            </p> */}
                         </Col>
                     </Row>
                 </Modal.Body>
