@@ -38,7 +38,7 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
             >
                <Container>
                     <Col>
-                        <Navbar.Brand href="#home" className='mx-3 fs-3'>ShowMate</Navbar.Brand>
+                        <Navbar.Brand href="/" className='mx-3 fs-3'>ShowMate</Navbar.Brand>
                         <Navbar.Toggle aria-controls='responsive-navbar-nav'/>
                     </Col>
             
@@ -50,8 +50,8 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
 
                         <Col>
                             <Nav>
-                                <Nav.Link className='fw-bold'>Home</Nav.Link>
-                                <Nav.Link>Dashboard</Nav.Link>
+                                <Nav.Link href="/" className='text-light'>Home</Nav.Link>
+                                <Nav.Link className='text-light ms-3'>Your Profile</Nav.Link>
                             </Nav>
                         </Col>
                         <Col className='d-flex flex-row-reverse mx-2'>

@@ -1,4 +1,4 @@
-import NavBar from "./NavBar"
+import { useNavigate } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -7,17 +7,20 @@ import Carousel from 'react-bootstrap/Carousel'
 
 function HomeCarousel({ artists }){
 
-    console.log(artists)
+    const navigate = useNavigate()
 
     const renderArtists = artists ? artists.map((artist)=>{
         console.log(artist)
         return(
-            <Carousel.Item>
+            <Carousel.Item key={artist.id}>
                 <img
                     src={artist.profile_image ? artist.profile_image : console.log("add photo")}
                     text=""
                     max-height={500}
                     width={800}
+                    onClick={()=>{
+                        navigate(`/artists/${artist.id}`)
+                    }}
                 />
                 <Carousel.Caption>
                     <h3>{artist.name}</h3>
