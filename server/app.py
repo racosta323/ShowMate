@@ -247,6 +247,12 @@ def logout():
     session['user_id'] = None
     return make_response({}, 204)    
 
+#need to figure out how to access the home page without needing to login
+@app.before_request
+def check_authorized():
+    if request.endpoint == 'users/:id' and not session.get('user_id'):
+        return make_response({"error": "unauthorized"})
+
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
 
