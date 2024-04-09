@@ -13,15 +13,18 @@ function HomeCarousel({ artists }){
         console.log(artist)
         return(
             <Carousel.Item key={artist.id}>
-                <img
-                    src={artist.profile_image ? artist.profile_image : console.log("add photo")}
-                    text=""
-                    max-height={500}
-                    width={800}
-                    onClick={()=>{
-                        navigate(`/artists/${artist.id}`)
-                    }}
-                />
+                <Row>
+                    <img
+                        src={artist.profile_image ? artist.profile_image : console.log("add photo")}
+                        text=""
+                        height={500}
+                        width={800}
+                        onClick={()=>{
+                            navigate(`/artists/${artist.id}`)
+                        }}
+                    />
+                </Row>
+                
                 <Carousel.Caption>
                     <h3>{artist.name}</h3>
                     <p>Click to see reviews.</p>
