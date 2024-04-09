@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Container from "react-bootstrap/Container"
 import Row from 'react-bootstrap/Row'
@@ -8,7 +9,10 @@ import Button from "react-bootstrap/Button"
 import Modal from 'react-bootstrap/Modal'
 import { useFormik } from 'formik'
 
+
 function Auth(){
+
+    const navigate = useNavigate()
 
     const [show, setShow] = useState(true);
     const [signup, setSignup] = useState(false)
@@ -29,7 +33,27 @@ function Auth(){
             lastName: '',
             username: '',
             password: ''
-        }
+        },
+        onSubmit: async (values) => {
+            try{
+                const userResponse = await fetch(
+                    '/users',{
+                        method: 'POST',
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(values, null, 2)
+                    })
+                    if(userResponse.status ===201){
+                        const userData = await userResponse.json()
+                        formik.values.id = userData.id
+                    }
+                    // .then (resp=>{resp.json()})
+                    // .then (data => console.log(data))
+            } catch (error){
+
+            }
+        } 
     })
 
     return(
@@ -53,6 +77,8 @@ function Auth(){
                                             type='firstName'
                                             name='firstName'
                                             placeholder='Enter your first name'
+                                            onChange={formik.handleChange}
+                                            value={formik.values.firstName}
                                             required
                                             autoFocus
                                             className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
@@ -65,6 +91,8 @@ function Auth(){
                                             type='lastName'
                                             name='lastName'
                                             placeholder='Enter your last name'
+                                            onChange={formik.handleChange}
+                                            value={formik.values.lastName}
                                             required
                                             className='border-top-0 border-end-0 border-start-0 rounded-0 smaller mb-4'
                                         />
@@ -77,6 +105,8 @@ function Auth(){
                                         type='username'
                                         name='username'
                                         placeholder='Enter your username'
+                                        onChange={formik.handleChange}
+                                        value={formik.values.username}
                                         required
                                         autoFocus
                                         className='border-top-0 border-end-0 border-start-0 rounded-0 smaller mb-3'
@@ -89,6 +119,8 @@ function Auth(){
                                         type='password'
                                         name='password'
                                         placeholder='Enter your password'
+                                        onChange={formik.handleChange}
+                                        value={formik.values.password}
                                         required
                                         className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
                                     />
@@ -98,16 +130,18 @@ function Auth(){
                                         <Form.Label className='fw-bold smaller pt-4 mt-2'>Password Confirmation</Form.Label>
                                         <Form.Control
                                             as='input'
-                                            type='passwordConfirmation'
+                                            type='password'
                                             name='passwordConfirmation'
                                             placeholder='Confirm your password'
+                                            // value={formik.values.name}
+                                            onChange={formik.handleChange}
                                             required
                                             className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
                                         />
                                     </Form.Group>
                                 </>}
                             <Row >
-                                <Button className="mt-3 bg-dark">Submit</Button>
+                                <Button className="mt-3 bg-dark" onClick={formik.handleSubmit}>Submit</Button>
                             </Row>
                             </Form>
                         </Col>

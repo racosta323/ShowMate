@@ -10,7 +10,7 @@ import Auth from "./Auth";
 
 function App() {
 
-  const [loggedInUser, setLoggedInUser ] = useState(null)
+  const [loggedInUser, setLoggedInUser ] = useState(true)
 
   const[artist, setArtist] = useState({})
   const [show, setShow] = useState(false);
