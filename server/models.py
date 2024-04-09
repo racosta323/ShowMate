@@ -55,8 +55,8 @@ class User(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String, nullable=False)
     last_name = db.Column(db.String, nullable=False)
-    username = db.Column(db.String)
-    _password_hash = db.Column (db.String)
+    username = db.Column(db.String, nullable=False)
+    _password_hash = db.Column (db.String, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
 
     @property
