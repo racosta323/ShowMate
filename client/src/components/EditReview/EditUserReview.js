@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -13,11 +14,13 @@ import EditSubject from './EditSubject'
 import EditStars from './EditStars'
 import EditShow from './EditShow'
 import EditReview from './EditReview'
+import { json } from 'react-router-dom'
 
 function EditUserReview( { reviews }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
-
+    const navigate = useNavigate()
+    
     const [starToggle, setStarToggle] = useState(false)
     const [starEdit, setStarEdit] = useState(false)   
     const [starInputClass, setStarInputClass] = useState('border border-0 bg-light')
@@ -25,8 +28,14 @@ function EditUserReview( { reviews }){
     const starInputRef = useRef(null)
 
     function handleDelete(){
-        
-        console.log('ms-4')
+        fetch(`/reviews/${reviews.id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify()
+        })
+        .then(window.location.reload())
     }
 
     const formik = useFormik({

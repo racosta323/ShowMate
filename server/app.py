@@ -167,7 +167,14 @@ class ReviewById(Resource):
         except:
             pass
 
-    
+    def delete(self, id):
+        try:
+            review = Review.query.get(id)
+            db.session.delete(review)
+            db.session.commit()
+            return make_response('', 204)
+        except:
+            pass
 
 api.add_resource(ReviewById, '/reviews/<int:id>')
 
