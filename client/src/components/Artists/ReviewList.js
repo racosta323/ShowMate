@@ -8,8 +8,6 @@ import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 function ReviewList({ review }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
-    console.log(review)
-
     return(
         <>
             <Row className='border border-secondary-subtle rounded my-3'>
@@ -52,7 +50,7 @@ function ReviewList({ review }){
                 </Row>
                 <Row>
                     <Col>
-                        <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6>
+                        {/* <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6> */}
                     </Col>
                 </Row>
                 <Row>

@@ -1,12 +1,13 @@
 import App from './components/App'
-import Artists from './components/Artists'
+import Artists from './components/Artists/Artists'
 import Search from './components/Search/Search'
-import Reviews from './components/Reviews/Reviews'
+import Reviews from './components/Artists/Reviews'
 import Home from './components/Home/Home'
 
 
 import { createBrowserRouter } from 'react-router-dom'
 import UserProfile from './components/UserProfile/UserProfile'
+import MyProfile from './components/MyUserProfile/MyProfile'
 
 const routes = [
     {
@@ -32,6 +33,8 @@ const routes = [
             {
                 path: 'users/:id',
                 element: <UserProfile/>
+                // element: <MyProfile/>
+
             }
         ]
     }

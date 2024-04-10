@@ -4,6 +4,7 @@ import Stack from 'react-bootstrap/Stack'
 
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+import EditReview from '../EditReview/EditReview'
 
 function UserReviews( { reviews }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
@@ -47,16 +48,11 @@ function UserReviews( { reviews }){
                 </Row>
                 <Row>
                     <Col>
-                        <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6>
+                        {/* <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6> */}
                         <p className="text-end text-secondary smaller">
                             <a href="#">
                                 Edit
                             </a> 
-                        </p>
-                        <p className="text-end text-secondary smaller">
-                            <a href="#">
-                                Delete
-                            </a>
                         </p>
                     </Col>
                 </Row>

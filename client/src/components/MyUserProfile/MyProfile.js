@@ -5,13 +5,13 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 
-import SideProfile from './SideProfile'
-import UserReviews from './UserReviews'
-import NoUserReview from './NoUserReview'
+import MySideProfile from '../MyUserProfile/MySideProfile'
+import UserReviews from '../UserProfile/UserReviews'
+import NoUserReview from '../UserProfile/NoUserReview'
 import EditUserReview from '../EditReview/EditUserReview'
 
 
-function UserProfile(){
+function MyProfile(){
 
     const [user, setUser] = useState({})
 
@@ -19,8 +19,8 @@ function UserProfile(){
     const userId = params.id
 
     const { logoutUser } = useOutletContext()
-
-    console.log(user)
+    
+    
 
     useEffect(()=>{
         fetch(`/users/${userId}`)
@@ -45,10 +45,10 @@ function UserProfile(){
         <Container>
             <Row>
                 <Col className='my-5'>
-                    <SideProfile data={user} logoutUser={logoutUser}/>
+                    <MySideProfile data={user} logoutUser={logoutUser}/>
                 </Col>
                 <Col xs={8} className='my-5 p-4'>
-                    <h2>{`${user.first_name} ${user.last_name}'s`} Reviews</h2>
+                    <h2>Your Reviews</h2>
                     <hr></hr>
                     {renderList()}
                 </Col>
@@ -57,4 +57,4 @@ function UserProfile(){
     )
 }
 
-export default UserProfile
+export default MyProfile

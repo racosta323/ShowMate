@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
 
-import CreateReview from './CreateReview'
+import CreateReview from '../CreateReview'
 
 
 
