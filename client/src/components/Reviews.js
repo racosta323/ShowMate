@@ -14,7 +14,8 @@ import CreateReview from './CreateReview'
 
 function Reviews(){
 
-        const { artist, setArtist, show, setShow, handleClose, handleShow } = useOutletContext()
+        const { artist, setArtist, show, setShow, handleClose, handleShow, loggedInUser } = useOutletContext()
+        console.log(loggedInUser)
 
         const params = useParams()
         const artistId = params.id
@@ -84,7 +85,7 @@ function Reviews(){
                                                 <h6 className='mt-1'>Review</h6>
                                             </Stack>
                                         </Button>
-                                        <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}/>
+                                        <CreateReview show={show} handleShow={handleShow} handleClose={handleClose} userId={loggedInUser.id}/>
                                     </Col>
                                 </Row>
                                 <Row className='my-1'>

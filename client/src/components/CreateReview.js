@@ -22,6 +22,7 @@ function CreateReview({ show, handleShow, handleClose, userId }){
     
     const params = useParams()
     const artistId = params.id
+    
 
     const formik = useFormik({
         initialValues: {
@@ -60,7 +61,7 @@ function CreateReview({ show, handleShow, handleClose, userId }){
             } catch(error){
 
             }
-            navigate(`/artists/${formik.values.artistId}/reviews`)
+            navigate(`/artists/${artistId}/reviews`)
             window.location.reload()
         }
    })
@@ -70,6 +71,7 @@ function CreateReview({ show, handleShow, handleClose, userId }){
         formik.values.stars = currentRating
    }
 
+   console.log(formik.initialValues)
    
     return(
         <>
