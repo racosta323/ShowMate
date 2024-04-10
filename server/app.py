@@ -145,6 +145,7 @@ api.add_resource(Reviews, '/reviews')
 
 class ReviewById(Resource):
     def get(self, id):
+
         try:
             review = Review.query.get(id)
         except:
@@ -154,13 +155,20 @@ class ReviewById(Resource):
     
     def patch(self, id):
         
+        params = request.json
+
+
         try:
             review = Review.query.get(id)
 
             params = request.json
 
             for attr in params:
-                setattr(review, attr, params[attr])
+                if attr == "show_date":
+                    date_object = datetime.strptime(request.get_json()["show_date"], '%Y-%m-%d').date()
+                    setattr(review, attr, date_object)
+                else:
+                    setattr(review, attr, params[attr])
 
             db.session.commit()
             
@@ -169,6 +177,7 @@ class ReviewById(Resource):
             pass
 
     def delete(self, id):
+    
         try:
             review = Review.query.get(id)
             # ipdb.set_trace()
