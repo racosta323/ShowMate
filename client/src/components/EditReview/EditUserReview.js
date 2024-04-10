@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { useOutletContext, useParams } from 'react-router-dom'
+import { useNavigate, useOutletContext, useParams } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -24,6 +24,7 @@ function EditUserReview(){
 
     const params = useParams()
     const reviewId = params.reviewId
+    const navigate = useNavigate()
 
     useEffect(()=>{
         fetch(`/reviews/${reviewId}`)
@@ -85,7 +86,8 @@ function EditUserReview(){
             },
             body: JSON.stringify()
         })
-        .then(window.location.reload())
+        
+        .then(navigate(`/users/${loggedInUser.id}`))
     }
 
     return(

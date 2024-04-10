@@ -12,10 +12,10 @@ import CreateReview from '../CreateReview'
 
 
 
-function Profile(){
+function Artists(){
 
     const { artist, setArtist, show, setShow, handleClose, handleShow, artists, loggedInUser } = useOutletContext()
-  
+    console.log(artist)
     
     const params = useParams()
     const artistId = params.id
@@ -27,20 +27,34 @@ function Profile(){
     }, [artistId])
 
  
-   const totalStars = () => {
-        if(Object.keys(artist).length > 0){
-            return artist.reviews.reduce((accumulator, currentValue)=>{
-                return accumulator + currentValue.stars
-            }, 0)
+//    const totalStars = () => {
+//         if(Object.keys(artist).length > 0){
+//             return artist.reviews.reduce((accumulator, currentValue)=>{
+//                 return accumulator + currentValue.stars
+//             }, 0)
 
-        } else {
-            console.log("nothing")
-        }
-   }
+//         } else {
+//             console.log("nothing")
+//         }
+//    }
 
-   const averageStars = Object.keys(artist).length > 0 ? totalStars() / (artist.reviews).length : console.log('error')
+    const totalStars = () => {
+    if (artist && artist.reviews) {
+        return artist.reviews.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue.stars
+        }, 0)
+    } else {
+        console.log("No reviews found")
+        return 0;
+    }
+}
 
-   const numberOfReviews = Object.keys(artist).length > 0 ? (artist.reviews).length : console.log('error')
+//    const averageStars = Object.keys(artist).length > 0 ? totalStars() / (artist.reviews).length : console.log('error')
+
+//    const numberOfReviews = Object.keys(artist).length > 0 ? (artist.reviews).length : console.log('error')
+const averageStars = artist && artist.reviews && artist.reviews.length > 0 ? totalStars() / artist.reviews.length : 0;
+
+const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
 
 // {(artist.reviews).length}
 
@@ -49,8 +63,8 @@ function Profile(){
             <Row >
                 <Row className='mt-5'></Row>
                 <Col className='mt-5'>
-                    <h4>{artist.genre}</h4>
-                    <h1 className='text-uppercase'>{artist.name}</h1> 
+                    <h4>{artist && artist.genre ? artist.genre : 0}</h4>
+                    <h1 className='text-uppercase'>{artist && artist.name ? artist.name : 0}</h1> 
                 </Col>
             </Row>
             <Row>
@@ -58,7 +72,7 @@ function Profile(){
                     {/* first 16:9 ratio chosen */}
                     {/* image is not reactive??? */}
                     <Image
-                        src={artist.profile_image}
+                        src={artist && artist.profile_image ? artist.profile_image : 0}
                         max-height={500}
                         width={800}
                     />
@@ -131,4 +145,4 @@ function Profile(){
     )
 }
 
-export default Profile
+export default Artists

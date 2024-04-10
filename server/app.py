@@ -170,6 +170,7 @@ class ReviewById(Resource):
     def delete(self, id):
         try:
             review = Review.query.get(id)
+            ipdb.set_trace()
             db.session.delete(review)
             db.session.commit()
             return make_response('', 204)

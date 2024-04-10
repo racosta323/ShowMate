@@ -31,7 +31,7 @@ function HomeCarousel({ artists }){
                 </Carousel.Caption>
             </Carousel.Item>
         ) 
-    }) : null
+    }) : console.log('hello')
 
 
     return(

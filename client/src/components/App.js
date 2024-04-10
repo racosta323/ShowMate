@@ -67,7 +67,7 @@ const renderList = artists.map ? artists.map((artist)=>{
 //     }
 // }
 
-
+console.log(artists)
 
   let context = {
     artists: artists,
