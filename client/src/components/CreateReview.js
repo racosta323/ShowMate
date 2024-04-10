@@ -13,7 +13,7 @@ import { useFormik } from 'formik'
 import Stars from './Stars'
 
 
-function CreateReview({ show, handleShow, handleClose, userId }){
+function CreateReview({ show, handleShow, handleClose, userId, artist }){
 
     
     const navigate = useNavigate()
@@ -83,7 +83,7 @@ function CreateReview({ show, handleShow, handleClose, userId }){
                 <Form>
                     <p className='mt-4'>
                         Share your review of a show you attended for: <br/> 
-                        <span className='fw-bold'>Artist Name</span>
+                        <span className='fw-bold'>{artist?.name}</span>
                     </p>
                     <Row>
                         <Stars 

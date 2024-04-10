@@ -16,7 +16,7 @@ function App() {
   const navigate = useNavigate()
 
   const [loggedInUser, setLoggedInUser ] = useState(false)
-  console.log(loggedInUser)
+  // console.log(loggedInUser)
 
   useEffect(()=>{
     fetch('/authorized')
@@ -67,7 +67,7 @@ const renderList = artists.map ? artists.map((artist)=>{
 //     }
 // }
 
-console.log(artists)
+// console.log(artists)
 
   let context = {
     artists: artists,

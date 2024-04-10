@@ -14,31 +14,32 @@ import CreateReview from '../CreateReview'
 
 function Reviews(){
 
-        const { artist, setArtist, show, setShow, handleClose, handleShow, loggedInUser, renderList } = useOutletContext()
+        const { show, setShow, handleClose, handleShow, loggedInUser } = useOutletContext()
+
         console.log(loggedInUser)
 
         const params = useParams()
         const artistId = params.id
 
+        const [artist, setArtist] = useState({})
 
-    // useEffect(()=>{
-    //     fetch(`/artists/${artistId}`)
-    //     .then(resp=>resp.json())
-    //     .then(data => setArtist(data))
-    // }, [artistId])
+    useEffect(()=>{
+        fetch(`/artists/${artistId}`)
+        .then(resp=>resp.json())
+        .then(data => setArtist(data))
+    }, [artistId])
 
 
-    // const renderList = () => {
-    //     if (!artist.reviews || artist.reviews.length == 0){
-    //        return <NoReview handleClose={handleClose} handleShow={handleShow} show={show}/>
-    //     } else {
-    //         return artist.reviews.map((review)=>{
-    //             return <ReviewList review={review} key={artistId}/>
-    //         })
-    //     }
-    // }
+    const renderList = () => {
+        if (!artist.reviews || artist.reviews.length == 0){
+           return <NoReview handleClose={handleClose} handleShow={handleShow} show={show}/>
+        } else {
+            return artist.reviews.map((review)=>{
+                return <ReviewList review={review} key={artistId}/>
+            })
+        }
+    }
 
-  
 
     return(
         <Container>
@@ -74,7 +75,7 @@ function Reviews(){
                                     <Col>
                                         <h1 className='text-uppercase'>
                                             <a href={`/artists/${artistId}`} className='link-offset-2 link-underline link-underline-opacity-0'>
-                                                {artist.name}
+                                                {artist?.name}
                                             </a>
                                         </h1>
                                     </Col>

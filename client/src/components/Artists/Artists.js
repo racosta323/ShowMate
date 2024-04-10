@@ -14,19 +14,22 @@ import CreateReview from '../CreateReview'
 
 function Artists(){
 
-    const { artist, setArtist, show, setShow, handleClose, handleShow, artists, loggedInUser } = useOutletContext()
-    console.log(artist)
+    const { show, setShow, handleClose, handleShow, loggedInUser } = useOutletContext()
+
+    const [ artist, setArtist ] = useState(null)
+    
     
     const params = useParams()
     const artistId = params.id
+    console.log(artistId)
 
-    useEffect(()=>{
+     useEffect(()=>{
         fetch(`/artists/${artistId}`)
         .then(resp=>resp.json())
         .then(data => setArtist(data))
     }, [artistId])
 
- 
+    // console.log(artist)
 //    const totalStars = () => {
 //         if(Object.keys(artist).length > 0){
 //             return artist.reviews.reduce((accumulator, currentValue)=>{
@@ -37,6 +40,7 @@ function Artists(){
 //             console.log("nothing")
 //         }
 //    }
+   
 
     const totalStars = () => {
     if (artist && artist.reviews) {
@@ -56,15 +60,14 @@ const averageStars = artist && artist.reviews && artist.reviews.length > 0 ? tot
 
 const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
 
-// {(artist.reviews).length}
 
     return(
         <Container>
             <Row >
                 <Row className='mt-5'></Row>
                 <Col className='mt-5'>
-                    <h4>{artist && artist.genre ? artist.genre : 0}</h4>
-                    <h1 className='text-uppercase'>{artist && artist.name ? artist.name : 0}</h1> 
+                    <h4>{artist?.genre}</h4>
+                    <h1 className='text-uppercase'>{artist?.name}</h1> 
                 </Col>
             </Row>
             <Row>
@@ -72,7 +75,7 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                     {/* first 16:9 ratio chosen */}
                     {/* image is not reactive??? */}
                     <Image
-                        src={artist && artist.profile_image ? artist.profile_image : 0}
+                        src={artist?.profile_image}
                         max-height={500}
                         width={800}
                     />
@@ -108,7 +111,7 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                                     </Stack>
                                 </Button>
                                 <p>Write a review</p>
-                                <CreateReview show={show} handleShow={handleShow} handleClose={handleClose} artists={artists} userId={loggedInUser.id}/>
+                                <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}  artist={artist} userId={loggedInUser.id}/>
                             </Col>
                         </Stack>
                         <Row>
