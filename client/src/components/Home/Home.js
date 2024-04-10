@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Carousel from 'react-bootstrap/Carousel'
 
 import HomeCarousel from "./HomeCarousel"
+import Reviews from '../Reviews/Reviews'
 
 
 function Home(){
@@ -43,9 +44,7 @@ function Home(){
                 <Col xs={4} className="border my-5">
                     <Row className="my-4"></Row>
                     <Row className="my-4">
-                        <Col>
-                            Insert Here
-                        </Col>
+                        <Col>Something here</Col>
                     </Row>
                 </Col>
             </Row>

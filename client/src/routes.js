@@ -3,7 +3,7 @@ import Artists from './components/Artists/Artists'
 import Search from './components/Search/Search'
 import ArtistReviews from './components/Artists/ArtistReviews'
 import Home from './components/Home/Home'
-import Reviews from './components/Reviews'
+import Reviews from './components/Reviews/Reviews'
 
 
 import { createBrowserRouter } from 'react-router-dom'
