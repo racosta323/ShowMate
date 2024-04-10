@@ -10,17 +10,17 @@ import Button from 'react-bootstrap/Button'
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 import { useFormik } from 'formik'
+import EditReview from './EditReview'
+import EditSubject from './EditSubject'
+import EditStars from './EditStars'
 
 function EditUserReview(){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
     const inputRef = useRef(null)
 
-    const { logoutUser, loggedInUser, artists } = useOutletContext()
+    const { loggedInUser } = useOutletContext()
 
-    const [reviews, setReviews] = useState({})
-    const [toggleSubj, setToggleSubj] = useState(null)
-    const [isEditMode, setEditMode] = useState(false)   
-    const [inputClass, setInputClass] = useState('border border-0 bg-light')
+    const [review, setReview] = useState({})
 
     const params = useParams()
     const reviewId = params.reviewId
@@ -29,20 +29,21 @@ function EditUserReview(){
     useEffect(()=>{
         fetch(`/reviews/${reviewId}`)
         .then(resp=>resp.json())
-        .then(data => setReviews(data))
+        .then(data => setReview(data))
     }, [reviewId])
 
     useEffect(() => {
         formik.setValues({
             ...formik.values,
-            subject: reviews.subject
+            subject: review.subject,
+            stars: review.stars
         });
-    }, [reviews])
+    }, [review])
 
 
     const formik = useFormik({
         initialValues:{
-            subject: reviews.subject
+            subject: review.subject
         },
         onSubmit: async (values) => {
             try{
@@ -62,22 +63,6 @@ function EditUserReview(){
         }
     })
 
-    // console.log(formik.values)
-    
-
-    function turnOnEdit(){
-        setToggleSubj(true)
-        setInputClass('')
-        setEditMode(true);
-    }
-
-    //autofocus
-    useEffect(() => {
-        if (toggleSubj && inputRef.current) {
-            inputRef.current.focus();
-        }
-    }, [toggleSubj]);
-    
     function handleDelete(){
         fetch(`/reviews/${reviewId}`, {
             method: 'DELETE',
@@ -95,59 +80,17 @@ function EditUserReview(){
             <Row className='border border-secondary-subtle rounded mt-5'>
                 <Row >
                     <Col xs={8} className='mt-3'> 
-                        {!toggleSubj ? 
-                            <>
-                                <Stack direction='horizontal'>
-                                    <h5 className="ms-3 fw-bold">{reviews ? reviews.subject : console.log('loading')}</h5>
-                                    <i 
-                                        as="button" 
-                                        onClick={turnOnEdit}
-                                        className="ms-2 bi bi-pencil-fill pencil"
-                                    ></i>
-                                </Stack>
-                            </> : 
-                            <>
-                                <input
-                                    ref={inputRef}
-                                    type="subject"
-                                    name='subject'
-                                    onChange={formik.handleChange}
-                                    value={formik.values.subject}
-                                    readOnly={!isEditMode}
-                                    className={inputClass}
-                                    onBlur={()=>{
-                                        setEditMode(false)
-                                        setInputClass('border border-0 bg-light')
-                                    }}
-                                />
-                                <i 
-                                    as="button" 
-                                    onClick={turnOnEdit}
-                                    className="ms-2 bi bi-pencil-fill pencil"
-                                ></i>
-                            </>
-                        }
-                        {/* <h5 className="ms-3 fw-bold">{reviews.subject}</h5> */}
+                        <EditSubject reviewId={reviewId} formik={formik}/>
                     </Col>
                     <Col> 
-                        <h6 className="text-end mt-3">
-                            <span className='fw-bold'>
-                                4
-                            </span> / {' '}
-                            <span className='text-warning'>
-                                5 {' '}
-                            </span>
-                            <i className="bi bi-star-fill text-warning" ></i>
-                            {/* {' '} see review */}
-                        </h6>
-                        
+                        <EditStars reviewId={reviewId} formik={formik}/>
                     </Col>
                 </Row>
                 <Row>
-                    <h5 className="ms-3 text-secondary"> Artist: Artist
-                        {/* <a href={`/artists/${reviews.artist.id}`} className='link-offset-2 link-underline link-underline-opacity-0'>
-                            Artist: {reviews.artist.name}
-                        </a> */}
+                    <h5 className="ms-3 text-secondary"> 
+                        <a href={`/artists/${review.artist?.id}`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                            Artist: {review.artist?.name}
+                        </a>
                     </h5>
                     <p className="ms-3 text-secondary smaller">Date Posted: DATE</p>
                     <ResponsiveEllipsis
@@ -157,7 +100,7 @@ function EditUserReview(){
                         trimRight
                         basedOn="letters"
                         className="mb-3 ms-3 lh-sm"
-                    />
+                    /> 
                 </Row>
                 <Row>
                     <Col>
