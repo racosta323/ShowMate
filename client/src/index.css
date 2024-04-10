@@ -44,5 +44,8 @@ input[type=radio]{
   font-size: xx-small;
 }
 
+#nav_dropdown{
+  margin: 100px;
+}
 
 

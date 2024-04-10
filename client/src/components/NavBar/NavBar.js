@@ -35,6 +35,7 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
                 data-bs-theme="dark"
                 className='mt-3'
                 collapseOnSelect
+                sticky='top'
             >
                <Container>
                     <Col>
@@ -58,20 +59,39 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
                                     <></>}
                             </Nav>
                         </Col>
-                        <Col className='d-flex flex-row-reverse mx-2'>
+                        <Col className='d-flex flex-row-reverse mx-5'>
                         {loggedInUser ? 
                             <>
-                                <Navbar.Text>
+                                <Navbar.Text className='smaller'>
                                     <Stack direction='horizontal'>
-                                        Signed in as: {loggedInUser.first_name}
-                                        <i className="bi bi-person-fill fw-bold fs-5 p-2 text-light"></i>
-                                        <NavDropdown id="nav-dropdown">
-                                            <NavDropdown.Divider />
-                                            <NavDropdown.Item href="" onClick={handleLogout}>
-                                                Logout
-                                            </NavDropdown.Item>
+                                        <p className='mt-2'>
+                                            Signed in as:{'  '}
+                                            <span className='fw-bold'>
+                                                {loggedInUser.first_name}
+                                            </span>
+                                        </p>
+                                        <i className="bi bi-person-fill fw-bold fs-5 pb-3 ms-2 text-light"></i>
+                                        <NavDropdown id="nav-dropdown" className='ms-2 pb-2' style={{width: "50px"}}>
+                                                <Stack 
+                                                    direction='horizontal' 
+                                                    as="a" 
+                                                    href={`/users/${loggedInUser.id}` }
+                                                    className='link-underline link-underline-opacity-0'
+                                                    >
+                                                        <i className="bi bi-person-circle ps-3"></i>
+                                                        <p className='smaller ps-3 mt-3'>YOUR PROFILE</p>
+                                                </Stack>
+                                            
+                                                <NavDropdown.Divider />
+                                                <NavDropdown.Item 
+                                                    href="" 
+                                                    onClick={handleLogout} 
+                                                    className='smaller'
+                                                >
+                                                    Logout
+                                                </NavDropdown.Item>
+                                      
                                         </NavDropdown>
-                                        
                                     </Stack>
                                 </Navbar.Text>
                             </> : 

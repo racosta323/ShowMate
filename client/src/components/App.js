@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row'
 
 
 import NavBar from "./NavBar/NavBar"
-import Auth from "./Auth";
+import Auth from "./NavBar/Auth";
 import NoReview from './Artists/NoReview'
 import ReviewList from "./Artists/ReviewList";
 
