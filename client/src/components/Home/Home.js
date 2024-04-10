@@ -11,8 +11,9 @@ import HomeCarousel from "./HomeCarousel"
 
 function Home(){
 
+    const { logoutUser, loggedInUser } = useOutletContext()
+    console.log(loggedInUser)
    
-
     const [artists, setArtists] = useState()
     
     useEffect(()=>{
@@ -27,7 +28,7 @@ function Home(){
             <Row></Row>
             <Row className="mt-5">
                 <Col>
-                    <h2>Welcome</h2>
+                    <h2>Welcome, {loggedInUser.first_name}!</h2>
                 </Col>
             </Row>
             <Row>
