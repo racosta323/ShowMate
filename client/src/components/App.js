@@ -16,7 +16,8 @@ function App() {
   const navigate = useNavigate()
 
   const [loggedInUser, setLoggedInUser ] = useState(false)
-  // console.log(loggedInUser)
+  const [reviews, setReviews] = useState()
+ 
 
   useEffect(()=>{
     fetch('/authorized')
@@ -57,17 +58,15 @@ const renderList = artists.map ? artists.map((artist)=>{
   }
 }) : console.log('loading')
 
-// const renderList = () => {
-//     if (!artist.reviews || artist.reviews.length == 0){
-//        return <NoReview handleClose={handleClose} handleShow={handleShow} show={show}/>
-//     } else {
-//         return artist.reviews.map((review)=>{
-//             return <ReviewList review={review} key={artist.id}/>
-//         })
-//     }
-// }
 
-// console.log(artists)
+    useEffect(()=>{
+        fetch('/reviews')
+        .then(resp=>resp.json())
+        .then(data=>setReviews(data))
+    }, [])
+    
+
+
 
   let context = {
     artists: artists,
@@ -78,7 +77,8 @@ const renderList = artists.map ? artists.map((artist)=>{
     handleShow: handleShow,
     loggedInUser: loggedInUser,
     logoutUser: logoutUser,
-    renderList: renderList
+    renderList: renderList,
+    reviews: reviews
   }
 
   return (

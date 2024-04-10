@@ -12,7 +12,7 @@ import NoReview from './NoReview'
 import CreateReview from './CreateReview'
 
 
-function Reviews(){
+function ArtistReviews(){
 
         const { show, setShow, handleClose, handleShow, loggedInUser } = useOutletContext()
 
@@ -99,4 +99,4 @@ function Reviews(){
     )
 }
 
-export default Reviews
+export default ArtistReviews

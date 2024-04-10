@@ -115,6 +115,11 @@ class ArtistById(Resource):
 api.add_resource(ArtistById, '/artists/<int:id>')
 
 class Reviews(Resource):
+    def get(self):
+        reviews = Review.query.all()
+        review = [review.to_dict() for review in reviews]
+        return make_response(review)
+
     def post(self):
         request_body = request.json
         date_object = datetime.strptime(request.get_json()["date"], '%Y-%m-%d').date()

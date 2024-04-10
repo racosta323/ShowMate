@@ -1,8 +1,9 @@
 import App from './components/App'
 import Artists from './components/Artists/Artists'
 import Search from './components/Search/Search'
-import Reviews from './components/Artists/Reviews'
+import ArtistReviews from './components/Artists/ArtistReviews'
 import Home from './components/Home/Home'
+import Reviews from './components/Reviews'
 
 
 import { createBrowserRouter } from 'react-router-dom'
@@ -28,7 +29,7 @@ const routes = [
             },
             {
                 path: 'artists/:id/reviews',
-                element: <Reviews/>
+                element: <ArtistReviews/>
             },
             {
                 path: 'users',
@@ -42,8 +43,10 @@ const routes = [
                         element: <EditUserReview/>
                     }
                 ]
-                // element: <MyProfile/>
-
+            },
+            {
+                path: 'reviews',
+                element: <Reviews/>
             }
         ]
     }
