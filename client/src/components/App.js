@@ -13,6 +13,8 @@ function App() {
   const navigate = useNavigate()
 
   const [loggedInUser, setLoggedInUser ] = useState(false)
+  console.log(loggedInUser)
+  
 
   useEffect(()=>{
     fetch('/authorized')
@@ -26,10 +28,12 @@ function App() {
     })
   }, [])
 
+  
+
 
   function logoutUser(){
     setLoggedInUser(null)
-    navigate('/home')
+    navigate('/')
   }
 
 
@@ -38,7 +42,7 @@ function App() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(artist)
+
 
   let context = {
     artist: artist,
@@ -46,7 +50,8 @@ function App() {
     show: show,
     setShow: setShow,
     handleClose: handleClose,
-    handleShow: handleShow
+    handleShow: handleShow,
+    loggedInUser: loggedInUser
   }
 
   return (

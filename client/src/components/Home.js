@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useOutletContext } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -7,10 +8,13 @@ import Carousel from 'react-bootstrap/Carousel'
 
 import HomeCarousel from "./HomeCarousel"
 
+
 function Home(){
 
-    const [artists, setArtists] = useState()
+   
 
+    const [artists, setArtists] = useState()
+    
     useEffect(()=>{
         fetch('/artists')
         .then (resp=>resp.json())

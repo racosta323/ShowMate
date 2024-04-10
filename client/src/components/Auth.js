@@ -62,7 +62,7 @@ function Auth({ setUser }){
 
     return(
         <Container>
-            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+            <Modal show={show} onHide={handleClose} backdrop="static" >
                 <Modal.Header closeButton />
                 <Modal.Body>
                     <Row className="px-4">

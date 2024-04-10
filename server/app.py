@@ -126,7 +126,8 @@ class Reviews(Resource):
                 show_date=date_object, 
                 review=request_body["review"], 
                 artist_id=request_body["artistId"],
-                stars=request_body["stars"]
+                stars=request_body["stars"],
+                user_id=request_body["userId"]
             )
             db.session.add(review)
             db.session.commit()

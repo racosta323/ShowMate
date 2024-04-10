@@ -13,7 +13,8 @@ import { useFormik } from 'formik'
 import Stars from './Stars'
 
 
-function CreateReview({ show, handleShow, handleClose }){
+function CreateReview({ show, handleShow, handleClose, userId }){
+
     
     const navigate = useNavigate()
 
@@ -31,7 +32,8 @@ function CreateReview({ show, handleShow, handleClose }){
             date: '',
             review: '',
             artistId: artistId,
-            stars: 'nada'
+            stars: '',
+            userId: userId
         },
         onSubmit: async (values) => {
             try{
@@ -58,7 +60,7 @@ function CreateReview({ show, handleShow, handleClose }){
             } catch(error){
 
             }
-            navigate(`/profile/${formik.values.artistId}/reviews`)
+            navigate(`/artists/${formik.values.artistId}/reviews`)
             window.location.reload()
         }
    })

@@ -14,7 +14,8 @@ import CreateReview from './CreateReview'
 
 function Profile(){
 
-    const { artist, setArtist, show, setShow, handleClose, handleShow } = useOutletContext()
+    const { artist, setArtist, show, setShow, handleClose, handleShow, artists, loggedInUser } = useOutletContext()
+  
     
     const params = useParams()
     const artistId = params.id
@@ -28,7 +29,6 @@ function Profile(){
  
    const totalStars = () => {
         if(Object.keys(artist).length > 0){
-            console.log(artist.reviews)
             return artist.reviews.reduce((accumulator, currentValue)=>{
                 return accumulator + currentValue.stars
             }, 0)
@@ -90,7 +90,7 @@ function Profile(){
                                     </Stack>
                                 </Button>
                                 <p>Write a review</p>
-                                <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}/>
+                                <CreateReview show={show} handleShow={handleShow} handleClose={handleClose} artists={artists} userId={loggedInUser.id}/>
                             </Col>
                         </Stack>
                         <Row>

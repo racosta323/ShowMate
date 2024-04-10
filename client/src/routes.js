@@ -1,5 +1,5 @@
 import App from './components/App'
-import Profile from './components/Profile'
+import Artists from './components/Artists'
 import Search from './components/Search'
 import Reviews from './components/Reviews'
 import Home from './components/Home'
@@ -23,7 +23,7 @@ const routes = [
             },
             {
                 path: 'artists/:id',
-                element: <Profile/>
+                element: <Artists/>
             },
             {
                 path: 'artists/:id/reviews',
