@@ -13,6 +13,7 @@ import { useFormik } from 'formik'
 import EditReview from './EditReview'
 import EditSubject from './EditSubject'
 import EditStars from './EditStars'
+import EditShowContainer from './EditShowContainer'
 
 function EditUserReview(){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
@@ -37,7 +38,8 @@ function EditUserReview(){
             ...formik.values,
             subject: review.subject,
             stars: review.stars,
-            review: review.review
+            review: review.review,
+            show: review.show
         });
     }, [review])
 
@@ -46,7 +48,8 @@ function EditUserReview(){
         initialValues:{
             subject: review.subject,
             stars: review.stars,
-            review: review.review
+            review: review.review,
+            show: review.show
         },
         onSubmit: async (values) => {
             try{
@@ -99,34 +102,9 @@ function EditUserReview(){
                     </h5>
                     <p className="ms-3 text-secondary smaller">Date Posted: {review?.created_at}</p>
                     <EditReview reviewId={reviewId} formik={formik}/>
-                    {/* <ResponsiveEllipsis
-                        text="review"
-                        maxLine={3}
-                        ellipsis="..."
-                        trimRight
-                        basedOn="letters"
-                        className="mb-3 ms-3 lh-sm"
-                    />  */}
                 </Row>
                 <Row>
-                    <Col>
-                        {/* <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6> */}
-                        {/* {userId == loggedInUser.id ? 
-                            <p className="text-end text-secondary smaller"> */}
-                                edit
-                                {/* <a href={`/users/${loggedInUser.id}/edit/${reviews.id}`}>
-                                    Edit
-                                </a>  */}
-                            {/* </p> :  */}
-                            {/* <></>} */}
-                        {/* <p className="text-end text-secondary smaller">
-                            <a href="#">
-                                Edit
-                            </a> 
-                        </p> */}
-                    </Col>
-                </Row>
-                <Row>
+                    <EditShowContainer reviewId={reviewId} formik={formik}/>
                     <Col>
                         <p className="smaller">
                             <span  className="fw-bold ms-3">

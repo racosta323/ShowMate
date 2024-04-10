@@ -10,7 +10,7 @@ import EditShowDate from './EditShowDate'
 import EditShowLocation from './EditShowLocation'
 
 
-function EditShow({ formik, reviews }){
+function EditShowContainer({ formik, reviewId }){
 
 
     return(
@@ -18,9 +18,9 @@ function EditShow({ formik, reviews }){
             <form>
                 <Row>
                     <Stack direction='horizontal'>
-                        <EditShowName formik={formik} reviews={reviews}/>
-                        <EditShowLocation formik={formik} reviews={reviews}/>
-                        <EditShowDate formik={formik} reviews={reviews}/>
+                        <EditShowName reviewId={reviewId} formik={formik}/>
+                        <EditShowLocation reviewId={reviewId} formik={formik}/>
+                        <EditShowDate reviewId={reviewId} formik={formik}/>
                     </Stack>
 
                 </Row>
@@ -29,4 +29,4 @@ function EditShow({ formik, reviews }){
     )
 }
 
-export default EditShow
+export default EditShowContainer

@@ -10,7 +10,7 @@ function EditStars({ reviewId, formik }){
 
     const inputRef = useRef(null)
 
-    const [reviews, setReviews] = useState({})
+    const [review, setReview] = useState({})
     const [toggleStars, setToggleStars] = useState(null)
     const [isEditMode, setEditMode] = useState(false)   
     const [inputClass, setInputClass] = useState('border border-0 bg-light fs-4 fw-bold')
@@ -19,16 +19,8 @@ function EditStars({ reviewId, formik }){
     useEffect(()=>{
         fetch(`/reviews/${reviewId}`)
         .then(resp=>resp.json())
-        .then(data => setReviews(data))
+        .then(data => setReview(data))
     }, [reviewId])
-
-    // useEffect(() => {
-    //     formik.setValues({
-    //         ...formik.values,
-    //         subject: reviews.subject
-    //     });
-    // }, [reviews])
-
 
     function turnOnEdit(){
         setToggleStars(true)
@@ -52,7 +44,7 @@ function EditStars({ reviewId, formik }){
                 <>
                     <Stack direction='horizontal'>
                         <p className='mt-3'>
-                            {reviews?.stars}
+                            {review?.stars}
                             <span className='text-warning'>
                             / 5
                             </span>
