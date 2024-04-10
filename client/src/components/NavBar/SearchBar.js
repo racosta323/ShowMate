@@ -21,7 +21,8 @@ function SearchBar(){
         
     }
 
-    function handleSubmit(){
+    function handleSubmit(e){
+        e.preventDefault()
         navigate('/search', {state:{input:input, results:results}})
     }
 
@@ -79,7 +80,17 @@ function SearchBar(){
                     </Col>
     
                     <Col>
-                        <Button variant="dark" type="button" onClick={handleSubmit}>Submit</Button>
+                        <Button 
+                            variant="dark" 
+                            type="click" 
+                            onClick={handleSubmit}
+                            onKeyDown={(e)=>{
+                                if (e.key === 'Enter'){
+                                    handleSubmit()
+                                }
+                            }}
+                        >
+                            Submit</Button>
                     </Col>
                 </Row>
             </Form>
