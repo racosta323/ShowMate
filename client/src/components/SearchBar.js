@@ -4,9 +4,13 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import Search from './Search';
 
 
 function SearchBar(){
+
+    const navigate = useNavigate()
 
     const [input, setInput] = useState("")
     const [results, setResults] = useState({})
@@ -15,6 +19,10 @@ function SearchBar(){
         setInput(value)
         fetchData(value)
         
+    }
+
+    function handleSubmit(){
+        navigate('/search', {state:{input:input, results:results}})
     }
 
     // console.log(input)
@@ -39,6 +47,7 @@ function SearchBar(){
 
     //may be able to use if searching my db
     const fetchData = (input) => {
+        
         console.log(input)
         fetch(`/artists`)
         .then (resp => resp.json())
@@ -70,7 +79,7 @@ function SearchBar(){
                     </Col>
     
                     <Col>
-                        <Button variant="dark" type="submit">Submit</Button>
+                        <Button variant="dark" type="button" onClick={handleSubmit}>Submit</Button>
                     </Col>
                 </Row>
             </Form>

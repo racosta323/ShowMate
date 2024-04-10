@@ -20,7 +20,6 @@ function Auth({ setUser }){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    console.log(signup)
     //NOTING THIS!!!!!
     function toggleSignup() {
         setSignup((currentSignup) => !currentSignup)

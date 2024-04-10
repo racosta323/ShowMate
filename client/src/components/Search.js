@@ -8,19 +8,36 @@ import SearchList from './SearchList'
 import NoResults from './NoResults'
 import CreateProfile from './CreateProfile'
 
-function Search(){
+import { useLocation } from 'react-router-dom'
+
+
+function Search({ results, input }){
+
+    const location = useLocation()
+    
+    console.log(location)
 
     return(
         <Container className='py-5'>
                 <Row className='py-5'>
                     <Col xs={8}>
-                        <h2 className='fs-1'>Search 'Search Term'</h2>
+                        <h2 className='fs-1'>Search '{location.state.input}'</h2>
                         <hr className='mb-5'></hr>
                         
-                        <NoResults/>
-                        <SearchList/>
+                        {/* <NoResults/> */}
+                        {(location.state && location.state.results[0]) ? 
+                            <>
+                                <SearchList name={location.state.results[0].name} genre={location.state.results[0].genre}/>
+                            </>: 
+                            <>
+                                <NoResults/>
+                            </>
+                        }
+                        {/* <SearchList/> */}
+
                         <p className='text-end'>Don't see what you're looking for? </p>
-                        <CreateProfile/>
+                       
+                       <CreateProfile/>
                         
                     </Col>
                     <Col className='py-5'>   

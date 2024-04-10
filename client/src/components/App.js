@@ -13,8 +13,6 @@ function App() {
   const navigate = useNavigate()
 
   const [loggedInUser, setLoggedInUser ] = useState(false)
-  console.log(loggedInUser)
-  
 
   useEffect(()=>{
     fetch('/authorized')

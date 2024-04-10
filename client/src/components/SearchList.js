@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Image from 'react-bootstrap/Image'
 
-function SearchList(){
+function SearchList({ name, genre }){
     return(
         <Container>
             <Row className='my-2 bg-body-secondary border-start border-5 border-danger p-2'>
@@ -16,8 +16,8 @@ function SearchList(){
                     />
                 </Col>
                 <Col xs={10}>
-                    <h2 className='fs-4 fw-bold mt-3'>Name</h2>
-                    <p className='fs-7'>Genre</p>
+                    <h2 className='fs-4 fw-bold mt-3'>{name}</h2>
+                    <p className='fs-7'>{genre}</p>
                 </Col>
             </Row>
         </Container>
