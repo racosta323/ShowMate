@@ -143,7 +143,20 @@ function Auth({ setUser }){
                                 </Form.Group>
                             </>}
                             <Row >
-                                <Button className="mt-3 bg-dark" onClick={formik.handleSubmit}>Submit</Button>
+                                <Button 
+                                    className="mt-3 bg-dark" 
+                                    type='click'
+                                    onClick={formik.handleSubmit}
+                                    onKeyDown={(e)=>{
+                                        console.log(e.key)
+                                        if (e.key === 'Enter'){
+                                            formik.handleSubmit()
+                                            }
+                                        }
+                                    }
+                                    >
+                                        Submit
+                                </Button>
                             </Row>
                             </Form>
                         </Col>
