@@ -66,14 +66,14 @@ function SearchBar(){
         <div>
             <Form inline>
                 <Row>
-                    <Col xs={8}>
+                    <Col xs={9}>
                         <Form.Control
                             type="text"
-                            placeholder="Search for shows across the US"
+                            placeholder="Search for artists across the US"
                             className="mr-sm-2 search"
                             data-bs-theme="light"
                             onChange={(e)=>{handleChange(e.target.value)}}
-                            
+                            style={{fontSize: "13px"}}
                             // onChange={searchChange}
                         />
                         {/* <SearchResultsList /> */}
@@ -89,8 +89,10 @@ function SearchBar(){
                                     handleSubmit()
                                 }
                             }}
+                            style={{fontSize: "13px"}}
                         >
-                            Submit</Button>
+                            Submit
+                        </Button>
                     </Col>
                 </Row>
             </Form>

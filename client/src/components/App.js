@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 
 import NavBar from "./NavBar/NavBar"
 import Auth from "./Auth";
-import NoReview from "./NoReview";
+import NoReview from './Artists/NoReview'
 import ReviewList from "./Artists/ReviewList";
 
 

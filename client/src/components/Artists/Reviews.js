@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
 import ReviewList from './ReviewList'
-import NoReview from '../NoReview'
+import NoReview from './NoReview'
 import CreateReview from '../CreateReview'
 
 
@@ -88,9 +88,6 @@ function Reviews(){
                                         </Button>
                                         <CreateReview show={show} handleShow={handleShow} handleClose={handleClose} userId={loggedInUser.id}/>
                                     </Col>
-                                </Row>
-                                <Row className='my-1'>
-                                    <hr></hr>
                                 </Row>
                             </Col>
                         </Row>
