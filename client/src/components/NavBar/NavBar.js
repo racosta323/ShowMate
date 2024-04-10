@@ -39,7 +39,7 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
             >
                <Container>
                     <Col>
-                        <Navbar.Brand href="/" className='mx-3 fs-3'>ShowMate</Navbar.Brand>
+                        <Navbar.Brand href="/" className=' fs-4'>ShowMate</Navbar.Brand>
                         <Navbar.Toggle aria-controls='responsive-navbar-nav'/>
                     </Col>
             

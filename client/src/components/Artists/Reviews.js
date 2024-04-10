@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button'
 
 import ReviewList from './ReviewList'
 import NoReview from './NoReview'
-import CreateReview from '../CreateReview'
+import CreateReview from './CreateReview'
 
 
 function Reviews(){
@@ -86,7 +86,7 @@ function Reviews(){
                                                 <h6 className='mt-1'>Review</h6>
                                             </Stack>
                                         </Button>
-                                        <CreateReview show={show} handleShow={handleShow} handleClose={handleClose} userId={loggedInUser.id}/>
+                                        <CreateReview show={show} handleShow={handleShow} handleClose={handleClose} userId={loggedInUser.id} artist={artist}/>
                                     </Col>
                                 </Row>
                             </Col>

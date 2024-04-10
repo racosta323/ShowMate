@@ -10,7 +10,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { useFormik } from 'formik'
 
-import Stars from './Stars'
+import Stars from '../Stars'
 
 
 function CreateReview({ show, handleShow, handleClose, userId, artist }){

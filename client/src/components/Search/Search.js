@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 
 import SearchList from './SearchList'
 import NoResults from './NoResults'
-import CreateProfile from '../CreateProfile'
+import CreateProfile from './CreateArtistProfile'
 
 import { useLocation } from 'react-router-dom'
 
