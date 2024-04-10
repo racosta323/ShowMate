@@ -6,8 +6,10 @@ import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 import EditReview from '../EditReview/EditReview'
 
-function UserReviews( { reviews }){
+function UserReviews( { reviews, loggedInUser, userId }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
+
+    console.log(loggedInUser, userId)
 
     return(
         <>
@@ -49,11 +51,18 @@ function UserReviews( { reviews }){
                 <Row>
                     <Col>
                         {/* <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6> */}
-                        <p className="text-end text-secondary smaller">
+                        {userId == loggedInUser.id ? 
+                            <p className="text-end text-secondary smaller">
+                                <a href="#">
+                                    Edit
+                                </a> 
+                            </p> : 
+                            <></>}
+                        {/* <p className="text-end text-secondary smaller">
                             <a href="#">
                                 Edit
                             </a> 
-                        </p>
+                        </p> */}
                     </Col>
                 </Row>
                 <Row>

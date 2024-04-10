@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 
 import SideProfile from './SideProfile'
+import MySideProfile from '../MyUserProfile/MySideProfile'
 import UserReviews from './UserReviews'
 import NoUserReview from './NoUserReview'
 import EditUserReview from '../EditReview/EditUserReview'
@@ -18,9 +19,9 @@ function UserProfile(){
     const params = useParams()
     const userId = params.id
 
-    const { logoutUser } = useOutletContext()
+    const { logoutUser, loggedInUser } = useOutletContext()
 
-    console.log(user)
+    console.log(loggedInUser)
 
     useEffect(()=>{
         fetch(`/users/${userId}`)
@@ -34,7 +35,7 @@ function UserProfile(){
         } else {
             return user.reviews.map((review)=>{
                 // return <EditUserReview key={review.id} reviews={review}/>
-                return <UserReviews key={review.id} reviews={review} logoutUser={logoutUser}/>
+                return <UserReviews key={review.id} reviews={review} logoutUser={logoutUser} loggedInUser={loggedInUser} userId={userId}/>
             })
         }
     }
@@ -45,10 +46,10 @@ function UserProfile(){
         <Container>
             <Row>
                 <Col className='my-5'>
-                    <SideProfile data={user} logoutUser={logoutUser}/>
+                    {userId == loggedInUser.id ? <MySideProfile data={user} logoutUser={logoutUser} loggedInUser={loggedInUser}/> : <SideProfile data={user} logoutUser={logoutUser} loggedInUser={loggedInUser}/>}
                 </Col>
                 <Col xs={8} className='my-5 p-4'>
-                    <h2>{`${user.first_name} ${user.last_name}'s`} Reviews</h2>
+                    <h2>{`${user.first_name} ${user.last_name}'s`} <br/> Reviews</h2>
                     <hr></hr>
                     {renderList()}
                 </Col>
