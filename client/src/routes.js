@@ -7,7 +7,7 @@ import Home from './components/Home/Home'
 
 import { createBrowserRouter } from 'react-router-dom'
 import UserProfile from './components/UserProfile/UserProfile'
-import MyProfile from './components/MyUserProfile/MyProfile'
+import EditUserReview from './components/EditReview/EditUserReview'
 
 const routes = [
     {
@@ -31,8 +31,17 @@ const routes = [
                 element: <Reviews/>
             },
             {
-                path: 'users/:id',
-                element: <UserProfile/>
+                path: 'users',
+                children: [
+                    {
+                        path: ':id',
+                        element: <UserProfile/>
+                    },
+                    {
+                        path: ':id/edit',
+                        element: <EditUserReview/>
+                    }
+                ]
                 // element: <MyProfile/>
 
             }
