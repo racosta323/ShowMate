@@ -9,7 +9,7 @@ import SideProfile from './SideProfile'
 import MySideProfile from '../MyUserProfile/MySideProfile'
 import UserReviews from './UserReviews'
 import NoUserReview from './NoUserReview'
-import EditUserReview from '../EditReview/EditUserReview'
+
 
 
 function UserProfile(){
@@ -19,15 +19,17 @@ function UserProfile(){
     const params = useParams()
     const userId = params.id
 
-    const { logoutUser, loggedInUser } = useOutletContext()
+    const { logoutUser, loggedInUser, artists } = useOutletContext()
 
-    console.log(loggedInUser)
+    console.log(artists)
 
     useEffect(()=>{
         fetch(`/users/${userId}`)
         .then(resp=>resp.json())
         .then(data => setUser(data))
     }, [userId])
+
+    console.log(user)
 
     const renderList = () => {
         if (!user.reviews || user.reviews.length == 0){

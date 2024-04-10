@@ -53,7 +53,7 @@ function UserReviews( { reviews, loggedInUser, userId }){
                         {/* <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6> */}
                         {userId == loggedInUser.id ? 
                             <p className="text-end text-secondary smaller">
-                                <a href="#">
+                                <a href={`/users/${loggedInUser.id}/edit/${reviews.id}`}>
                                     Edit
                                 </a> 
                             </p> : 

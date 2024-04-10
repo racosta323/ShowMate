@@ -38,7 +38,7 @@ const routes = [
                         element: <UserProfile/>
                     },
                     {
-                        path: ':id/edit',
+                        path: ':id/edit/:reviewId',
                         element: <EditUserReview/>
                     }
                 ]

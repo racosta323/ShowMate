@@ -1,11 +1,13 @@
 import { useState, useRef } from 'react'
 
 
+
 function EditSubject({ text, formik }){
 
     const [isEditMode, setEditMode] = useState(false)   
     const [inputClass, setInputClass] = useState('border border-0 bg-light')
     
+    console.log(formik)
 
     const inputRef = useRef(null)
     
@@ -23,7 +25,7 @@ function EditSubject({ text, formik }){
             <form>
                 <input
                     ref={inputRef}
-                    type={text}
+                    type="text"
                     name={text}
                     value={formik.values[text]}
                     readOnly={!isEditMode}
