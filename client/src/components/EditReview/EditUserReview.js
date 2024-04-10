@@ -109,30 +109,6 @@ function EditUserReview(){
                 </Row>
                 <Row>
                     <EditShowContainer reviewId={reviewId} formik={formik}/>
-                    <Col>
-                        <p className="smaller">
-                            <span  className="fw-bold ms-3">
-                                Show: 
-                            </span> 
-                            4
-                        </p>
-                    </Col>
-                    <Col>
-                        <p className="smaller">
-                            <span  className="fw-bold ms-3">
-                                Show Location: 
-                            </span> 
-                           Location
-                        </p>
-                        </Col>
-                    <Col>
-                        <p className="smaller"> 
-                            <span  className="fw-bold ms-3">
-                                Show Date: 
-                            </span> 
-                            Date
-                        </p>
-                    </Col>
                 </Row>     
                 <Row>
                     <Col></Col>
