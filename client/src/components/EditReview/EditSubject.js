@@ -20,12 +20,12 @@ function EditSubject({ reviewId, formik }){
         .then(data => setReviews(data))
     }, [reviewId])
 
-    useEffect(() => {
-        formik.setValues({
-            ...formik.values,
-            subject: reviews.subject
-        });
-    }, [reviews])
+    // useEffect(() => {
+    //     formik.setValues({
+    //         ...formik.values,
+    //         subject: reviews.subject
+    //     });
+    // }, [reviews])
 
 
     function turnOnEdit(){

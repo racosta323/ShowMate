@@ -36,14 +36,17 @@ function EditUserReview(){
         formik.setValues({
             ...formik.values,
             subject: review.subject,
-            stars: review.stars
+            stars: review.stars,
+            review: review.review
         });
     }, [review])
 
 
     const formik = useFormik({
         initialValues:{
-            subject: review.subject
+            subject: review.subject,
+            stars: review.stars,
+            review: review.review
         },
         onSubmit: async (values) => {
             try{
@@ -75,6 +78,8 @@ function EditUserReview(){
         .then(navigate(`/users/${loggedInUser.id}`))
     }
 
+    console.log(review)
+
     return(
         <>
             <Row className='border border-secondary-subtle rounded mt-5'>
@@ -92,15 +97,16 @@ function EditUserReview(){
                             Artist: {review.artist?.name}
                         </a>
                     </h5>
-                    <p className="ms-3 text-secondary smaller">Date Posted: DATE</p>
-                    <ResponsiveEllipsis
+                    <p className="ms-3 text-secondary smaller">Date Posted: {review?.created_at}</p>
+                    <EditReview reviewId={reviewId} formik={formik}/>
+                    {/* <ResponsiveEllipsis
                         text="review"
                         maxLine={3}
                         ellipsis="..."
                         trimRight
                         basedOn="letters"
                         className="mb-3 ms-3 lh-sm"
-                    /> 
+                    />  */}
                 </Row>
                 <Row>
                     <Col>
