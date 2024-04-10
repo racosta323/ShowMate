@@ -78,7 +78,11 @@ function Profile(){
                                         <i className="bi bi-star-fill text-warning fs-1" ></i>
                                     </a>
                                 </h3>
-                                <p className='text-center'># of Reviews: {numberOfReviews}</p>
+                                <p className='text-center'>
+                                <a href={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                                    # of Reviews: {numberOfReviews}
+                                </a>
+                                </p>
                             </Col>
                            <Col xs={1}></Col>
                             <Col xs={6}>

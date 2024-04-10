@@ -27,7 +27,12 @@ function Search({ results, input }){
                         {/* <NoResults/> */}
                         {(location.state && location.state.results[0]) ? 
                             <>
-                                <SearchList name={location.state.results[0].name} genre={location.state.results[0].genre}/>
+                                <SearchList 
+                                    name={location.state.results[0].name} 
+                                    genre={location.state.results[0].genre} 
+                                    img={location.state.results[0].profile_image}
+                                    id={location.state.results[0].id}
+                                />
                             </>: 
                             <>
                                 <NoResults/>
