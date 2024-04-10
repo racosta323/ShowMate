@@ -39,7 +39,8 @@ function EditUserReview(){
             subject: review.subject,
             stars: review.stars,
             review: review.review,
-            show: review.show
+            show: review.show,
+            location: review.location
         });
     }, [review])
 
@@ -49,7 +50,8 @@ function EditUserReview(){
             subject: review.subject,
             stars: review.stars,
             review: review.review,
-            show: review.show
+            show: review.show,
+            location: review.location
         },
         onSubmit: async (values) => {
             try{

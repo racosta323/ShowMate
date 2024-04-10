@@ -71,29 +71,6 @@ function EditShowName({ formik, reviewId }){
                      </Stack>
                 </>
             }
-
-            {/* <Stack direction='horizontal'>
-                <p className='mt-3 smaller'>
-                    <span className='fw-bold smaller'>
-                    Show:
-                    </span>
-                </p>
-                <input
-                    ref={inputRef}
-                    type="show"
-                    value={formik.values.show}
-                    name="show"
-                    readOnly={!isEditMode}
-                    className={inputClass + 'smaller'}
-                    onBlur={()=>{
-                        setEditMode(false)
-                        setInputClass('border border-0 bg-light smaller')
-                    }}
-                    style={{ width: '40px' }} 
-                    onChange={formik.handleChange}
-                />
-                <i as="button" className="ms-2 bi bi-pencil-fill pencil smaller" onClick={turnOnEdit}></i>
-            </Stack> */}
         </Col>
     )
 }
