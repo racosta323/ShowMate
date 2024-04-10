@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from 'react-bootstrap/Row'
 
 
-import NavBar from "./NavBar";
+import NavBar from "./NavBar/NavBar"
 import Auth from "./Auth";
 
 function App() {
@@ -49,7 +49,8 @@ function App() {
     setShow: setShow,
     handleClose: handleClose,
     handleShow: handleShow,
-    loggedInUser: loggedInUser
+    loggedInUser: loggedInUser,
+    logoutUser: logoutUser
   }
 
   return (

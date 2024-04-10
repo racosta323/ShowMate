@@ -1,12 +1,12 @@
 import App from './components/App'
 import Artists from './components/Artists'
-import Search from './components/Search'
-import Reviews from './components/Reviews'
-import Home from './components/Home'
+import Search from './components/Search/Search'
+import Reviews from './components/Reviews/Reviews'
+import Home from './components/Home/Home'
 
 
 import { createBrowserRouter } from 'react-router-dom'
-import UserProfile from './components/UserProfile'
+import UserProfile from './components/UserProfile/UserProfile'
 
 const routes = [
     {

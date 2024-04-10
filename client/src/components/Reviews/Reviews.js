@@ -8,8 +8,8 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
 import ReviewList from './ReviewList'
-import NoReview from './NoReview'
-import CreateReview from './CreateReview'
+import NoReview from '../NoReview'
+import CreateReview from '../CreateReview'
 
 
 function Reviews(){

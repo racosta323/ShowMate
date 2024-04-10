@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import Search from './Search';
+import Search from '../Search/Search';
 
 
 function SearchBar(){

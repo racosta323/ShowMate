@@ -51,7 +51,11 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
                         <Col>
                             <Nav>
                                 <Nav.Link href="/" className='text-light'>Home</Nav.Link>
-                                <Nav.Link className='text-light ms-3'>Your Profile</Nav.Link>
+                                {loggedInUser ? <> 
+                                    <Nav.Link href={`/users/${loggedInUser.id}`} className='text-light ms-3'>
+                                        Your Profile</Nav.Link>
+                                    </> : 
+                                    <></>}
                             </Nav>
                         </Col>
                         <Col className='d-flex flex-row-reverse mx-2'>

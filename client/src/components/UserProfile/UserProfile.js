@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useOutletContext } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container'
 import SideProfile from './SideProfile'
 import UserReviews from './UserReviews'
 import NoUserReview from './NoUserReview'
-import EditUserReview from './EditReview/EditUserReview'
+import EditUserReview from '../EditReview/EditUserReview'
 
 
 function UserProfile(){
@@ -17,6 +17,8 @@ function UserProfile(){
 
     const params = useParams()
     const userId = params.id
+
+    const { logoutUser } = useOutletContext()
 
 
     useEffect(()=>{
@@ -30,8 +32,8 @@ function UserProfile(){
            return <NoUserReview/>
         } else {
             return user.reviews.map((review)=>{
-                return <EditUserReview key={review.id} reviews={review}/>
-                // return <UserReviews key={review.id} reviews={review}/>
+                // return <EditUserReview key={review.id} reviews={review}/>
+                return <UserReviews key={review.id} reviews={review} logoutUser={logoutUser}/>
             })
         }
     }
@@ -42,7 +44,7 @@ function UserProfile(){
         <Container>
             <Row>
                 <Col className='my-5'>
-                    <SideProfile data={user}/>
+                    <SideProfile data={user} logoutUser={logoutUser}/>
                 </Col>
                 <Col xs={8} className='my-5 p-4'>
                     <h2>Your Reviews</h2>

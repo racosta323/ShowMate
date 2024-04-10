@@ -5,8 +5,8 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 
 import SearchList from './SearchList'
-import NoResults from './NoResults'
-import CreateProfile from './CreateProfile'
+import NoResults from '../NoResults'
+import CreateProfile from '../CreateProfile'
 
 import { useLocation } from 'react-router-dom'
 
