@@ -17,13 +17,17 @@ import EditReview from './EditReview'
 function EditUserReview( { reviews }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
-    console.log(reviews)
 
     const [starToggle, setStarToggle] = useState(false)
     const [starEdit, setStarEdit] = useState(false)   
     const [starInputClass, setStarInputClass] = useState('border border-0 bg-light')
 
     const starInputRef = useRef(null)
+
+    function handleDelete(){
+        
+        console.log('ms-4')
+    }
 
     const formik = useFormik({
         initialValues: {
@@ -145,9 +149,13 @@ function EditUserReview( { reviews }){
                 </Row>        
                 <Row>
                     <Col></Col>
-                    <Col></Col>
-                    <Col className='d-flex justify-content-end'>
-                        <Button onClick={formik.handleSubmit}>Submit Edits</Button>
+                    <Col xs={6} className='d-flex justify-content-end px-5 ms-5'>
+                        <Col>
+                            <Button className='ms-4' onClick={formik.handleSubmit} variant='secondary'>Submit Edits</Button>
+                        </Col>
+                        <Col>
+                            <Button className='ms-2' onClick={handleDelete} variant='danger'>Delete Review</Button>
+                        </Col>
                     </Col>
                 </Row>
                 

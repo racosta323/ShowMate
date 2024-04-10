@@ -19,7 +19,7 @@ function EditStars({ text, formik, reviews }){
         inputRef.current.focus();
     }
 
-    console.log(text)
+
 
     return(
         <Container>
