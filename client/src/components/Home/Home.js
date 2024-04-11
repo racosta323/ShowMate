@@ -45,7 +45,7 @@ function Home(){
                 <Col xs={4} className="border my-5">
                     <Row className="my-4">
                         <Col>
-                            <h4>Trending Artists</h4>
+                            <h3>Trending Artists</h3>
                         </Col>
                     </Row>
                     <Trending/>
@@ -55,7 +55,7 @@ function Home(){
                     <Trending/>
                    <Row>
                         <Col>
-                            <p className='smaller'>Sorted by [NUMBER OF LIKES]</p>
+                            <p className='smaller p-2'>Sorted by highest rating</p>
                         </Col>
                    </Row>
 
