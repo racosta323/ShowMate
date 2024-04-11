@@ -58,11 +58,11 @@ function Home(){
 
     console.log(avgStars)
 
-    const renderArtists = avgStars?.map((artist)=>{
-        console.log(avgStars.indexOf(artist))
+    const renderArtists = avgStars?.slice(0,5).map((artist)=>{
         // console.log(artist.artist.indexOf(artist.artist.name))
         return(
-            <Trending key={artist.artist.id} name={artist.artist.name} genre={artist.artist.genre} rank={avgStars.indexOf(artist)+1}/>
+
+            <Trending key={artist.artist.id} name={artist.artist.name} genre={artist.artist.genre} rank={avgStars.indexOf(artist)+1} image={artist.artist.profile_image}/>
         )
     })
     

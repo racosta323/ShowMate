@@ -8,7 +8,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import Image from 'react-bootstrap/Image'
 import Stack from 'react-bootstrap/Stack'
 
-function Trending({ name, genre, rank }){
+function Trending({ name, genre, rank, image }){
    
     return(
         <Col className='p-2 m-1 trending'>
@@ -16,8 +16,7 @@ function Trending({ name, genre, rank }){
             <Stack direction='horizontal'>
                 <h2 className='p-1 fw-bold text-dark'>{rank}</h2>
                 <Image
-                    src="https://www.hollywoodreporter.com/wp-content/uploads/2024/04/COWBOY-CARTER-PRESS-05-H-2024.jpg?w=1296&h=730&crop=1&resize=1000%2C563
-                    "
+                    src={image}
                     height={50}
                     width={50}
                     roundedCircle
