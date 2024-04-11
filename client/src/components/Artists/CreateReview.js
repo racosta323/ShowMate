@@ -9,6 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { useFormik } from 'formik'
+import Success from '../Success'
 
 import Stars from '../Stars'
 
@@ -19,6 +20,7 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
     const navigate = useNavigate()
 
     const [rating, setRating] = useState(null)
+    const [modalShow, setModalShow] = useState(false)
     
     const params = useParams()
     const artistId = params.id
@@ -61,17 +63,20 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
             } catch(error){
 
             }
-            navigate(`/artists/${artistId}/reviews`)
-            window.location.reload()
+            
         }
    })
 
-   const handleClick = (currentRating) => {
+   const handleStarClick = (currentRating) => {
         setRating(currentRating)
         formik.values.stars = currentRating
    }
 
-   console.log(formik.initialValues)
+   const handleSaveClick = () => {
+    formik.handleSubmit()
+    handleClose()
+    setModalShow(true)
+   }
    
     return(
         <>
@@ -90,7 +95,7 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
                             stars={formik.values.stars} 
                             handleChange={formik.handleChange} 
                             key={formik.values.id} 
-                            handleClick={handleClick}
+                            handleClick={handleStarClick}
                             rating={rating}
             
                         />
@@ -166,11 +171,14 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
                 <Button variant="danger" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="dark" onClick={formik.handleSubmit}>
+                {/* <Button variant="dark" onClick={formik.handleSubmit}> */}
+                <Button variant="dark" onClick={handleSaveClick}>
                     Save Changes
                 </Button>
+                
                 </Modal.Footer>
             </Modal>
+            <Success artistId={artistId} show={modalShow} onHide={()=> setModalShow(false)}/>
         </>
     )
 }
