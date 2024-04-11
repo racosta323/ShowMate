@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useOutletContext } from 'react-router-dom'
+import { useParams, useOutletContext, NavLink } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -74,9 +74,9 @@ function ArtistReviews(){
                                 <Row>
                                     <Col>
                                         <h1 className='text-uppercase'>
-                                            <a href={`/artists/${artistId}`} className='link-offset-2 link-underline link-underline-opacity-0'>
-                                                {artist?.name}
-                                            </a>
+                                            <NavLink to={`/artists/${artistId}`} className='link-offset-2 link-underline link-underline-opacity-0' >
+                                                {artist?.name}  
+                                            </NavLink>
                                         </h1>
                                     </Col>
                                     <Col className="d-flex justify-content-end">

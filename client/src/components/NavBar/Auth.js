@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 import Container from "react-bootstrap/Container"
 import Row from 'react-bootstrap/Row'
@@ -166,16 +166,16 @@ function Auth({ setUser }){
                             {signup ? <>
                                 <p className="text-center">Already have an account? </p>
                                 <p className="text-center">
-                                    <a href="#"  onClick={toggleSignup}>
+                                    <NavLink to="#"  onClick={toggleSignup}>
                                         Login instead
-                                    </a>
+                                    </NavLink> 
                                 </p>
                             </> : <>
                                 <p className="text-center">Don't have an account yet? </p>
                                 <p className="text-center">
-                                    <a href="#"  onClick={toggleSignup}>
+                                    <NavLink to="#"  onClick={toggleSignup}>
                                         Sign up for an account
-                                    </a>
+                                    </NavLink> 
                                 </p>
                             </> }
                         </Col>

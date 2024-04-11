@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
+import { Outlet, useNavigate, useOutletContext, NavLink } from "react-router-dom";
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
@@ -17,8 +17,8 @@ function ArtistsTable(){
                     <td>Rank</td>
                     <td>
                         <Col
-                            as="a"
-                            href='#'
+                            as={NavLink}
+                            to='#'
                             // href={`/artists/${review.artist.id}`}
                         >
                             Beyonce
@@ -31,7 +31,7 @@ function ArtistsTable(){
                     <td>5</td>
                     <td>
                         <Col
-                            as="a"
+                            as={NavLink}
                             // href={`/users/${review.user.id}`}
                         >
                             {/* {review.user.username} */}

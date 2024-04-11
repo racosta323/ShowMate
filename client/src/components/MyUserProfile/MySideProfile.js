@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom'
+
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -22,9 +24,9 @@ function MySideProfile({ data, logoutUser }){
                 <h2>{data.username}</h2>
                 <p className='fs-7'>Profile created on: {data.created_at}</p>
                 <p>
-                    <a href="#" onClick={handleLogout} className='link-offset-2 link-underline link-underline-opacity-0'>
+                    <NavLink to="#" onClick={handleLogout} className='link-offset-2 link-underline link-underline-opacity-0'>
                         Logout
-                    </a>
+                    </NavLink> 
                 </p>
             </Col>
         </Row>

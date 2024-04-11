@@ -119,7 +119,7 @@ function EditUserReview( ){
                     <h5 className="ms-3 text-secondary">
                         {/* <a href={`/artists/${artist.id}`} className='link-offset-2 link-underline link-underline-opacity-0'>
                             Artist: {artist.name}
-                        </a> */}
+                        <NavLink  */}
                     </h5>
                     {/* <p className="ms-3 text-secondary smaller">Date Posted: {reviews.created_at}</p> */}
                 

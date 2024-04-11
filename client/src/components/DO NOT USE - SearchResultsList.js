@@ -13,7 +13,7 @@ function SearchResultsList({results}){
                     <p class="mb-1">{value.dates.start.localDate}</p>
                     <small>{value.classifications[0].genre.name}</small>
                 </div>
-            </a>
+            <NavLink 
         )
         }) : console.log("nope")
     

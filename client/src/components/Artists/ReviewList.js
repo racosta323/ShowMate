@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom'
+
 import Row from "react-bootstrap/Row"
 import Col from 'react-bootstrap/Col'
 import Stack from "react-bootstrap/Stack"
@@ -16,9 +18,9 @@ function ReviewList({ review }){
                         <Stack direction="horizontal">
                             <i className="bi bi-person-circle mx-3 text-primary"></i>
                             <p className="mt-3 text-primary">
-                                <a href={`/users/${review.user.id}`} className="link-offset-2 link-underline link-underline-opacity-0">
+                                <NavLink to={`/users/${review.user.id}`} className="link-offset-2 link-underline link-underline-opacity-0">
                                     {review.user.username}
-                                </a>
+                                </NavLink>
                             </p>
                         </Stack>
                         <h5 className="ms-3 fw-bold">{review.subject}</h5>

@@ -4,10 +4,9 @@ import Nav from 'react-bootstrap/Nav'
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Stack from 'react-bootstrap/Stack'
-
 import SearchBar from './SearchBar'
 
-// import SearchBarContainer from './SearchBarContainer';
+import { NavLink } from 'react-router-dom'
 
 function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
 
@@ -39,7 +38,7 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
             >
                <Container>
                     <Col>
-                        <Navbar.Brand href="/" className=' fs-4'>ShowMate</Navbar.Brand>
+                        <Navbar.Brand as={NavLink} to="/" className=' fs-4'>ShowMate</Navbar.Brand>
                         <Navbar.Toggle aria-controls='responsive-navbar-nav'/>
                     </Col>
             
@@ -51,13 +50,13 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
 
                         <Col>
                             <Nav>
-                                <Nav.Link href="/" className='text-light ms-5'>Home</Nav.Link>
+                                <Nav.Link as={NavLink} to="/" className='text-light ms-5'>Home</Nav.Link>
                                 {loggedInUser ? 
                                     <> 
-                                        <Nav.Link href={`/users/${loggedInUser.id}`} className='text-light ms-3'>
+                                        <Nav.Link as={NavLink} to={`/users/${loggedInUser.id}`} className='text-light ms-3'>
                                             Your Profile
                                         </Nav.Link>
-                                        <Nav.Link href={`/reviews`} className='text-light ms-3'>
+                                        <Nav.Link as={NavLink} to={`/reviews`} className='text-light ms-3'>
                                             Reviews
                                         </Nav.Link>
                                     </> : 
@@ -79,8 +78,8 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
                                         <NavDropdown id="nav-dropdown" className='ms-2 pb-2' style={{width: "50px"}}>
                                                 <Stack 
                                                     direction='horizontal' 
-                                                    as="a" 
-                                                    href={`/users/${loggedInUser.id}` }
+                                                    as={NavLink}
+                                                    to={`/users/${loggedInUser.id}` }
                                                     className='link-underline link-underline-opacity-0'
                                                     >
                                                         <i className="bi bi-person-circle ps-3"></i>
@@ -88,8 +87,9 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
                                                 </Stack>
                                             
                                                 <NavDropdown.Divider />
-                                                <NavDropdown.Item 
-                                                    href="" 
+                                                <NavDropdown.Item
+                                                    as={NavLink} 
+                                                    to="" 
                                                     onClick={handleLogout} 
                                                     className='smaller'
                                                 >
@@ -102,7 +102,7 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
                             </> : 
                             <>
                                 <Navbar.Text>
-                                    <a href= "" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</a>
+                                    <NavLink to = "" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</NavLink> 
                                 </Navbar.Text>
                             </>
                         }    

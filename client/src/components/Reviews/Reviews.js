@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
+import { Outlet, useNavigate, useOutletContext, NavLink} from "react-router-dom";
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
@@ -27,8 +27,8 @@ function Reviews(){
                     <td>{review.id}</td>
                     <td>
                         <Col
-                            as="a"
-                            href={`/artists/${review.artist.id}`}
+                            as={NavLink}
+                            to={`/artists/${review.artist.id}`}
                         >
                             {review.artist.name}
                         </Col>
@@ -40,8 +40,8 @@ function Reviews(){
                     <td>{review.stars}</td>
                     <td>
                         <Col
-                            as="a"
-                            href={`/users/${review.user.id}`}
+                            as={NavLink}
+                            to={`/users/${review.user.id}`}
                         >
                             {review.user.username}
                         </Col>

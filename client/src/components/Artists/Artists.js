@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, useOutletContext } from 'react-router-dom'
+import { useParams, useOutletContext, NavLink } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -73,7 +73,7 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                         <Stack direction='horizontal' className='d-flex justify-content-center'>
                             <Col xs={6}>
                                 <h3 className='text-center'>
-                                    <a href={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                                    <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
                                         <span className='fs-1 fw-bold'>
                                             {averageStars * 2}
                                         </span> / {' '}
@@ -81,12 +81,12 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                                             10 {' '}
                                         </span>
                                         <i className="bi bi-star-fill text-warning fs-1" ></i>
-                                    </a>
+                                    </NavLink>
                                 </h3>
                                 <p className='text-center'>
-                                <a href={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                                <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
                                     # of Reviews: {numberOfReviews}
-                                </a>
+                                </NavLink>
                                 </p>
                             </Col>
                            <Col xs={1}></Col>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate, useOutletContext, useParams } from 'react-router-dom'
+import { useNavigate, useOutletContext, useParams, NavLink } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -100,9 +100,9 @@ function EditUserReview(){
                 </Row>
                 <Row>
                     <h5 className="ms-3 text-secondary"> 
-                        <a href={`/artists/${review.artist?.id}`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                        <NavLink to={`/artists/${review.artist?.id}`} className='link-offset-2 link-underline link-underline-opacity-0'>
                             Artist: {review.artist?.name}
-                        </a>
+                        </NavLink>
                     </h5>
                     <p className="ms-3 text-secondary smaller">Date Posted: {review?.created_at}</p>
                     <EditReview reviewId={reviewId} formik={formik}/>

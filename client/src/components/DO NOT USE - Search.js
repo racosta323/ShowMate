@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
+import { NavLink } from 'react-router-dom'
 
 function Search(){
 
@@ -47,7 +48,7 @@ function Search(){
                             <p className="mb-1">Some placeholder content in a paragraph.</p>
                             <small>3 days ago</small>
                         </div>
-                    </a>
+                    <NavLink 
                 </div>
             )
         })

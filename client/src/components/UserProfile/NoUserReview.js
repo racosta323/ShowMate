@@ -24,7 +24,7 @@ function NoUserReview(){
                 </Row>
                 <Row>
                     <Col className="d-flex justify-content-center">
-                        {/* <a href="#" onClick={handleShow}>Write a review?</a>
+                        {/* <a href="#" onClick={handleShow}>Write a review?</NavLink> 
                         <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}/> */}
                     </Col>
                 </Row>

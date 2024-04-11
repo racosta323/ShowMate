@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import Row from "react-bootstrap/Row"
 import Col from 'react-bootstrap/Col'
@@ -26,7 +27,7 @@ function NoReview({ handleClose, handleShow, show }){
                 </Row>
                 <Row>
                     <Col className="d-flex justify-content-center">
-                        <a href="#" onClick={handleShow}>Write a review?</a>
+                        <NavLink to="#" onClick={handleShow}>Write a review?</NavLink>
                         <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}/>
                     </Col>
                 </Row>

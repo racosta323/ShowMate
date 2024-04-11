@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom'
+
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
@@ -34,9 +36,9 @@ function UserReviews( { reviews, loggedInUser, userId }){
                 </Row>
                 <Row>
                     <h5 className="ms-3 text-secondary">
-                        <a href={`/artists/${reviews.artist.id}`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                        <NavLink to={`/artists/${reviews.artist.id}`} className='link-offset-2 link-underline link-underline-opacity-0'>
                             Artist: {reviews.artist.name}
-                        </a>
+                        </NavLink> 
                     </h5>
                     <p className="ms-3 text-secondary smaller">Date Posted: {reviews.created_at}</p>
                     <ResponsiveEllipsis
@@ -53,15 +55,15 @@ function UserReviews( { reviews, loggedInUser, userId }){
                         {/* <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6> */}
                         {userId == loggedInUser.id ? 
                             <p className="text-end text-secondary smaller">
-                                <a href={`/users/${loggedInUser.id}/edit/${reviews.id}`}>
+                                <NavLink to={`/users/${loggedInUser.id}/edit/${reviews.id}`}>
                                     Edit
-                                </a> 
+                                </NavLink>  
                             </p> : 
                             <></>}
                         {/* <p className="text-end text-secondary smaller">
                             <a href="#">
                                 Edit
-                            </a> 
+                            </NavLink>  
                         </p> */}
                     </Col>
                 </Row>
