@@ -14,7 +14,7 @@ import Trending from './Trending'
 function Home(){
 
     const { logoutUser, loggedInUser } = useOutletContext()
-    console.log(loggedInUser)
+    // console.log(loggedInUser)
    
     const [artists, setArtists] = useState()
     
@@ -24,6 +24,38 @@ function Home(){
         .then(data=>setArtists(data))
     }, [])
     
+    console.log(artists)
+
+    // const topArtists = () => {
+        
+    //        return artists?.map((artist)=>{
+    //             let sumOfStars = ()=>{
+    //                 if(artist.reviews.length > 0){
+    //                     return artist.reviews.reduce((accumulator, currentValue)=>{
+                            
+    //                         return accumulator + currentValue.stars
+                         
+    //                      }, 0)
+    //                  }
+    //             }
+
+    //             let totalStars = artists?.map((artist)=>{
+    //                 // console.log(artist.reviews.length)
+    //                 return artist.reviews
+    //             })
+
+    //             if(sumOfStars()) {
+                    
+    //                 let averageStars = sumOfStars() / totalStars.length
+    //                 return averageStars
+    //             }
+               
+    //         })
+    // }
+
+    // let renderArtists = topArtists()?.map(review=>console.log(review))
+
+    console.log(topArtists())
 
     return(
         <Container>
