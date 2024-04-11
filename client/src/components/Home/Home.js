@@ -42,7 +42,7 @@ function Home(){
                         </Col>
                     </Row>
                 </Col>
-                <Col xs={4} className="border my-5">
+                <Col xs={4} className="my-5 trending-container">
                     <Row className="my-4">
                         <Col>
                             <h3>Trending Artists</h3>

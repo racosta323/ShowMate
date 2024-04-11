@@ -81,10 +81,8 @@ function ArtistReviews(){
                                     </Col>
                                     <Col className="d-flex justify-content-end">
                                         <Button onClick={handleShow}>
-                                            <Stack direction='horizontal'>
-                                                <i className="bi bi-pencil-square text-light fs-6 me-2" ></i>
-                                                <h6 className='mt-1'>Review</h6>
-                                            </Stack>
+                                            <i className="bi bi-pencil-square text-light fs-3" ></i>
+                                                {/* <h6 className='mt-1 smaller'>Review</h6> */}
                                         </Button>
                                         <CreateReview show={show} handleShow={handleShow} handleClose={handleClose} userId={loggedInUser.id} artist={artist}/>
                                     </Col>

@@ -28,18 +28,6 @@ function Artists(){
         .then(resp=>resp.json())
         .then(data => setArtist(data))
     }, [artistId])
-
-    // console.log(artist)
-//    const totalStars = () => {
-//         if(Object.keys(artist).length > 0){
-//             return artist.reviews.reduce((accumulator, currentValue)=>{
-//                 return accumulator + currentValue.stars
-//             }, 0)
-
-//         } else {
-//             console.log("nothing")
-//         }
-//    }
    
 
     const totalStars = () => {

@@ -39,7 +39,15 @@ input[type=radio]{
 }
 
 .trending{
-  background-color:rgb(213, 212, 212);
+  background-color:rgb(238, 238, 238);
   border-radius: 20px;
 }
 
+.trending:hover{
+  background-color: rgb(253, 242, 80);
+}
+
+.trending-container{
+  background-color: rgb(213, 215, 216);
+  border-radius: 20px;
+}
