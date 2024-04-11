@@ -38,7 +38,7 @@ function Home(){
 
     const renderArtists = avgStars?.slice(0,5).map((artist)=>{
         return(
-            <Trending key={artist.artist.id} name={artist.artist.name} genre={artist.artist.genre} rank={avgStars.indexOf(artist)+1} image={artist.artist.profile_image}/>
+            <Trending key={artist.artist.id} name={artist.artist.name} genre={artist.artist.genre} rank={avgStars.indexOf(artist)+1} image={artist.artist.profile_image} id={artist.artist.id}/>
         )
     })
 
@@ -62,7 +62,7 @@ function Home(){
                 <Col xs={4} className="my-5 trending-container">
                     <Row className="my-4">
                         <Col>
-                            <h3>Trending Artists</h3>
+                            <h3 className='fw-bold'>Trending Artists</h3>
                         </Col>
                     </Row>
                     {renderArtists}
