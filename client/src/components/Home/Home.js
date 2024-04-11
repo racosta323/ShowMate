@@ -8,6 +8,7 @@ import Carousel from 'react-bootstrap/Carousel'
 
 import HomeCarousel from "./HomeCarousel"
 import Reviews from '../Reviews/Reviews'
+import Trending from './Trending'
 
 
 function Home(){
@@ -42,10 +43,22 @@ function Home(){
                     </Row>
                 </Col>
                 <Col xs={4} className="border my-5">
-                    <Row className="my-4"></Row>
                     <Row className="my-4">
-                        <Col>Something here</Col>
+                        <Col>
+                            <h4>Trending Artists</h4>
+                        </Col>
                     </Row>
+                    <Trending/>
+                    <Trending/>
+                    <Trending/>
+                    <Trending/>
+                    <Trending/>
+                   <Row>
+                        <Col>
+                            <p className='smaller'>Sorted by [NUMBER OF LIKES]</p>
+                        </Col>
+                   </Row>
+
                 </Col>
             </Row>
         </Container>

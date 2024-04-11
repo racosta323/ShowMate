@@ -47,7 +47,7 @@ function Search({ results, input }){
                     </Col>
                     <Col className='py-5'>   
                         <Row className='bg-body-secondary p-5 mt-4'>
-                            <h2>Trending Artists</h2>
+                            <h2>Recently Created Artists</h2>
                         </Row>
                     </Col>
                 </Row>
