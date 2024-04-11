@@ -148,7 +148,6 @@ function Auth({ setUser }){
                                     type='click'
                                     onClick={formik.handleSubmit}
                                     onKeyDown={(e)=>{
-                                        console.log(e.key)
                                         if (e.key === 'Enter'){
                                             formik.handleSubmit()
                                             }

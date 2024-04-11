@@ -50,27 +50,64 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
 
 
     return(
-        <Container>
-            <Row >
-                <Row className='mt-5'></Row>
+       <>
+            <Row></Row>
+            <Row className='my-5'></Row>
+            <Row className='my-5'></Row>
+            {/* <Row >
+                
                 <Col className='mt-5'>
                     <h4>{artist?.genre}</h4>
                     <h1 className='text-uppercase'>{artist?.name}</h1> 
                 </Col>
-            </Row>
-            <Row>
-                <Col xs={8}>
+            </Row> */}
+            <Row className='bg-secondary p-4 pb-5'>
+                <Col xs={9}>
                     {/* first 16:9 ratio chosen */}
                     {/* image is not reactive??? */}
+                    <Stack direction='horizontal' className='ms-2'>
+                        <Col className='mx-5'>
+                            <h3 className='text-end fs-5 mx-3'>
+                                <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                                    <span className= "fw-bold fs-5">
+                                        {averageStars * 2}
+                                    </span> / {' '}
+                                    <span className='text-warning smaller'>
+                                        10 {' '}
+                                    </span>
+                                    <i className="bi bi-star-fill text-warning smaller" ></i>
+                                </NavLink>
+                            </h3>
+                            <p className='text-end smaller'>
+                                <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                                    # of Reviews: {numberOfReviews}
+                                </NavLink>
+                            </p>
+                        </Col>
+                        <Col className='d-flex justify-content-start'>
+                            <Button onClick={handleShow}>
+                                <Stack direction='horizontal'>
+                                    <i className="bi bi-pencil-square text-light smaller" > </i>
+                                    <h6 className='ms-2 mt-2 smallest'> Review</h6>
+                                </Stack>
+                            </Button>
+                            
+                            <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}  artist={artist} userId={loggedInUser.id}/>
+                        </Col>
+                    </Stack>
                     <Image
                         src={artist?.profile_image}
                         max-height={500}
-                        width={800}
+                        width={600}
                     />
                 </Col>
                 <Col className='d-flex justify-content-center'>
                     <Row>
-                        <Stack direction='horizontal' className='d-flex justify-content-center'>
+                        <Col className='mt-5'>
+                            <h1 className='text-uppercase fs-1'>{artist?.name}</h1> 
+                            <h4 className='fs-5'>{artist?.genre}</h4>
+                        </Col>
+                        {/* <Stack direction='horizontal' className='d-flex justify-content-center'>
                             <Col xs={6}>
                                 <h3 className='text-center'>
                                     <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
@@ -101,13 +138,13 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                                 <p>Write a review</p>
                                 <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}  artist={artist} userId={loggedInUser.id}/>
                             </Col>
-                        </Stack>
-                        <Row>
+                        </Stack> */}
+                        {/* <Row>
                             <Col>
                                 <p className='text-center'>Purchase tickets here</p>
                                 <p className='text-center'>Price ranges</p>
                             </Col>
-                        </Row>
+                        </Row> */}
                     </Row>
                     
                     {/* <Row>
@@ -119,7 +156,8 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                     </Row> */}
                         
                 </Col>
-                <Row className='mt-5'>
+            </Row>
+            <Row className='mt-5'>
                     <Col xs={8}>
                         <h2>User Uploads</h2>
                         <p>Image Carousel</p>
@@ -130,9 +168,8 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                         </Row>
                     </Col>
                 </Row>
-            </Row>
 
-        </Container>
+        </>
     )
 }
 
