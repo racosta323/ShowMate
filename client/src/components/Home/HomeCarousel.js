@@ -31,7 +31,7 @@ function HomeCarousel({ artists }){
                 </Carousel.Caption>
             </Carousel.Item>
         ) 
-    }) : console.log('hello')
+    }) : console.log('Loading')
 
 
     return(

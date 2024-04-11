@@ -8,12 +8,13 @@ import Carousel from 'react-bootstrap/Carousel'
 import Image from 'react-bootstrap/Image'
 import Stack from 'react-bootstrap/Stack'
 
-function Trending(){
+function Trending({ name, genre, rank }){
+   
     return(
         <Col className='p-2 m-1 trending'>
 
             <Stack direction='horizontal'>
-                <h2 className='p-1 fw-bold text-dark'>1</h2>
+                <h2 className='p-1 fw-bold text-dark'>{rank}</h2>
                 <Image
                     src="https://www.hollywoodreporter.com/wp-content/uploads/2024/04/COWBOY-CARTER-PRESS-05-H-2024.jpg?w=1296&h=730&crop=1&resize=1000%2C563
                     "
@@ -23,9 +24,9 @@ function Trending(){
                     className='p-1'
                 />
                 <h6 className='p-1'>
-                    Beyonce <br/>
+                    {name} <br/>
                     <span className='smaller'>
-                        Pop 
+                        {genre} 
                     </span>
                 </h6>
                 

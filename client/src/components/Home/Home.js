@@ -24,38 +24,50 @@ function Home(){
         .then(data=>setArtists(data))
     }, [])
     
-    console.log(artists)
+    // console.log(artists)
 
-    // const topArtists = () => {
-        
-    //        return artists?.map((artist)=>{
-    //             let sumOfStars = ()=>{
-    //                 if(artist.reviews.length > 0){
-    //                     return artist.reviews.reduce((accumulator, currentValue)=>{
-                            
-    //                         return accumulator + currentValue.stars
-                         
-    //                      }, 0)
-    //                  }
+
+
+    // const avgStars = artists?.filter((artist)=>{
+    //     if(artist.reviews.length > 0){
+    //         return artist.reviews.reduce((total, amount, index, arry)=>{
+    //             total += amount.stars
+    //             if (index === arry.length-1){
+    //                 return total/arry.length
+    //             } else{
+    //                 return total
     //             }
+    //         }, 0)
+    //     }
 
-    //             let totalStars = artists?.map((artist)=>{
-    //                 // console.log(artist.reviews.length)
-    //                 return artist.reviews
-    //             })
+    // })
 
-    //             if(sumOfStars()) {
-                    
-    //                 let averageStars = sumOfStars() / totalStars.length
-    //                 return averageStars
-    //             }
-               
-    //         })
-    // }
+    const avgStars = artists?.filter((artist) => {
+        return artist.reviews.length > 0;}).map((artist) => {
+            const totalStars = artist.reviews.reduce((total, review) => {
+                return total + review.stars;
+            }, 0);
+            return {artist, avgStars: totalStars / artist.reviews.length};
+    });
 
-    // let renderArtists = topArtists()?.map(review=>console.log(review))
 
-    console.log(topArtists())
+    avgStars?.sort((a, b) => {
+        return b.avgStars - a.avgStars; 
+    });
+
+
+    console.log(avgStars)
+
+    const renderArtists = avgStars?.map((artist)=>{
+        console.log(avgStars.indexOf(artist))
+        // console.log(artist.artist.indexOf(artist.artist.name))
+        return(
+            <Trending key={artist.artist.id} name={artist.artist.name} genre={artist.artist.genre} rank={avgStars.indexOf(artist)+1}/>
+        )
+    })
+    
+
+  
 
     return(
         <Container>
@@ -80,11 +92,7 @@ function Home(){
                             <h3>Trending Artists</h3>
                         </Col>
                     </Row>
-                    <Trending/>
-                    <Trending/>
-                    <Trending/>
-                    <Trending/>
-                    <Trending/>
+                    {renderArtists}
                    <Row>
                         <Col>
                             <p className='smaller p-2'>Sorted by highest rating</p>
