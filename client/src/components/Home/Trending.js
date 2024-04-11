@@ -10,7 +10,7 @@ import Stack from 'react-bootstrap/Stack'
 
 function Trending(){
     return(
-        <Col className='p-2 m-1 border border-dark'>
+        <Col className='p-2 m-1 trending'>
 
             <Stack direction='horizontal'>
                 <h2 className='p-1 fw-bold text-dark'>1</h2>

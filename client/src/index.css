@@ -5,16 +5,6 @@
   --text: hsla(0, 0%, 100%, 0.88);
 }
 
-
-.list-group-item {
-  border: none; /* Remove border for each search result item */
-  cursor: pointer; /* Add cursor pointer for better UX */
-}
-
-.list-group-item:hover {
-  background-color: #f7f7f7; /* Change background color on hover */
-}
-
 .search.form-control::placeholder {
   color: red;
 }
@@ -48,4 +38,8 @@ input[type=radio]{
   margin: 100px;
 }
 
+.trending{
+  background-color:rgb(213, 212, 212);
+  border-radius: 20px;
+}
 
