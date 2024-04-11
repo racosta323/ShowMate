@@ -23,24 +23,6 @@ function Home(){
         .then (resp=>resp.json())
         .then(data=>setArtists(data))
     }, [])
-    
-    // console.log(artists)
-
-
-
-    // const avgStars = artists?.filter((artist)=>{
-    //     if(artist.reviews.length > 0){
-    //         return artist.reviews.reduce((total, amount, index, arry)=>{
-    //             total += amount.stars
-    //             if (index === arry.length-1){
-    //                 return total/arry.length
-    //             } else{
-    //                 return total
-    //             }
-    //         }, 0)
-    //     }
-
-    // })
 
     const avgStars = artists?.filter((artist) => {
         return artist.reviews.length > 0;}).map((artist) => {
@@ -50,24 +32,15 @@ function Home(){
             return {artist, avgStars: totalStars / artist.reviews.length};
     });
 
-
     avgStars?.sort((a, b) => {
         return b.avgStars - a.avgStars; 
     });
 
-
-    console.log(avgStars)
-
     const renderArtists = avgStars?.slice(0,5).map((artist)=>{
-        // console.log(artist.artist.indexOf(artist.artist.name))
         return(
-
             <Trending key={artist.artist.id} name={artist.artist.name} genre={artist.artist.genre} rank={avgStars.indexOf(artist)+1} image={artist.artist.profile_image}/>
         )
     })
-    
-
-  
 
     return(
         <Container>
