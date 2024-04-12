@@ -161,15 +161,17 @@ class ReviewById(Resource):
     def patch(self, id):
         
         params = request.json
-
+        ipdb.set_trace()
 
         try:
             review = Review.query.get(id)
 
             params = request.json
+            ipdb.set_trace()
 
             for attr in params:
                 if attr == "show_date":
+                    ipdb.set_trace()
                     date_object = datetime.strptime(request.get_json()["show_date"], '%Y-%m-%d').date()
                     setattr(review, attr, date_object)
                 else:

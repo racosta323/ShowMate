@@ -19,7 +19,9 @@ function Stars( { key, handleClick, rating, setFieldValue}){
    }
 
    useEffect(() => {
-        setFieldValue('stars', newRating);
+        if (newRating != ""){
+            setFieldValue('stars', newRating);
+        }
     }, [newRating, setFieldValue]);
 
    const renderStars=()=>{

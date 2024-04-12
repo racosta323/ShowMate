@@ -62,6 +62,7 @@ function CreateProfile(){
                         image: ''
                     }}
                     onSubmit={async (values) => {
+                        console.log(values)
                         try{
                             const artistResponse = await fetch('/artists',{
                                 method: 'POST',
@@ -92,6 +93,7 @@ function CreateProfile(){
                 >
                     {({ values, handleSubmit, handleChange, touched, errors, handleBlur, resetForm})=>(
                         <Form noValidate>
+                           
                             <Form.Group className="mb-3" controlId="name">
                                 <Form.Label>Artist Name</Form.Label>
                                 <Form.Control

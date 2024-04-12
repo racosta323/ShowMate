@@ -167,7 +167,9 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
             
                         }
                         setSuccess(true)
-                        
+                        window.location.reload()
+                        // resetForm()
+                        handleClose()
                     }}
                 
                 >
@@ -178,20 +180,22 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
                                 Share your review of a show you attended for: <br/> 
                                 <span className='fw-bold'>{artist?.name}</span>
                             </p>
-                            {/* {console.log(values)} */}
+                            {console.log(values)}
                             <Row>
-                                <Stars 
-                                    stars={values.stars} 
-                                    handleChange={handleChange} 
-                                    key={values.id} 
-                                    setFieldValue={setFieldValue}
-                                    // handleClick={setRating}
-                                    // rating={rating}
-                                    // newRating={newRating} 
-                                    
-                                />
+                                <Form.Group>
+                                    <Stars 
+                                        stars={values.stars} 
+                                        onChange={handleChange} 
+                                        key={values.id} 
+                                        setFieldValue={setFieldValue}
+                                        // handleClick={setRating}
+                                        // rating={rating}
+                                        // newRating={newRating} 
+                                        
+                                    />
+                                </Form.Group>
                             </Row>
-                    
+                            
                             <Form.Group className="mb-3" controlId="subject">
                                 <Form.Label className='fw-bold smaller'>Subject</Form.Label>
                                 <Form.Control
@@ -304,8 +308,7 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
                             {/* <Button variant="dark" onClick={formik.handleSubmit}> */}
                             <Button variant="dark" onClick={()=>{
                                 handleSubmit()
-                                resetForm()
-                                handleClose()
+                                
                             }}
                             >
                                 Save Changes
