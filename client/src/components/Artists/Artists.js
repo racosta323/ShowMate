@@ -21,7 +21,7 @@ function Artists(){
     
     const params = useParams()
     const artistId = params.id
-    console.log(artistId)
+    // console.log(artistId)
 
      useEffect(()=>{
         fetch(`/artists/${artistId}`)
