@@ -30,11 +30,11 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
         
             <Navbar 
                 expand="lg" 
-                bg="danger"
                 data-bs-theme="dark"
                 className='mt-3'
                 collapseOnSelect
                 sticky='top'
+                style={{background:"#d60000"}}
             >
                <Container>
                     <Col>
@@ -68,7 +68,7 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
                             <>
                                 <Navbar.Text className='smaller'>
                                     <Stack direction='horizontal'>
-                                        <p className='mt-2'>
+                                        <p className='mt-2 text-light'>
                                             Signed in as:{'  '}
                                             <span className='fw-bold'>
                                                 {loggedInUser.first_name}

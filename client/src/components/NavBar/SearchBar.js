@@ -14,19 +14,21 @@ function SearchBar(){
 
     const [input, setInput] = useState("")
     const [results, setResults] = useState({})
-
+    
     const handleChange = (value) => {
         setInput(value)
         fetchData(value)
         
     }
 
-    function handleSubmit(e){
+    function handleSubmit(e){   
         e.preventDefault()
         navigate('/search', {state:{input:input, results:results}})
+        setInput('')
+        window.location.reload()
     }
 
-    // console.log(input)
+    
     // console.log(results)
 
 

@@ -51,7 +51,7 @@ function Reviews(){
         )
     })
 
-    console.log(show)
+    
 
     return (
         <Container>

@@ -54,97 +54,57 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
             <Row></Row>
             <Row className='my-5'></Row>
             <Row className='my-5'></Row>
-            {/* <Row >
-                
-                <Col className='mt-5'>
-                    <h4>{artist?.genre}</h4>
-                    <h1 className='text-uppercase'>{artist?.name}</h1> 
-                </Col>
-            </Row> */}
-            <Row className='bg-secondary p-4 pb-5'>
-                <Col xs={9}>
+        
+            <Row className='p-2 pb-5' style={{background: "#395A7F", height:"420px"}}>
+                <Col xs={6}>
                     {/* first 16:9 ratio chosen */}
                     {/* image is not reactive??? */}
-                    <Stack direction='horizontal' className='ms-2'>
-                        <Col className='mx-5'>
-                            <h3 className='text-end fs-5 mx-3'>
+                    <Stack direction='horizontal' className='ms-5'>
+                        <Col xs={2}>
+                            <h3 className='text-start fs-5 m-2 p-1'>
                                 <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
-                                    <span className= "fw-bold fs-5">
-                                        {averageStars * 2}
-                                    </span> / {' '}
+                                    <span className= "fw-bold fs-5 text-light">
+                                        {averageStars * 2} /
+                                    </span> 
                                     <span className='text-warning smaller'>
-                                        10 {' '}
+                                    {' '} 10 {' '}
                                     </span>
                                     <i className="bi bi-star-fill text-warning smaller" ></i>
                                 </NavLink>
                             </h3>
-                            <p className='text-end smaller'>
-                                <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                            <p className='text-start' style={{fontSize:"10px"}}>
+                                <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0 text-light'>
                                     # of Reviews: {numberOfReviews}
                                 </NavLink>
                             </p>
                         </Col>
-                        <Col className='d-flex justify-content-start'>
-                            <Button onClick={handleShow}>
+                        <Col xs={7} className='d-flex justify-content-end ms-5'>
+                            <Button onClick={handleShow} variant='success'>
                                 <Stack direction='horizontal'>
-                                    <i className="bi bi-pencil-square text-light smaller" > </i>
-                                    <h6 className='ms-2 mt-2 smallest'> Review</h6>
+                                    <i className="bi bi-pencil-square text-light smaller fw-bold" ></i>
+                                    <h6 className='ms-2 mt-2 smallest fw-bold'> Review</h6>
                                 </Stack>
                             </Button>
                             
                             <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}  artist={artist} userId={loggedInUser.id}/>
                         </Col>
                     </Stack>
-                    <Image
-                        src={artist?.profile_image}
-                        max-height={500}
-                        width={600}
-                    />
-                </Col>
-                <Col className='d-flex justify-content-center'>
                     <Row>
-                        <Col className='mt-5'>
-                            <h1 className='text-uppercase fs-1'>{artist?.name}</h1> 
-                            <h4 className='fs-5'>{artist?.genre}</h4>
+                        <Col style={{height:"30px"}} className='ps-5'>
+                            <Image
+                                src={artist?.profile_image}
+                                max-height={400}
+                                width={500}
+                            />
                         </Col>
-                        {/* <Stack direction='horizontal' className='d-flex justify-content-center'>
-                            <Col xs={6}>
-                                <h3 className='text-center'>
-                                    <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
-                                        <span className='fs-1 fw-bold'>
-                                            {averageStars * 2}
-                                        </span> / {' '}
-                                        <span className='text-warning'>
-                                            10 {' '}
-                                        </span>
-                                        <i className="bi bi-star-fill text-warning fs-1" ></i>
-                                    </NavLink>
-                                </h3>
-                                <p className='text-center'>
-                                <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
-                                    # of Reviews: {numberOfReviews}
-                                </NavLink>
-                                </p>
-                            </Col>
-                           <Col xs={1}></Col>
-                            <Col xs={6}>
-                                
-                                <Button onClick={handleShow}>
-                                    <Stack direction='horizontal'>
-                                        <i className="bi bi-pencil-square text-light fs-6" > </i>
-                                        <h3 className='fs-6 ms-2 mt-1'> Review</h3>
-                                    </Stack>
-                                </Button>
-                                <p>Write a review</p>
-                                <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}  artist={artist} userId={loggedInUser.id}/>
-                            </Col>
-                        </Stack> */}
-                        {/* <Row>
-                            <Col>
-                                <p className='text-center'>Purchase tickets here</p>
-                                <p className='text-center'>Price ranges</p>
-                            </Col>
-                        </Row> */}
+                    </Row>
+                </Col>
+                <Col xs={4}>
+                    <Row className='my-5'>
+                        <Col className='my-3'>
+                            <h1 className='text-uppercase text-light' style={{fontSize: "75px"}}>{artist?.name}</h1> 
+                            <h4 className='fs-5 text-light'>{artist?.genre}</h4>
+                        </Col>
                     </Row>
                     
                     {/* <Row>
