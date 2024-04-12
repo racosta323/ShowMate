@@ -64,7 +64,7 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                             <h3 className='text-start fs-5 m-2 p-1'>
                                 <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
                                     <span className= "fw-bold fs-5 text-light">
-                                        {averageStars * 2} /
+                                        {Math.round(averageStars * 2)} /
                                     </span> 
                                     <span className='text-warning smaller'>
                                     {' '} 10 {' '}
