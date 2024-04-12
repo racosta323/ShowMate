@@ -99,15 +99,25 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
 //         // formik.values.stars = currentRating
 //    }
 
-    const handleSaveClick = () => {
-        if (success){
-            handleClose()
-            setModalShow(true)
-            // setSuccess(true)
+    // const handleSaveClick = () => {
+    //     if (success){
+    //         handleClose()
+    //         setModalShow(true)
+    //         // setSuccess(true)
+    // }
+    
+    const renderSuccess = () =>{
+        return(
+            <>
+                {success && <Success artistId={artistId} show={modalShow} onHide={() => setModalShow(false)} />}
+
+            </>
+
+        )
     }
+
     
-    
-   }
+   
    
     return(
         <>
@@ -168,7 +178,7 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
                                 Share your review of a show you attended for: <br/> 
                                 <span className='fw-bold'>{artist?.name}</span>
                             </p>
-                            {console.log(values)}
+                            {/* {console.log(values)} */}
                             <Row>
                                 <Stars 
                                     stars={values.stars} 
@@ -292,13 +302,17 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
                                 Close
                             </Button>
                             {/* <Button variant="dark" onClick={formik.handleSubmit}> */}
-                            <Button variant="dark" onClick={handleSubmit}
+                            <Button variant="dark" onClick={()=>{
+                                handleSubmit()
+                                resetForm()
+                                handleClose()
+                            }}
                             >
                                 Save Changes
                             </Button>
                         </Col>
-                        {/* {console.log(success)} */}
-                        {/* {success ? <Success artistId={artistId} show={modalShow} onHide={()=> setModalShow(false)}/> : null} */}
+                        {/* {console.log(success)}
+                        {renderSuccess()} */}
                     </Form>
                     
                     )}
