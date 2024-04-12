@@ -62,6 +62,7 @@ function CreateProfile(){
                         image: ''
                     }}
                     onSubmit={async (values) => {
+                        console.log(values)
                         try{
                             const artistResponse = await fetch('/artists',{
                                 method: 'POST',
@@ -185,7 +186,7 @@ function CreateProfile(){
                                     Close
                                 </Button>
                                 <Button className='m-2' variant="dark" onClick={handleSubmit}>
-                                    Save Changes
+                                    Submit Artist
                                 </Button>
                            </Col>
             
