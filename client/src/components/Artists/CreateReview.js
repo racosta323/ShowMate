@@ -176,9 +176,9 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
                     
                     {({ values, handleSubmit, handleChange, touched, errors, handleBlur, resetForm, setFieldValue})=>(
                         <Form noValidate id='save'>
-                            <p className='mt-4'>
+                            <p className='mt-2'>
                                 Share your review of a show you attended for: <br/> 
-                                <span className='fw-bold'>{artist?.name}</span>
+                                <span className='fw-bold fs-3'>{artist?.name}</span>
                             </p>
                             {console.log(values)}
                             <Row>
@@ -302,7 +302,7 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
 
                         <hr className='my-3 text-secondary'/>
                         <Col className='d-flex justify-content-end'>
-                            <Button variant="danger" onClick={handleClose}>
+                            <Button className="mx-3" variant="danger" onClick={handleClose}>
                                 Close
                             </Button>
                             {/* <Button variant="dark" onClick={formik.handleSubmit}> */}
