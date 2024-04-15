@@ -22,7 +22,7 @@ function Reviews(){
     const renderReviews = reviews?.map((review)=>{
         return (
             <tbody key = {review.id}>
-                {console.log(review)}
+                {/* {console.log(review)} */}
                 <tr>
                     <td>{review.id}</td>
                     <td>

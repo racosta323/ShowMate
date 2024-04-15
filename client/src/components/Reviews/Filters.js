@@ -12,6 +12,13 @@ import Form from 'react-bootstrap/Form'
 
 function Filters({ show, handleClose}){
 
+    const [artist, setArtist] = useState(false)
+
+    function handleClick(event){
+        setArtist(event.target.checked)
+    }
+
+    console.log(artist)
 
     return(
         <Offcanvas 
@@ -32,9 +39,20 @@ function Filters({ show, handleClose}){
                                 type="switch"
                                 id="custom-switch"
                                 label="Artist"
+                                value={artist}
+                                onClick={handleClick}
                             >
-
                             </Form.Check>
+                            {artist ? 
+                                <>
+                                    <Form.Select>
+                                        <option>Choose...</option>
+                                    </Form.Select>
+                                </> : 
+                                <>
+
+                                </> 
+                            }
                         </Form>
                     </Offcanvas.Body>
               </Col>

@@ -4,7 +4,7 @@ import Search from './components/Search/Search'
 import ArtistReviews from './components/Artists/ArtistReviews'
 import Home from './components/Home/Home'
 import Reviews from './components/Reviews/Reviews'
-import Auth2 from './components/NavBar/Auth'
+import Auth from './components/NavBar/Auth'
 
 
 import { createBrowserRouter } from 'react-router-dom'
@@ -51,7 +51,7 @@ const routes = [
             }, 
             {
                 path: 'login',
-                element: <Auth2/>
+                element: <Auth/>
             }
         ]
     }
