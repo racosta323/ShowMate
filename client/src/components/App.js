@@ -6,7 +6,8 @@ import Row from 'react-bootstrap/Row'
 
 
 import NavBar from "./NavBar/NavBar"
-import Auth from "./NavBar/Auth";
+// import Auth from "./NavBar/Auth";
+import Auth2 from './NavBar/Auth2'
 import NoReview from './Artists/NoReview'
 import ReviewList from "./Artists/ReviewList";
 
@@ -85,7 +86,8 @@ const renderList = artists.map ? artists.map((artist)=>{
     <>
       <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} logoutUser={logoutUser}/>
       <Container className="bg-light">
-       { !!loggedInUser ? <Outlet context={context}/> : <Auth setUser={setLoggedInUser}/>}
+       {/* { !!loggedInUser ? <Outlet context={context}/> : <Auth setUser={setLoggedInUser}/>} */}
+       { !!loggedInUser ? <Outlet context={context}/> : <Auth2 setUser={setLoggedInUser}/>}
       </Container>
     </>
     )

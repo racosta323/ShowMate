@@ -7,7 +7,9 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from "react-bootstrap/Button"
 import Modal from 'react-bootstrap/Modal'
+
 import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 
 function Auth({ setUser }){
@@ -24,14 +26,27 @@ function Auth({ setUser }){
         setSignup((currentSignup) => !currentSignup)
     }
 
+    const signupSchema = Yup.object().shape({
+        username: Yup.string().min(5, 'Username too Short!').max(15, 'Username too Long!'),
+        password: Yup.string().min(5, 'Password too Short!').max(15, 'Password too Long!'),
+        passwordConfirmation: Yup.string().oneOf([Yup.ref('password')], 'Passwords must match')
+    })
+
+    const loginSchema = Yup.object().shape({
+        username: Yup.string().required('username required'),
+        password: Yup.string().required('password required')
+    })
+
     const formik = useFormik({
         initialValues:{
             id: '',
             firstName: '',
             lastName: '',
             username: '',
-            password: ''
+            password: '',
+            passwordConfirmation: ''
         },
+        validationSchema: signup ? signupSchema : loginSchema,
         onSubmit: async (values) => {
             try{
                 const endpoint = signup ? '/users' : '/login'
@@ -84,7 +99,13 @@ function Auth({ setUser }){
                                         required
                                         autoFocus
                                         className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
+                                        isValid={formik.touched.subject && !formik.errors.subject}
+                                        isInvalid={!!formik.errors.subject}
                                     />
+                                    <Form.Control.Feedback >Looks good!</Form.Control.Feedback>
+                                    <Form.Control.Feedback type="invalid">
+                                        {console.log(formik.errors.firstName)}
+                                    </Form.Control.Feedback>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label className='fw-bold smaller pt-4'>Last Name</Form.Label>
@@ -135,7 +156,7 @@ function Auth({ setUser }){
                                         type='password'
                                         name='passwordConfirmation'
                                         placeholder='Confirm your password'
-                                        // value={formik.values.name}
+                                        value={formik.values.passwordConfirmation}
                                         onChange={formik.handleChange}
                                         required
                                         className='border-top-0 border-end-0 border-start-0 rounded-0 smaller'
