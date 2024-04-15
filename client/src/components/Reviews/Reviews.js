@@ -14,11 +14,15 @@ function Reviews(){
     const { reviews } = useOutletContext()
 
     const [ show, setShow ] = useState(false)
+    const [ filteredArtist, setFilteredArtist] = useState({})
+
 
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
-    
+    function handleArtistInput(event){
+        setFilteredArtist(event.target.value)
+    }
 
 
     const renderReviews = reviews?.map((review)=>{
@@ -53,6 +57,13 @@ function Reviews(){
         )
     })
 
+    //filtered results
+    const filteredResults = reviews?.filter((review)=>{
+        console.log("review", review.artist.name, "value", filteredArtist)
+        return review.artist.name === filteredArtist
+    })
+
+    console.log(filteredResults)
     
 
     return (
@@ -70,7 +81,7 @@ function Reviews(){
             <Row>
                 <Col>
                     Chosen Filters Here
-                    <Filters show={show} handleClose={handleClose} reviews={reviews}/>
+                    <Filters show={show} handleClose={handleClose} reviews={reviews} handleArtistInput={handleArtistInput}/>
                 </Col>
             </Row>
             <Row className="my-5">

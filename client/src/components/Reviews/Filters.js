@@ -10,7 +10,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
-function Filters({ show, handleClose, reviews}){
+function Filters({ show, handleClose, reviews, handleArtistInput}){
 
     const [artistToggle, setArtistToggle] = useState(false)
 
@@ -18,9 +18,7 @@ function Filters({ show, handleClose, reviews}){
         setArtistToggle(event.target.checked)
     }
 
-    function handleArtistInput(event){
-        console.log(event.target.value)
-    }
+
 
     // const renderArtistNames = reviews?.map((review)=>{
 
