@@ -82,6 +82,8 @@ const renderList = artists.map ? artists.map((artist)=>{
     reviews: reviews
   }
 
+  console.log(context)
+
   return (
     <>
       <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} logoutUser={logoutUser}/>

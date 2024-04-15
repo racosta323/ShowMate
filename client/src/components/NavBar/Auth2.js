@@ -113,6 +113,7 @@ function Auth({ setUser }) {
                                                 if (resp.ok) {
                                                     resp.json().then(user => {
                                                         setUser(user)
+                                                        navigate('/')
                                                     })
                                                 } else {
                                                     console.log('errors? handle them')

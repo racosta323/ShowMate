@@ -6,13 +6,25 @@ import Container from 'react-bootstrap/Container';
 import Stack from 'react-bootstrap/Stack'
 import SearchBar from './SearchBar'
 
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import Auth2 from './Auth2';
 
 function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
 
-    function toggleClick(){
+    const navigate = useNavigate()
+
+    // function toggleClick(){
+    //     console.log(loggedInUser)
+    //     setLoggedInUser((current)=> !current)
+    // }
+
+    function handleClick(){
         console.log(loggedInUser)
-        setLoggedInUser((current)=> !current)
+        if(!loggedInUser){
+            console.log('if')
+            navigate('/login')
+            window.location.reload()
+        }
     }
 
     function handleLogout(){
@@ -102,7 +114,7 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
                             </> : 
                             <>
                                 <Navbar.Text>
-                                    <NavLink to = "" onClick={toggleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</NavLink> 
+                                    <NavLink  onClick={handleClick} className='link-underline link-underline-opacity-0 fw-bold smaller'>LOGIN / SIGNUP</NavLink> 
                                 </Navbar.Text>
                             </>
                         }    

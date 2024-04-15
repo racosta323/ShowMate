@@ -4,6 +4,7 @@ import Search from './components/Search/Search'
 import ArtistReviews from './components/Artists/ArtistReviews'
 import Home from './components/Home/Home'
 import Reviews from './components/Reviews/Reviews'
+import Auth2 from './components/NavBar/Auth2'
 
 
 import { createBrowserRouter } from 'react-router-dom'
@@ -47,6 +48,10 @@ const routes = [
             {
                 path: 'reviews',
                 element: <Reviews/>
+            }, 
+            {
+                path: 'login',
+                element: <Auth2/>
             }
         ]
     }
