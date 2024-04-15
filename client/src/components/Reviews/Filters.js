@@ -10,15 +10,33 @@ import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
-function Filters({ show, handleClose}){
+function Filters({ show, handleClose, reviews}){
 
-    const [artist, setArtist] = useState(false)
+    const [artistToggle, setArtistToggle] = useState(false)
 
-    function handleClick(event){
-        setArtist(event.target.checked)
+    function handleArtistToggle(event){
+        setArtistToggle(event.target.checked)
     }
 
-    console.log(artist)
+    function handleArtistInput(event){
+        console.log(event.target.value)
+    }
+
+    // const renderArtistNames = reviews?.map((review)=>{
+
+    //     return(
+    //         <option>{review.artist.name}</option>
+    //     )
+    // })
+    
+    const renderArtistNames = reviews?.reduce((uniqueNames, review) => {
+        uniqueNames.add(review.artist.name);
+        return uniqueNames;
+    }, new Set());
+    
+    const uniqueArtistNames = Array.from(renderArtistNames);
+
+    
 
     return(
         <Offcanvas 
@@ -39,14 +57,19 @@ function Filters({ show, handleClose}){
                                 type="switch"
                                 id="custom-switch"
                                 label="Artist"
-                                value={artist}
-                                onClick={handleClick}
+                                onClick={handleArtistToggle}
                             >
                             </Form.Check>
-                            {artist ? 
+                            {artistToggle ? 
                                 <>
-                                    <Form.Select>
+                                    <Form.Select
+                                        defaultValue="Choose...."
+                                        onInput={handleArtistInput}
+                                    >
                                         <option>Choose...</option>
+                                        {uniqueArtistNames.map((name, index) => (
+                                            <option key={index} value={name}>{name}</option>
+                                        ))}
                                     </Form.Select>
                                 </> : 
                                 <>

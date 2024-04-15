@@ -126,7 +126,6 @@ function Auth({ setUser }) {
                             >
                                 {({ values, handleSubmit, handleChange, touched, errors, handleBlur, resetForm, setFieldValue }) => (
                                     <Form noValidate>
-                                        {console.log(values)}
                                         {signup && <>
                                             <Form.Group>
                                                 <Form.Label className='fw-bold smaller'>First Name</Form.Label>

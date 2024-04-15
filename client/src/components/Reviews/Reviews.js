@@ -18,6 +18,8 @@ function Reviews(){
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
+    
+
 
     const renderReviews = reviews?.map((review)=>{
         return (
@@ -68,7 +70,7 @@ function Reviews(){
             <Row>
                 <Col>
                     Chosen Filters Here
-                    <Filters show={show} handleClose={handleClose}/>
+                    <Filters show={show} handleClose={handleClose} reviews={reviews}/>
                 </Col>
             </Row>
             <Row className="my-5">

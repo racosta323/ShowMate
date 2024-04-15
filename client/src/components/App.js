@@ -82,7 +82,7 @@ const renderList = artists.map ? artists.map((artist)=>{
     reviews: reviews
   }
 
-  console.log(context)
+  // console.log(context)
 
   return (
     <>
