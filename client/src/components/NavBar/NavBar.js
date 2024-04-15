@@ -7,7 +7,7 @@ import Stack from 'react-bootstrap/Stack'
 import SearchBar from './SearchBar'
 
 import { NavLink, useNavigate } from 'react-router-dom'
-import Auth2 from './Auth2';
+import Auth2 from './Auth';
 
 function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
 

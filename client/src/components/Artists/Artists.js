@@ -7,6 +7,7 @@ import Stack from 'react-bootstrap/Stack'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
+import Ratio from 'react-bootstrap/Ratio'
 
 import CreateReview from './CreateReview'
 
@@ -55,7 +56,7 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
             <Row className='my-5'></Row>
             <Row className='my-5'></Row>
         
-            <Row className='p-2 pb-5' style={{background: "#395A7F", height:"420px"}}>
+            <Row className='p-2 pb-5' style={{background: "#395A7F"}}>
                 <Col xs={6}>
                     {/* first 16:9 ratio chosen */}
                     {/* image is not reactive??? */}
@@ -89,13 +90,15 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                             <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}  artist={artist} userId={loggedInUser.id}/>
                         </Col>
                     </Stack>
-                    <Row>
-                        <Col style={{height:"30px"}} className='ps-5'>
-                            <Image
-                                src={artist?.profile_image}
-                                max-height={400}
-                                width={500}
-                            />
+                    <Row >
+                        <Col >
+                           <Ratio aspectRatio="16x9">
+                                <Image
+                                    src={artist?.profile_image}
+                                    // max-height={400}
+                                    // width={500}
+                                />
+                           </Ratio>
                         </Col>
                     </Row>
                 </Col>
