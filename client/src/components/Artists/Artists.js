@@ -52,40 +52,9 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
 
     return(
        <>
-            
             <Row className='my-5'></Row>
-            <Row className='p-2 pb-5 my-3' style={{background: "#395A7F"}}>
+            <Row className='py-5' style={{background: "#395A7F"}}>
                 <Col xs={6}>
-                    <Stack direction='horizontal'>
-                        <Col xs={2}>
-                            <h3 className='text-start fs-5 m-2 p-1'>
-                                <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
-                                    <span className= "fw-bold fs-5 text-light">
-                                        {Math.round(averageStars * 2)} /
-                                    </span> 
-                                    <span className='text-warning smaller'>
-                                    {' '} 10 {' '}
-                                    </span>
-                                    <i className="bi bi-star-fill text-warning smaller" ></i>
-                                </NavLink>
-                            </h3>
-                            <p className='text-start' style={{fontSize:"10px"}}>
-                                <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0 text-light'>
-                                    # of Reviews: {numberOfReviews}
-                                </NavLink>
-                            </p>
-                        </Col>
-                        <Col>
-                            <Button onClick={handleShow} variant='success'>
-                                <Stack direction='horizontal'>
-                                    <i className="bi bi-pencil-square text-light smaller fw-bold" ></i>
-                                    <h6 className='ms-2 mt-2 smallest fw-bold'> Review</h6>
-                                </Stack>
-                            </Button>
-                            
-                            <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}  artist={artist} userId={loggedInUser.id}/>
-                        </Col>
-                    </Stack>
                     <Row >
                         <Col >
                            <Ratio aspectRatio="16x9">
@@ -99,10 +68,44 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                     </Row>
                 </Col>
                 <Col xs={6}>
-                    <Row className='mt-5'>
-                        <Col className='my-5'>
+                    <Row>
+                        <Col className='my-3'>
                             <h1 className='text-uppercase text-light text-center' style={{fontSize: "75px"}}>{artist?.name}</h1> 
                             <h4 className='fs-5 text-light text-center'>{artist?.genre}</h4>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className='d-flex justify-content-center'>
+                            <Stack direction='horizontal' gap={4}>
+                                <Col xs={6}>
+                                    <h3 className='text-start fs-5 m-2 p-1'>
+                                        <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
+                                            <span className= "fw-bold fs-5 text-light">
+                                                {Math.round(averageStars * 2)} /
+                                            </span> 
+                                            <span className='text-warning smaller'>
+                                            {' '} 10 {' '}
+                                            </span>
+                                            <i className="bi bi-star-fill text-warning smaller" ></i>
+                                        </NavLink>
+                                    </h3>
+                                    <p className='text-start' style={{fontSize:"10px"}}>
+                                        <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0 text-light'>
+                                            # of Reviews: {numberOfReviews}
+                                        </NavLink>
+                                    </p>
+                                </Col>
+                                <Col>
+                                    <Button onClick={handleShow} variant='success'>
+                                        <Stack direction='horizontal'>
+                                            <i className="bi bi-pencil-square text-light smaller fw-bold" ></i>
+                                            <h6 className='ms-2 mt-2 smallest fw-bold'> Review</h6>
+                                        </Stack>
+                                    </Button>
+                                    
+                                    <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}  artist={artist} userId={loggedInUser.id}/>
+                                </Col>
+                            </Stack>
                         </Col>
                     </Row>
                     <Row className='p-4'>
