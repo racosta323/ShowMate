@@ -49,9 +49,8 @@ function Home(){
                 <Col>
                     <Row className='mt-5'></Row>
                     <Row className='mb-5'>
-                        
                         <h2 className='text-light text-center'>Welcome, {loggedInUser.first_name}!</h2>
-                        <p className='text-light text-center'>Curious about a show? Search artists to find shows by that artist, or check out trending artists below.</p>
+                        <p className='text-light text-center'>Search artists to find shows by that artist, or check out trending artists below. <br/> Tell us about your experience by reviewing the show!</p>
                         <p className='text-light text-center'>Don't see your artist? Add one!</p>
                     </Row>
                     
