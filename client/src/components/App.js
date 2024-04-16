@@ -67,8 +67,6 @@ const renderList = artists.map ? artists.map((artist)=>{
     }, [])
     
 
-
-
   let context = {
     artists: artists,
     setArtist: setArtist,
@@ -86,8 +84,9 @@ const renderList = artists.map ? artists.map((artist)=>{
 
   return (
     <>
-      <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} logoutUser={logoutUser}/>
+      
       <Container className="bg-light">
+        <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} logoutUser={logoutUser}/>
        {/* { !!loggedInUser ? <Outlet context={context}/> : <Auth setUser={setLoggedInUser}/>} */}
        { !!loggedInUser ? <Outlet context={context}/> : <Auth2 setUser={setLoggedInUser}/>}
       </Container>
