@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, useOutletContext, NavLink } from 'react-router-dom'
+import { useParams, useOutletContext, NavLink, useNavigate } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -14,6 +14,8 @@ import CreateReview from './CreateReview'
 
 
 function Artists(){
+
+    const navigate = useNavigate()
 
     const { show, setShow, handleClose, handleShow, loggedInUser } = useOutletContext()
 
@@ -109,7 +111,7 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                         </Col>
                     </Row>
                     <Row className='p-4'>
-                        <Button variant='success text-light'>Check out Reviews</Button>
+                        <Button onClick={()=>{navigate(`/artists/${artistId}/reviews`)}} variant='success text-light'>Check out Reviews</Button>
                     </Row>
                     
                     {/* <Row>
