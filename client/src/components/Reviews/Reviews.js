@@ -14,13 +14,24 @@ function Reviews(){
     const { reviews } = useOutletContext()
 
     const [ show, setShow ] = useState(false)
-    const [ filteredArtist, setFilteredArtist] = useState({})
+    const [ filteredArtist, setFilteredArtist] = useState(null)
+    const [artistToggle, setArtistToggle] = useState(false)
 
+    function handleArtistToggle(event){
+        console.log(event)
+        setArtistToggle(event.target.checked)
+
+    }
+
+    
+
+    const defaultValue = artistToggle ? filteredArtist : "Choose...."
 
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
     function handleArtistInput(event){
+
         setFilteredArtist(event.target.value)
     }
 
@@ -59,11 +70,40 @@ function Reviews(){
 
     //filtered results
     const filteredResults = reviews?.filter((review)=>{
-        console.log("review", review.artist.name, "value", filteredArtist)
         return review.artist.name === filteredArtist
     })
 
-    console.log(filteredResults)
+    const renderFilteredResults = filteredResults?.map((review)=>{
+        return(
+            <tbody key = {review.id}>
+                {/* {console.log(review)} */}
+                <tr>
+                    <td>{review.id}</td>
+                    <td>
+                        <Col
+                            as={NavLink}
+                            to={`/artists/${review.artist.id}`}
+                        >
+                            {review.artist.name}
+                        </Col>
+                    </td>
+                    <td>{review.artist.genre}</td>
+                    <td>{review.show}</td>
+                    <td>{review.location}</td>
+                    <td>{review.show_date}</td>
+                    <td>{review.stars}</td>
+                    <td>
+                        <Col
+                            as={NavLink}
+                            to={`/users/${review.user.id}`}
+                        >
+                            {review.user.username}
+                        </Col>
+                    </td>
+                </tr>
+            </tbody>
+        )
+    })
     
 
     return (
@@ -81,7 +121,15 @@ function Reviews(){
             <Row>
                 <Col>
                     Chosen Filters Here
-                    <Filters show={show} handleClose={handleClose} reviews={reviews} handleArtistInput={handleArtistInput}/>
+                    <Filters 
+                        show={show} 
+                        handleClose={handleClose} 
+                        reviews={reviews} 
+                        handleArtistInput={handleArtistInput} 
+                        handleArtistToggle={handleArtistToggle}
+                        artistToggle={artistToggle}
+                        defaultValue={defaultValue}
+                        />
                 </Col>
             </Row>
             <Row className="my-5">
@@ -98,7 +146,7 @@ function Reviews(){
                             <th>USERNAME</th>
                         </tr>
                     </thead>
-                    {renderReviews}
+                    {filteredArtist ? renderFilteredResults : renderReviews}
                 </Table>
             </Row>
         </Container>

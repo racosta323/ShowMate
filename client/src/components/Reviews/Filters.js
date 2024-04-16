@@ -10,22 +10,8 @@ import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
-function Filters({ show, handleClose, reviews, handleArtistInput}){
+function Filters({ show, handleClose, reviews, handleArtistInput, handleArtistToggle, artistToggle, defaultValue}){
 
-    const [artistToggle, setArtistToggle] = useState(false)
-
-    function handleArtistToggle(event){
-        setArtistToggle(event.target.checked)
-    }
-
-
-
-    // const renderArtistNames = reviews?.map((review)=>{
-
-    //     return(
-    //         <option>{review.artist.name}</option>
-    //     )
-    // })
     
     const renderArtistNames = reviews?.reduce((uniqueNames, review) => {
         uniqueNames.add(review.artist.name);
@@ -41,7 +27,7 @@ function Filters({ show, handleClose, reviews, handleArtistInput}){
             show={show} 
             onHide={handleClose} 
             placement="top" 
-            backdrop="static"
+            // backdrop="static"
             backdropClassName="bg-tertiary"
         >
             <Row>
@@ -56,13 +42,15 @@ function Filters({ show, handleClose, reviews, handleArtistInput}){
                                 id="custom-switch"
                                 label="Artist"
                                 onClick={handleArtistToggle}
+                                checked={artistToggle}
                             >
                             </Form.Check>
                             {artistToggle ? 
                                 <>
                                     <Form.Select
-                                        defaultValue="Choose...."
+                                        defaultValue={defaultValue}
                                         onInput={handleArtistInput}
+                                        
                                     >
                                         <option>Choose...</option>
                                         {uniqueArtistNames.map((name, index) => (
