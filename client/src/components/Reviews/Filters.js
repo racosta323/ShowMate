@@ -12,16 +12,35 @@ import Form from 'react-bootstrap/Form'
 
 
 
-function Filters({ show, handleClose, reviews, handleArtistInput, handleArtistToggle, artistToggle, defaultValue}){
+function Filters(
+    {   
+        show, 
+        handleClose, 
+        reviews, 
+        handleArtistInput, 
+        handleArtistToggle, 
+        artistToggle, 
+        defaultArtistValue,
+        genreToggle,
+        handleGenreToggle,
+        handleGenreInput,
+        defaultGenreValue
+    }
+){
 
-    
-    const renderArtistNames = reviews?.reduce((uniqueNames, review) => {
+    const filterArtistNames = reviews?.reduce((uniqueNames, review) => {
         uniqueNames.add(review.artist.name);
         return uniqueNames;
     }, new Set());
     
-    const uniqueArtistNames = Array.from(renderArtistNames);
+    const uniqueArtistNames = Array.from(filterArtistNames);
 
+    const filterGenres = reviews?.reduce((uniqueGenres, review) => {
+        uniqueGenres.add(review.artist.genre);
+        return uniqueGenres;
+    }, new Set());
+
+    const uniqueGenreNames = Array.from(filterGenres);
     
 
     return(
@@ -50,12 +69,36 @@ function Filters({ show, handleClose, reviews, handleArtistInput, handleArtistTo
                             {artistToggle ? 
                                 <>
                                     <Form.Select
-                                        defaultValue={defaultValue}
+                                        defaultArtistValue={defaultArtistValue}
                                         onInput={handleArtistInput}
                                         
                                     >
                                         <option>Choose...</option>
                                         {uniqueArtistNames.map((name, index) => (
+                                            <option key={index} value={name}>{name}</option>
+                                        ))}
+                                    </Form.Select>
+                                </> : 
+                                <>
+
+                                </> 
+                            }
+                            <Form.Check
+                                type="switch"
+                                id="custom-switch"
+                                label="Genre"
+                                onClick={handleGenreToggle}
+                                defaultChecked={genreToggle}
+                            >
+                            </Form.Check>
+                            {genreToggle ? 
+                                <>
+                                    <Form.Select
+                                        defaultArtistValue={defaultGenreValue}
+                                        onInput={handleGenreInput}
+                                    >
+                                        <option>Choose...</option>
+                                        {uniqueGenreNames.map((name, index) => (
                                             <option key={index} value={name}>{name}</option>
                                         ))}
                                     </Form.Select>

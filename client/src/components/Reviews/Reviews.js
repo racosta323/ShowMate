@@ -9,6 +9,7 @@ import Stack from "react-bootstrap/Stack";
 
 import Filters from "./Filters";
 import FilterButtons from "./FilterButtons";
+import FilteredResults from './FilteredResults'
 
 function Reviews(){
 
@@ -16,12 +17,27 @@ function Reviews(){
 
     const [show, setShow] = useState(false)
     const [filteredArtist, setFilteredArtist] = useState(null)
+    const [filteredGenre, setFilteredGenre] = useState(null)
     const [artistToggle, setArtistToggle] = useState(false)
-    const [showFilter, setShowFilter] = useState(false)
+    const [genreToggle, setGenreToggle] = useState(false)
+   
+
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
+
+    const defaultArtistValue = artistToggle ? filteredArtist : "Choose...."
+    const defaultGenreValue = artistToggle ? filteredArtist : "Choose...."
 
     function handleArtistToggle(event){
-        console.log(event)
         setArtistToggle(event.target.checked)
+    }
+
+    function handleGenreToggle(event){
+        setGenreToggle(event.target.checked)
+    }
+
+    function handleGenreInput(event){
+        setFilteredGenre(event.target.value)
     }
 
     function handleFilterClick(){
@@ -29,16 +45,10 @@ function Reviews(){
     
     }
 
-    console.log(artistToggle)
-
-    const defaultValue = artistToggle ? filteredArtist : "Choose...."
-
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
-
     function handleArtistInput(event){
         setFilteredArtist(event.target.value)
     }
+
 
 
     const renderReviews = reviews?.map((review)=>{
@@ -74,11 +84,28 @@ function Reviews(){
     })
 
     //filtered results
-    const filteredResults = reviews?.filter((review)=>{
-        return review.artist.name === filteredArtist
+    const filteredArtistResults = reviews?.filter((review)=>{
+            return review.artist.name === filteredArtist
     })
 
-    const renderFilteredResults = filteredResults?.map((review)=>{
+
+    const filteredGenreResults = reviews?.filter((review)=>{
+        return review.artist.genre === filteredGenre
+    })
+
+    const combinedResults = () => {
+        if (artistToggle && defaultArtistValue != "Choose...."){
+            return <FilteredResults results={filteredArtistResults}/> 
+        } else if (genreToggle && defaultGenreValue != "Choose...."){
+            return <FilteredResults results={filteredGenreResults}/>
+        } else {
+            return renderReviews
+        }
+    }
+
+
+
+    const renderFilteredResults = filteredArtistResults?.map((review)=>{
         return(
             <tbody key = {review.id}>
                 {/* {console.log(review)} */}
@@ -132,8 +159,12 @@ function Reviews(){
                         reviews={reviews} 
                         handleArtistInput={handleArtistInput} 
                         handleArtistToggle={handleArtistToggle}
+                        handleGenreToggle={handleGenreToggle}
                         artistToggle={artistToggle}
-                        defaultValue={defaultValue}
+                        genreToggle={genreToggle}
+                        defaultArtistValue={defaultArtistValue}
+                        handleGenreInput={handleGenreInput}
+                        defaultGenreValue={defaultGenreValue}
                         />
                 </Col>
             </Row>
@@ -151,7 +182,9 @@ function Reviews(){
                             <th>USERNAME</th>
                         </tr>
                     </thead>
-                    {artistToggle ? renderFilteredResults : renderReviews}
+                    {combinedResults()}
+                    {/* {artistToggle ? <FilteredResults results={filteredArtistResults}/> : renderReviews}
+                    {genreToggle? <FilteredResults results={filteredGenreResults}/> : renderReviews} */}
                 </Table>
             </Row>
         </Container>
