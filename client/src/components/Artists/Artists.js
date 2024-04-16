@@ -52,15 +52,11 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
 
     return(
        <>
-            <Row></Row>
+            
             <Row className='my-5'></Row>
-            <Row className='my-5'></Row>
-        
-            <Row className='p-2 pb-5' style={{background: "#395A7F"}}>
+            <Row className='p-2 pb-5 my-3' style={{background: "#395A7F"}}>
                 <Col xs={6}>
-                    {/* first 16:9 ratio chosen */}
-                    {/* image is not reactive??? */}
-                    <Stack direction='horizontal' className='ms-5'>
+                    <Stack direction='horizontal'>
                         <Col xs={2}>
                             <h3 className='text-start fs-5 m-2 p-1'>
                                 <NavLink to={`/artists/${artistId}/reviews`} className='link-offset-2 link-underline link-underline-opacity-0'>
@@ -79,7 +75,7 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                                 </NavLink>
                             </p>
                         </Col>
-                        <Col xs={7} className='d-flex justify-content-end ms-5'>
+                        <Col>
                             <Button onClick={handleShow} variant='success'>
                                 <Stack direction='horizontal'>
                                     <i className="bi bi-pencil-square text-light smaller fw-bold" ></i>
@@ -102,12 +98,15 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                         </Col>
                     </Row>
                 </Col>
-                <Col xs={4}>
-                    <Row className='my-5'>
-                        <Col className='my-3'>
-                            <h1 className='text-uppercase text-light' style={{fontSize: "75px"}}>{artist?.name}</h1> 
-                            <h4 className='fs-5 text-light'>{artist?.genre}</h4>
+                <Col xs={6}>
+                    <Row className='mt-5'>
+                        <Col className='my-5'>
+                            <h1 className='text-uppercase text-light text-center' style={{fontSize: "75px"}}>{artist?.name}</h1> 
+                            <h4 className='fs-5 text-light text-center'>{artist?.genre}</h4>
                         </Col>
+                    </Row>
+                    <Row className='p-4'>
+                        <Button variant='success text-light'>Check out Reviews</Button>
                     </Row>
                     
                     {/* <Row>
@@ -120,17 +119,20 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                         
                 </Col>
             </Row>
-            <Row className='mt-5'>
-                    <Col xs={8}>
-                        <h2>User Uploads</h2>
-                        <p>Image Carousel</p>
-                    </Col>
-                    <Col className='py-5'>   
-                        <Row className='bg-body-secondary p-5 mt-1'>
-                            <h2>Something could go here</h2>
-                        </Row>
-                    </Col>
-                </Row>
+            <Row className='my-5'></Row>
+            <Row className='my-5'></Row>
+            <Row className='my-5'></Row>
+            {/* <Row className='mt-5'>
+                <Col xs={8}>
+                    <h2>User Uploads</h2>
+                    <p>Image Carousel</p>
+                </Col>
+                <Col className='py-5'>   
+                    <Row className='bg-body-secondary p-5 mt-1'>
+                        <h2>Something could go here</h2>
+                    </Row>
+                </Col>
+            </Row> */}
 
         </>
     )
