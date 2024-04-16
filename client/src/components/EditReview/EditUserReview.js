@@ -125,7 +125,7 @@ function EditUserReview(){
 
             <Row>
                 <Col className='d-flex justify-content-end'>
-                    <Button className='m-3' onClick={formik.handleSubmit} variant='secondary'>Submit Edits</Button>
+                    <Button className='m-3' onClick={formik.handleSubmit} variant='success'>Submit Edits</Button>
                     <Button className='m-3' onClick={handleDelete} variant='danger'>Delete Review</Button>
                 </Col>
             </Row>
