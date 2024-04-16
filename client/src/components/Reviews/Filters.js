@@ -58,14 +58,50 @@ function Filters(
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Form>
-                        <Form.Check
+                        {genreToggle ? <>
+                            <Form.Check
+                            type="switch"
+                            id="custom-switch"
+                            label="Artist"
+                            onClick={handleArtistToggle}
+                            defaultChecked={artistToggle}
+                            disabled
+                            >
+                            </Form.Check>
+                        </>
+                        : 
+                        <>
+                            <Form.Check
                             type="switch"
                             id="custom-switch"
                             label="Artist"
                             onClick={handleArtistToggle}
                             defaultChecked={artistToggle}
                         >
+                            </Form.Check>
+                        </>}
+                        {artistToggle ? <>
+                            <Form.Check
+                            type="switch"
+                            id="custom-switch"
+                            label="Genre"
+                            onClick={handleGenreToggle}
+                            defaultChecked={genreToggle}
+                            disabled
+                        >
                         </Form.Check>
+                        </>
+                        : 
+                        <>
+                            <Form.Check
+                            type="switch"
+                            id="custom-switch"
+                            label="Genre"
+                            onClick={handleGenreToggle}
+                            defaultChecked={genreToggle}
+                        >
+                            </Form.Check>
+                        </>}
                         {artistToggle ? 
                             <>
                                 <Form.Select
@@ -83,14 +119,6 @@ function Filters(
 
                             </> 
                         }
-                        <Form.Check
-                            type="switch"
-                            id="custom-switch"
-                            label="Genre"
-                            onClick={handleGenreToggle}
-                            defaultChecked={genreToggle}
-                        >
-                        </Form.Check>
                         {genreToggle ? 
                             <>
                                 <Form.Select
