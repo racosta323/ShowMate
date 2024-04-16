@@ -14,7 +14,7 @@ import Trending from './Trending'
 function Home(){
 
     const { logoutUser, loggedInUser } = useOutletContext()
-    // console.log(loggedInUser)
+    
    
     const [artists, setArtists] = useState()
     
@@ -43,16 +43,21 @@ function Home(){
     })
 
     return(
-        <Container>
+        <>
             <Row></Row>
-            <Row className="mt-5">
+            <Row className='bg-danger'>
                 <Col>
-                    <h2>Welcome, {loggedInUser.first_name}!</h2>
+                    <Row className='mt-5'></Row>
+                    <Row className='mb-5'>
+                        <h2 className='text-light text-center'>Welcome, {loggedInUser.first_name}!</h2>
+                        <p className='text-light text-center'>Search artists to find shows by that artist, or check out trending artists below. <br/> Tell us about your experience by reviewing the show!</p>
+                        <p className='text-light text-center'>Don't see your artist? Add one!</p>
+                    </Row>
+                    
                 </Col>
             </Row>
             <Row>
                 <Col xs={8}>
-                    <Row className="my-1"></Row>
                     <Row className="my-5">
                         <Col>
                             <HomeCarousel artists={artists}/>
@@ -74,7 +79,7 @@ function Home(){
 
                 </Col>
             </Row>
-        </Container>
+        </>
     )
 }
 

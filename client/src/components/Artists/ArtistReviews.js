@@ -79,6 +79,7 @@ function ArtistReviews(){
                                             </NavLink>
                                         </h1>
                                     </Col>
+                                    
                                     <Col className="d-flex justify-content-end">
                                         <Button onClick={handleShow}>
                                             <i className="bi bi-pencil-square text-light fs-3" ></i>
@@ -86,6 +87,7 @@ function ArtistReviews(){
                                         </Button>
                                         <CreateReview show={show} handleShow={handleShow} handleClose={handleClose} userId={loggedInUser.id} artist={artist}/>
                                     </Col>
+                                    <hr className='mt-3'/>
                                 </Row>
                             </Col>
                         </Row>

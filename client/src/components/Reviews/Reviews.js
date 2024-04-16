@@ -8,21 +8,55 @@ import Table from 'react-bootstrap/Table'
 import Stack from "react-bootstrap/Stack";
 
 import Filters from "./Filters";
+import FilterButtons from "./FilterButtons";
+import FilteredResults from './FilteredResults'
 
 function Reviews(){
 
     const { reviews } = useOutletContext()
 
-    const [ show, setShow ] = useState(false)
+    const [show, setShow] = useState(false)
+    const [filteredArtist, setFilteredArtist] = useState(null)
+    const [filteredGenre, setFilteredGenre] = useState(null)
+    const [artistToggle, setArtistToggle] = useState(false)
+    const [genreToggle, setGenreToggle] = useState(false)
+   
 
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
+
+    const defaultArtistValue = artistToggle ? filteredArtist : "Choose...."
+    const defaultGenreValue = genreToggle ? filteredArtist : "Choose...."
+
+    function handleArtistToggle(event){
+        setArtistToggle(event.target.checked)
+    }
+
+    function handleGenreToggle(event){
+        setGenreToggle(event.target.checked)
+    }
+
+    function handleGenreInput(event){
+        setFilteredGenre(event.target.value)
+    }
+
+    function handleFilterClick(){
+        setArtistToggle(false)
+        setGenreToggle(false)
+        setFilteredArtist(null)
+        setFilteredGenre(null)
+    }
+
+    function handleArtistInput(event){
+        setFilteredArtist(event.target.value)
+    }
+
 
 
     const renderReviews = reviews?.map((review)=>{
         return (
             <tbody key = {review.id}>
-                {console.log(review)}
+                {/* {console.log(review)} */}
                 <tr>
                     <td>{review.id}</td>
                     <td>
@@ -51,14 +85,37 @@ function Reviews(){
         )
     })
 
+    //filtered results
+    const filteredArtistResults = reviews?.filter((review)=>{
+            return review.artist.name === filteredArtist
+    })
+
+
+    const filteredGenreResults = reviews?.filter((review)=>{
+        return review.artist.genre === filteredGenre
+    })
+
+    console.log(filteredGenreResults)
+
+    const combinedResults = () => {
+        if (artistToggle && defaultArtistValue != "Choose...."){
+            return <FilteredResults results={filteredArtistResults}/> 
+        } else if (genreToggle && defaultGenreValue != "Choose...."){
+            return <FilteredResults results={filteredGenreResults}/>
+        } else {
+            return renderReviews
+        }
+    }
+
     
+    console.log(genreToggle)
 
     return (
         <Container>
             <Row></Row>
             <Row className="my-5">
                 <Col>
-                    <p>Click on an entry to see the review <br/> Click on the filter icon to filter results</p>
+                    <p>Click on the filter icon to filter results</p>
                     <Stack direction="horizontal">
                         <i className="bi bi-filter fs-3" as="button" onClick={handleShow}></i>
                         <h3 className="m-4">Filters</h3>
@@ -67,8 +124,22 @@ function Reviews(){
             </Row>
             <Row>
                 <Col>
-                    Chosen Filters Here
-                    <Filters show={show} handleClose={handleClose}/>
+                    {artistToggle ? <FilterButtons search={filteredArtist} handleFilterClick={handleFilterClick}/> : <></>}
+                    {genreToggle ? <FilterButtons search={filteredGenre} handleFilterClick={handleFilterClick}/> : <></>}
+                    {}
+                    <Filters 
+                        show={show} 
+                        handleClose={handleClose} 
+                        reviews={reviews} 
+                        handleArtistInput={handleArtistInput} 
+                        handleArtistToggle={handleArtistToggle}
+                        handleGenreToggle={handleGenreToggle}
+                        artistToggle={artistToggle}
+                        genreToggle={genreToggle}
+                        defaultArtistValue={defaultArtistValue}
+                        handleGenreInput={handleGenreInput}
+                        defaultGenreValue={defaultGenreValue}
+                        />
                 </Col>
             </Row>
             <Row className="my-5">
@@ -85,7 +156,9 @@ function Reviews(){
                             <th>USERNAME</th>
                         </tr>
                     </thead>
-                    {renderReviews}
+                    {combinedResults()}
+                    {/* {artistToggle ? <FilteredResults results={filteredArtistResults}/> : renderReviews}
+                    {genreToggle? <FilteredResults results={filteredGenreResults}/> : renderReviews} */}
                 </Table>
             </Row>
         </Container>

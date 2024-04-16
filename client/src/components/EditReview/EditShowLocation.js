@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Stack from 'react-bootstrap/Stack'
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
 
 
 function EditShowLocation({ formik, reviewId }){
@@ -38,9 +40,9 @@ function EditShowLocation({ formik, reviewId }){
     }, [toggleShowLocation]);
 
     return(
-        <Col xs={6}>
+        <Col xs={4}>
             {!toggleShowLocation ? 
-                <>  
+                <Col>  
                     <Stack direction='horizontal'>
                         <p className='mt-3 smaller'>
                             <span className='fw-bold smaller'>
@@ -50,10 +52,26 @@ function EditShowLocation({ formik, reviewId }){
                         </p>
                         <i as="button" className="ms-2 bi bi-pencil-fill pencil smaller" onClick={turnOnEdit}></i>
                     </Stack>
-                </>: 
-                <>
-                    <Stack direction='horizontal'>
-                        <input
+                </Col>: 
+                <Row>
+                    <Col xs={8} className='ms-4'>
+                        <InputGroup>
+                            <Form.Control
+                                ref={inputRef}
+                                type="location"
+                                name='location'
+                                onChange={formik.handleChange}
+                                value={formik.values.location}
+                                readOnly={!isEditMode}
+                                onBlur={()=>{setEditMode(false)}}
+                            />
+                        </InputGroup>
+                    </Col>
+                    <Col>
+                        <i as="button" className="bi bi-pencil-fill pencil" onClick={turnOnEdit}></i>
+                    </Col>
+                        
+                        {/* <input
                             ref={inputRef}
                             type='location'
                             value={formik.values.location}
@@ -66,11 +84,10 @@ function EditShowLocation({ formik, reviewId }){
                             }}
                             // style={{ width: '40px' }} 
                             onChange={formik.handleChange}
-                        />
-                        <i className="bi bi-star-fill text-warning ms-2" ></i>
-                        <i as="button" className="ms-3 bi bi-pencil-fill pencil" onClick={turnOnEdit}></i>
-                     </Stack>
-                </>
+                        /> */}
+                        
+                     
+                </Row>
             }
         </Col>
     )

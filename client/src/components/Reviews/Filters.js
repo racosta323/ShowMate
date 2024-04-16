@@ -10,41 +10,142 @@ import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
-function Filters({ show, handleClose}){
 
+
+function Filters(
+    {   
+        show, 
+        handleClose, 
+        reviews, 
+        handleArtistInput, 
+        handleArtistToggle, 
+        artistToggle, 
+        defaultArtistValue,
+        genreToggle,
+        handleGenreToggle,
+        handleGenreInput,
+        defaultGenreValue
+    }
+){
+
+    const filterArtistNames = reviews?.reduce((uniqueNames, review) => {
+        uniqueNames.add(review.artist.name);
+        return uniqueNames;
+    }, new Set());
+    
+    const uniqueArtistNames = Array.from(filterArtistNames);
+
+    const filterGenres = reviews?.reduce((uniqueGenres, review) => {
+        uniqueGenres.add(review.artist.genre);
+        return uniqueGenres;
+    }, new Set());
+
+    const uniqueGenreNames = Array.from(filterGenres);
+    
 
     return(
         <Offcanvas 
             show={show} 
             onHide={handleClose} 
             placement="top" 
-            backdrop="static"
+            // backdrop="static"
             backdropClassName="bg-tertiary"
         >
             <Row>
               <Col>
                 <Offcanvas.Header closeButton aria-label="Hide">
-                        <Offcanvas.Title>Sort by options below:</Offcanvas.Title>
-                    </Offcanvas.Header>
-                    <Offcanvas.Body>
-                        <Form>
+                    <Offcanvas.Title>Sort by options below:</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    <Form>
+                        {genreToggle ? <>
                             <Form.Check
                                 type="switch"
                                 id="custom-switch"
                                 label="Artist"
+                                onClick={handleArtistToggle}
+                                defaultChecked={artistToggle}
+                                disabled
                             >
-
                             </Form.Check>
-                        </Form>
+                        </>
+                        : 
+                        <>
+                            <Form.Check
+                                type="switch"
+                                id="custom-switch"
+                                label="Artist"
+                                onClick={handleArtistToggle}
+                                defaultChecked={artistToggle}
+                            >
+                            </Form.Check>
+                        </>}
+                        {artistToggle ? <>
+                            <Form.Check
+                                type="switch"
+                                id="custom-switch"
+                                label="Genre"
+                                onClick={handleGenreToggle}
+                                defaultChecked={genreToggle}
+                                disabled
+                            >
+                        </Form.Check>
+                        </>
+                        : 
+                        <>
+                            <Form.Check
+                                type="switch"
+                                id="custom-switch"
+                                label="Genre"
+                                onClick={handleGenreToggle}
+                                defaultChecked={genreToggle}
+                            >
+                            </Form.Check>
+                        </>}
+                        {artistToggle ? 
+                            <>
+                                <Form.Select
+                                    defaultArtistValue={defaultArtistValue}
+                                    onInput={handleArtistInput}
+                                    
+                                >
+                                    {console.log(defaultArtistValue)}
+                                    <option>Choose...</option>
+                                    {uniqueArtistNames.map((name, index) => (
+                                        <option key={index} value={name}>{name}</option>
+                                    ))}
+                                </Form.Select>
+                            </> : 
+                            <>
+
+                            </> 
+                        }
+                        {genreToggle ? 
+                            <>
+                                <Form.Select
+                                    defaultArtistValue={defaultGenreValue}
+                                    onInput={handleGenreInput}
+                                >
+                                    <option>Choose...</option>
+                                    {uniqueGenreNames.map((genre, index) => (
+                                        <option key={index} value={genre}>{genre}</option>
+                                    ))}
+                                </Form.Select>
+                            </> : 
+                            <>
+
+                            </> 
+                        }
+                    </Form>
                     </Offcanvas.Body>
               </Col>
             </Row>
            
-            <Row className="my-5">
+            {/* <Row className="my-5">
                 <Col className='d-flex justify-content-center'>
                     <Button variant="dark">Sort</Button>
                 </Col>
-            </Row>
+            </Row> */}
         </Offcanvas>
     )
 }

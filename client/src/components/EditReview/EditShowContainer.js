@@ -14,18 +14,15 @@ function EditShowContainer({ formik, reviewId }){
 
 
     return(
-        <Container>
-            <form>
-                <Row>
-                    <Stack direction='horizontal'>
-                        <EditShowName reviewId={reviewId} formik={formik}/>
-                        <EditShowLocation reviewId={reviewId} formik={formik}/>
-                        <EditShowDate reviewId={reviewId} formik={formik}/>
-                    </Stack>
-
-                </Row>
-            </form>         
-        </Container>
+        
+        <form>
+            <Row className='mt-3'>
+                <EditShowName reviewId={reviewId} formik={formik}/>
+                <EditShowLocation reviewId={reviewId} formik={formik}/>
+                <EditShowDate reviewId={reviewId} formik={formik}/>
+            </Row>
+        </form>         
+        
     )
 }
 

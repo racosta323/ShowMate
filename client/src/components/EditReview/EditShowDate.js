@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Stack from 'react-bootstrap/Stack'
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
 
 
 function EditShowDate({ formik, reviewId }){
@@ -40,7 +42,7 @@ function EditShowDate({ formik, reviewId }){
     return(
         <Col xs={4}>
             {!toggleDate ? 
-                <>  
+                <Col>  
                     <Stack direction='horizontal'>
                         <p className='mt-3 smaller'>
                             <span className='fw-bold smaller'>
@@ -50,10 +52,21 @@ function EditShowDate({ formik, reviewId }){
                         </p>
                         <i as="button" className="ms-2 bi bi-pencil-fill pencil smaller" onClick={turnOnEdit}></i>
                     </Stack>
-                </>: 
+                </Col>: 
                 <>
                     <Stack direction='horizontal'>
-                        <input
+                        <InputGroup>
+                            <Form.Control
+                                ref={inputRef}
+                                type="date"
+                                name='show_date'
+                                onChange={formik.handleChange}
+                                value={formik.values.show_date}
+                                readOnly={!isEditMode}
+                                onBlur={()=>{setEditMode(false)}}
+                            />
+                        </InputGroup>
+                        {/* <input
                             ref={inputRef}
                             type='date'
                             value={formik.values.show_date}
@@ -66,7 +79,7 @@ function EditShowDate({ formik, reviewId }){
                             }}
                             // style={{ width: '40px' }} 
                             onChange={formik.handleChange}
-                        />
+                        /> */}
                         <i as="button" className="ms-3 bi bi-pencil-fill pencil" onClick={turnOnEdit}></i>
                      </Stack>
                 </>

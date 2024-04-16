@@ -51,8 +51,9 @@ function UserProfile(){
                     {userId == loggedInUser.id ? <MySideProfile data={user} logoutUser={logoutUser} loggedInUser={loggedInUser}/> : <SideProfile data={user} logoutUser={logoutUser} loggedInUser={loggedInUser}/>}
                 </Col>
                 <Col xs={8} className='my-5 p-4'>
-                    <h2>{`${user.first_name} ${user.last_name}'s`} <br/> Reviews</h2>
-                    <hr></hr>
+                    <h2>{`${user.first_name} ${user.last_name}'s`} Reviews</h2>
+                    {/* <h2>Reviews</h2> */}
+                    <hr className='my-4'/>
                     {renderList()}
                 </Col>
             </Row>

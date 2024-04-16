@@ -15,10 +15,10 @@ function UserReviews( { reviews, loggedInUser, userId }){
 
     return(
         <>
-            <Row className='border border-secondary-subtle rounded mt-5'>
+            <Row className='border border-secondary-subtle rounded mt-4 '>
                 <Row >
                     <Col xs={8} className='mt-3'> 
-                        <h5 className="ms-3 fw-bold">{reviews.subject}</h5>
+                        <h6 className="ms-3 fw-bold">{reviews.subject}</h6>
                     </Col>
                     <Col> 
                         <h6 className="text-end mt-3">
@@ -35,19 +35,19 @@ function UserReviews( { reviews, loggedInUser, userId }){
                     </Col>
                 </Row>
                 <Row>
-                    <h5 className="ms-3 text-secondary">
+                    <h6 className="ms-3 text-secondary">
                         <NavLink to={`/artists/${reviews.artist.id}`} className='link-offset-2 link-underline link-underline-opacity-0'>
                             Artist: {reviews.artist.name}
                         </NavLink> 
-                    </h5>
-                    <p className="ms-3 text-secondary smaller">Date Posted: {reviews.created_at}</p>
+                    </h6>
+                    <p className="ms-3 text-secondary smallest">Date Posted: {reviews.created_at}</p>
                     <ResponsiveEllipsis
                         text={reviews.review}
                         maxLine={3}
                         ellipsis="..."
                         trimRight
                         basedOn="letters"
-                        className="mb-3 ms-3 lh-sm"
+                        className="mb-3 ms-3 lh-sm smaller"
                     />
                 </Row>
                 <Row>
@@ -71,7 +71,7 @@ function UserReviews( { reviews, loggedInUser, userId }){
                     <Col>
                         <p className="smaller">
                             <span  className="fw-bold ms-3">
-                                Show: 
+                                Show: {' '}
                             </span> 
                             {reviews.show} 
                         </p>
@@ -79,7 +79,7 @@ function UserReviews( { reviews, loggedInUser, userId }){
                     <Col>
                         <p className="smaller">
                             <span  className="fw-bold ms-3">
-                                Show Location: 
+                                Show Location: {' '}
                             </span> 
                             {reviews.location}
                         </p>
@@ -87,15 +87,13 @@ function UserReviews( { reviews, loggedInUser, userId }){
                     <Col>
                         <p className="smaller"> 
                             <span  className="fw-bold ms-3">
-                                Show Date: 
+                                Show Date: {' '}
                             </span> 
                             {reviews.show_date}
                         </p>
                     </Col>
                 </Row>     
-                
             </Row>
-            <hr className='mt-5'></hr>
         </>
     )
 }
