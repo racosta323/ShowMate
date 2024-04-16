@@ -4,8 +4,6 @@ import Row from "react-bootstrap/Row"
 
 function FilterButtons({ search, handleFilterClick }){
 
-    console.log(search)
-
     const renderButton = () => {
         if (search && search !== 'Choose...'){
             return (

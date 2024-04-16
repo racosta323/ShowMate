@@ -94,12 +94,12 @@ function Filters(
                         : 
                         <>
                             <Form.Check
-                            type="switch"
-                            id="custom-switch"
-                            label="Genre"
-                            onClick={handleGenreToggle}
-                            defaultChecked={genreToggle}
-                        >
+                                type="switch"
+                                id="custom-switch"
+                                label="Genre"
+                                onClick={handleGenreToggle}
+                                defaultChecked={genreToggle}
+                            >
                             </Form.Check>
                         </>}
                         {artistToggle ? 
@@ -109,6 +109,7 @@ function Filters(
                                     onInput={handleArtistInput}
                                     
                                 >
+                                    {console.log(defaultArtistValue)}
                                     <option>Choose...</option>
                                     {uniqueArtistNames.map((name, index) => (
                                         <option key={index} value={name}>{name}</option>

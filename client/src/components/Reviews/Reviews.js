@@ -43,6 +43,8 @@ function Reviews(){
     function handleFilterClick(){
         setArtistToggle(false)
         setGenreToggle(false)
+        setFilteredArtist(null)
+        setFilteredGenre(null)
     }
 
     function handleArtistInput(event){
@@ -105,39 +107,6 @@ function Reviews(){
         }
     }
 
-
-
-    const renderFilteredResults = filteredArtistResults?.map((review)=>{
-        return(
-            <tbody key = {review.id}>
-                {/* {console.log(review)} */}
-                <tr>
-                    <td>{review.id}</td>
-                    <td>
-                        <Col
-                            as={NavLink}
-                            to={`/artists/${review.artist.id}`}
-                        >
-                            {review.artist.name}
-                        </Col>
-                    </td>
-                    <td>{review.artist.genre}</td>
-                    <td>{review.show}</td>
-                    <td>{review.location}</td>
-                    <td>{review.show_date}</td>
-                    <td>{review.stars}</td>
-                    <td>
-                        <Col
-                            as={NavLink}
-                            to={`/users/${review.user.id}`}
-                        >
-                            {review.user.username}
-                        </Col>
-                    </td>
-                </tr>
-            </tbody>
-        )
-    })
     
     console.log(genreToggle)
 
@@ -146,7 +115,7 @@ function Reviews(){
             <Row></Row>
             <Row className="my-5">
                 <Col>
-                    <p>Click on an entry to see the review <br/> Click on the filter icon to filter results</p>
+                    <p>Click on the filter icon to filter results</p>
                     <Stack direction="horizontal">
                         <i className="bi bi-filter fs-3" as="button" onClick={handleShow}></i>
                         <h3 className="m-4">Filters</h3>
@@ -155,8 +124,9 @@ function Reviews(){
             </Row>
             <Row>
                 <Col>
-                    {artistToggle ? <FilterButtons search={filteredArtist} handleFilterClick={handleFilterClick}/> : console.log("hello")}
-                    {genreToggle ? <FilterButtons search={filteredGenre} handleFilterClick={handleFilterClick}/> : console.log("hello")}
+                    {artistToggle ? <FilterButtons search={filteredArtist} handleFilterClick={handleFilterClick}/> : <></>}
+                    {genreToggle ? <FilterButtons search={filteredGenre} handleFilterClick={handleFilterClick}/> : <></>}
+                    {}
                     <Filters 
                         show={show} 
                         handleClose={handleClose} 
