@@ -88,38 +88,46 @@ function EditUserReview(){
     console.log(review)
 
     return(
-        <>
-            <Row className='border border-secondary-subtle rounded mt-5'>
-                <Row >
-                    <Col xs={8} className='mt-3'> 
-                        <EditSubject reviewId={reviewId} formik={formik}/>
-                    </Col>
-                    <Col> 
-                        <EditStars reviewId={reviewId} formik={formik}/>
-                    </Col>
-                </Row>
-                <Row>
+        <Row className='border border-secondary-subtle rounded'>
+            <Row>
+                <Col xs={8} className='mt-3'> 
+                    <EditSubject reviewId={reviewId} formik={formik}/>
+                </Col>
+                <Col> 
+                    <EditStars reviewId={reviewId} formik={formik}/>
+                </Col>
+            </Row>
+            
+            <Row>
+                <Col>
                     <h5 className="ms-3 text-secondary"> 
                         <NavLink to={`/artists/${review.artist?.id}`} className='link-offset-2 link-underline link-underline-opacity-0'>
                             Artist: {review.artist?.name}
                         </NavLink>
                     </h5>
                     <p className="ms-3 text-secondary smaller">Date Posted: {review?.created_at}</p>
-                    <EditReview reviewId={reviewId} formik={formik}/>
-                </Row>
-                <Row>
-                    <EditShowContainer reviewId={reviewId} formik={formik}/>
-                </Row>     
-                <Row>
-                    <Col className='d-flex justify-content-end'>
-                        <Button className='ms-4' onClick={formik.handleSubmit} variant='secondary'>Submit Edits</Button>
-                        <Button className='ms-2' onClick={handleDelete} variant='danger'>Delete Review</Button>
-                    </Col>
-                </Row>
-                
+                </Col>
             </Row>
-            <hr className='mt-5'></hr>
-        </>
+
+            <Row>
+                <Col>
+                    <EditReview reviewId={reviewId} formik={formik}/>
+                </Col>
+            </Row>
+            
+            <Row>   
+                <Col>
+                    <EditShowContainer reviewId={reviewId} formik={formik}/>
+                </Col>
+            </Row>
+
+            <Row>
+                <Col className='d-flex justify-content-end'>
+                    <Button className='m-3' onClick={formik.handleSubmit} variant='secondary'>Submit Edits</Button>
+                    <Button className='m-3' onClick={handleDelete} variant='danger'>Delete Review</Button>
+                </Col>
+            </Row>
+        </Row>
     )
 }
 

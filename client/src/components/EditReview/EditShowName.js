@@ -41,7 +41,7 @@ function EditShowName({ formik, reviewId }){
     return(
         <Col xs={4}>
             {!toggleName ? 
-                <>  
+                <Col>  
                     <Stack direction='horizontal'>
                         <p className='mt-3 smaller'>
                             <span className='fw-bold smaller'>
@@ -51,20 +51,25 @@ function EditShowName({ formik, reviewId }){
                         </p>
                         <i as="button" className="ms-2 bi bi-pencil-fill pencil smaller" onClick={turnOnEdit}></i>
                     </Stack>
-                </>: 
-                <>
-                    <Stack direction='horizontal'>
+                </Col> : 
+                <Row>
+                    <Col xs={10}>
                         <InputGroup>
                             <Form.Control
                                 ref={inputRef}
-                                type="review"
-                                name='review'
+                                type="show"
+                                name='show'
                                 onChange={formik.handleChange}
-                                value={formik.values.review}
+                                value={formik.values.show}
                                 readOnly={!isEditMode}
                                 onBlur={()=>{setEditMode(false)}}
                             />
                         </InputGroup>
+                    </Col>
+                    <Col xs={1}>
+                        <i as="button" className="bi bi-pencil-fill pencil" onClick={turnOnEdit}></i>
+                    </Col>
+                        
                         {/* <input
                             ref={inputRef}
                             type='show'
@@ -79,10 +84,9 @@ function EditShowName({ formik, reviewId }){
                             // style={{ width: '40px' }} 
                             onChange={formik.handleChange}
                         /> */}
-                        <i className="bi bi-star-fill text-warning ms-2" ></i>
-                        <i as="button" className="ms-3 bi bi-pencil-fill pencil" onClick={turnOnEdit}></i>
-                     </Stack>
-                </>
+                      
+                        
+                </Row>
             }
         </Col>
     )

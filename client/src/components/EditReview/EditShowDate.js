@@ -42,7 +42,7 @@ function EditShowDate({ formik, reviewId }){
     return(
         <Col xs={4}>
             {!toggleDate ? 
-                <>  
+                <Col>  
                     <Stack direction='horizontal'>
                         <p className='mt-3 smaller'>
                             <span className='fw-bold smaller'>
@@ -52,7 +52,7 @@ function EditShowDate({ formik, reviewId }){
                         </p>
                         <i as="button" className="ms-2 bi bi-pencil-fill pencil smaller" onClick={turnOnEdit}></i>
                     </Stack>
-                </>: 
+                </Col>: 
                 <>
                     <Stack direction='horizontal'>
                         <InputGroup>
