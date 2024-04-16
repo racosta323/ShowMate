@@ -111,14 +111,9 @@ function EditUserReview(){
                     <EditShowContainer reviewId={reviewId} formik={formik}/>
                 </Row>     
                 <Row>
-                    <Col></Col>
-                    <Col xs={6} className='d-flex justify-content-end px-5 ms-5'>
-                        <Col>
-                            <Button className='ms-4' onClick={formik.handleSubmit} variant='secondary'>Submit Edits</Button>
-                        </Col>
-                        <Col>
-                            <Button className='ms-2' onClick={handleDelete} variant='danger'>Delete Review</Button>
-                        </Col>
+                    <Col className='d-flex justify-content-end'>
+                        <Button className='ms-4' onClick={formik.handleSubmit} variant='secondary'>Submit Edits</Button>
+                        <Button className='ms-2' onClick={handleDelete} variant='danger'>Delete Review</Button>
                     </Col>
                 </Row>
                 

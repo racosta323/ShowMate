@@ -69,6 +69,7 @@ function EditReview({ reviewId, formik }){
                         <input
                             ref={inputRef}
                             type="review"
+                            as='textarea'
                             name='review'
                             onChange={formik.handleChange}
                             value={formik.values.review}

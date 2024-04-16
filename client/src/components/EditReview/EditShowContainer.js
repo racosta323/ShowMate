@@ -22,7 +22,6 @@ function EditShowContainer({ formik, reviewId }){
                         <EditShowLocation reviewId={reviewId} formik={formik}/>
                         <EditShowDate reviewId={reviewId} formik={formik}/>
                     </Stack>
-
                 </Row>
             </form>         
         </Container>
