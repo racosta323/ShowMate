@@ -58,10 +58,10 @@ function EditShowDate({ formik, reviewId }){
                         <InputGroup>
                             <Form.Control
                                 ref={inputRef}
-                                type="review"
-                                name='review'
+                                type="date"
+                                name='show_date'
                                 onChange={formik.handleChange}
-                                value={formik.values.review}
+                                value={formik.values.show_date}
                                 readOnly={!isEditMode}
                                 onBlur={()=>{setEditMode(false)}}
                             />

@@ -73,6 +73,8 @@ function EditUserReview(){
         }
     })
 
+    console.log(formik.values)
+
     function handleDelete(){
         fetch(`/reviews/${reviewId}`, {
             method: 'DELETE',
@@ -85,7 +87,7 @@ function EditUserReview(){
         .then(navigate(`/users/${loggedInUser.id}`))
     }
 
-    console.log(review)
+    
 
     return(
         <Row className='border border-secondary-subtle rounded'>

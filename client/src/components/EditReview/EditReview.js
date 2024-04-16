@@ -67,18 +67,28 @@ function EditReview({ reviewId, formik }){
                             ></i>
                         </Stack>
                     </> : 
-                    <>
-                        <InputGroup>
-                            <Form.Control
-                                ref={inputRef}
-                                type="review"
-                                name='review'
-                                onChange={formik.handleChange}
-                                value={formik.values.review}
-                                readOnly={!isEditMode}
-                                onBlur={()=>{setEditMode(false)}}
-                            />
-                        </InputGroup>
+                    <Row>
+                        <Col xs={11}>
+                            <InputGroup>
+                                <Form.Control
+                                    ref={inputRef}
+                                    type="review"
+                                    name='review'
+                                    onChange={formik.handleChange}
+                                    value={formik.values.review}
+                                    readOnly={!isEditMode}
+                                    onBlur={()=>{setEditMode(false)}}
+                                />
+                            </InputGroup>
+                        </Col>
+                        <Col>
+                            <i 
+                                as="button" 
+                                onClick={turnOnEdit}
+                                className="ms-2 bi bi-pencil-fill pencil"
+                            ></i>
+                        </Col>
+                        
                         {/* <input
                             ref={inputRef}
                             type="review"
@@ -92,12 +102,8 @@ function EditReview({ reviewId, formik }){
                                 setInputClass('border border-0 bg-light')
                             }}
                         /> */}
-                        <i 
-                            as="button" 
-                            onClick={turnOnEdit}
-                            className="ms-2 bi bi-pencil-fill pencil"
-                        ></i>
-                    </>
+                        
+                    </Row>
                 } 
                 </form>         
             </Col>
