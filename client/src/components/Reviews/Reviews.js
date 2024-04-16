@@ -14,10 +14,10 @@ function Reviews(){
 
     const { reviews } = useOutletContext()
 
-    const [ show, setShow ] = useState(false)
-    const [ filteredArtist, setFilteredArtist] = useState(null)
+    const [show, setShow] = useState(false)
+    const [filteredArtist, setFilteredArtist] = useState(null)
     const [artistToggle, setArtistToggle] = useState(false)
-    const [ showFilter, setShowFilter ] = useState(false)
+    const [showFilter, setShowFilter] = useState(false)
 
     function handleArtistToggle(event){
         console.log(event)
@@ -25,10 +25,11 @@ function Reviews(){
     }
 
     function handleFilterClick(){
-        console.log("filter")
-
-
+        setArtistToggle(false)
+    
     }
+
+    console.log(artistToggle)
 
     const defaultValue = artistToggle ? filteredArtist : "Choose...."
 
@@ -124,7 +125,7 @@ function Reviews(){
             </Row>
             <Row>
                 <Col>
-                    <FilterButtons search={filteredArtist} handleFilterClick={handleFilterClick}/> 
+                    {artistToggle ? <FilterButtons search={filteredArtist} handleFilterClick={handleFilterClick}/> : console.log("hello")}
                     <Filters 
                         show={show} 
                         handleClose={handleClose} 
@@ -150,7 +151,7 @@ function Reviews(){
                             <th>USERNAME</th>
                         </tr>
                     </thead>
-                    {filteredArtist ? renderFilteredResults : renderReviews}
+                    {artistToggle ? renderFilteredResults : renderReviews}
                 </Table>
             </Row>
         </Container>

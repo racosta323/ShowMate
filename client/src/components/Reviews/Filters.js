@@ -44,7 +44,7 @@ function Filters({ show, handleClose, reviews, handleArtistInput, handleArtistTo
                                 id="custom-switch"
                                 label="Artist"
                                 onClick={handleArtistToggle}
-                                checked={artistToggle}
+                                defaultChecked={artistToggle}
                             >
                             </Form.Check>
                             {artistToggle ? 
