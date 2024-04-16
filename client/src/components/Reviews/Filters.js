@@ -10,6 +10,8 @@ import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
+
+
 function Filters({ show, handleClose, reviews, handleArtistInput, handleArtistToggle, artistToggle, defaultValue}){
 
     
@@ -67,11 +69,11 @@ function Filters({ show, handleClose, reviews, handleArtistInput, handleArtistTo
               </Col>
             </Row>
            
-            <Row className="my-5">
+            {/* <Row className="my-5">
                 <Col className='d-flex justify-content-center'>
                     <Button variant="dark">Sort</Button>
                 </Col>
-            </Row>
+            </Row> */}
         </Offcanvas>
     )
 }

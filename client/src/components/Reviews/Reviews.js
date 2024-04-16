@@ -8,6 +8,7 @@ import Table from 'react-bootstrap/Table'
 import Stack from "react-bootstrap/Stack";
 
 import Filters from "./Filters";
+import FilterButtons from "./FilterButtons";
 
 function Reviews(){
 
@@ -16,14 +17,18 @@ function Reviews(){
     const [ show, setShow ] = useState(false)
     const [ filteredArtist, setFilteredArtist] = useState(null)
     const [artistToggle, setArtistToggle] = useState(false)
+    const [ showFilter, setShowFilter ] = useState(false)
 
     function handleArtistToggle(event){
         console.log(event)
         setArtistToggle(event.target.checked)
-
     }
 
-    
+    function handleFilterClick(){
+        console.log("filter")
+
+
+    }
 
     const defaultValue = artistToggle ? filteredArtist : "Choose...."
 
@@ -31,7 +36,6 @@ function Reviews(){
     const handleShow = () => setShow(true)
 
     function handleArtistInput(event){
-
         setFilteredArtist(event.target.value)
     }
 
@@ -120,7 +124,7 @@ function Reviews(){
             </Row>
             <Row>
                 <Col>
-                    Chosen Filters Here
+                    <FilterButtons search={filteredArtist} handleFilterClick={handleFilterClick}/> 
                     <Filters 
                         show={show} 
                         handleClose={handleClose} 
