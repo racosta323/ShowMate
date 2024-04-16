@@ -60,35 +60,35 @@ function Filters(
                     <Form>
                         {genreToggle ? <>
                             <Form.Check
-                            type="switch"
-                            id="custom-switch"
-                            label="Artist"
-                            onClick={handleArtistToggle}
-                            defaultChecked={artistToggle}
-                            disabled
+                                type="switch"
+                                id="custom-switch"
+                                label="Artist"
+                                onClick={handleArtistToggle}
+                                defaultChecked={artistToggle}
+                                disabled
                             >
                             </Form.Check>
                         </>
                         : 
                         <>
                             <Form.Check
-                            type="switch"
-                            id="custom-switch"
-                            label="Artist"
-                            onClick={handleArtistToggle}
-                            defaultChecked={artistToggle}
-                        >
+                                type="switch"
+                                id="custom-switch"
+                                label="Artist"
+                                onClick={handleArtistToggle}
+                                defaultChecked={artistToggle}
+                            >
                             </Form.Check>
                         </>}
                         {artistToggle ? <>
                             <Form.Check
-                            type="switch"
-                            id="custom-switch"
-                            label="Genre"
-                            onClick={handleGenreToggle}
-                            defaultChecked={genreToggle}
-                            disabled
-                        >
+                                type="switch"
+                                id="custom-switch"
+                                label="Genre"
+                                onClick={handleGenreToggle}
+                                defaultChecked={genreToggle}
+                                disabled
+                            >
                         </Form.Check>
                         </>
                         : 

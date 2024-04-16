@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useOutletContext, useParams } from 'react-router-dom'
 
-
 import Stack from 'react-bootstrap/Stack'
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
 
 function EditSubject({ reviewId, formik }){
 
@@ -58,7 +59,18 @@ function EditSubject({ reviewId, formik }){
                     </Stack>
                 </> : 
                 <>
-                    <input
+                    <InputGroup>
+                        <Form.Control
+                            ref={inputRef}
+                            type="subject   "
+                            name='subject'
+                            onChange={formik.handleChange}
+                            value={formik.values.subject}
+                            readOnly={!isEditMode}
+                            onBlur={()=>{setEditMode(false)}}
+                        />
+                    </InputGroup>
+                    {/* <input
                         ref={inputRef}
                         type="subject"
                         name='subject'
@@ -70,7 +82,7 @@ function EditSubject({ reviewId, formik }){
                             setEditMode(false)
                             setInputClass('border border-0 bg-light')
                         }}
-                    />
+                    /> */}
                     <i 
                         as="button" 
                         onClick={turnOnEdit}

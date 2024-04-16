@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Stack from 'react-bootstrap/Stack'
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
 
 
 function EditShowDate({ formik, reviewId }){
@@ -53,7 +55,18 @@ function EditShowDate({ formik, reviewId }){
                 </>: 
                 <>
                     <Stack direction='horizontal'>
-                        <input
+                        <InputGroup>
+                            <Form.Control
+                                ref={inputRef}
+                                type="review"
+                                name='review'
+                                onChange={formik.handleChange}
+                                value={formik.values.review}
+                                readOnly={!isEditMode}
+                                onBlur={()=>{setEditMode(false)}}
+                            />
+                        </InputGroup>
+                        {/* <input
                             ref={inputRef}
                             type='date'
                             value={formik.values.show_date}
@@ -66,7 +79,7 @@ function EditShowDate({ formik, reviewId }){
                             }}
                             // style={{ width: '40px' }} 
                             onChange={formik.handleChange}
-                        />
+                        /> */}
                         <i as="button" className="ms-3 bi bi-pencil-fill pencil" onClick={turnOnEdit}></i>
                      </Stack>
                 </>

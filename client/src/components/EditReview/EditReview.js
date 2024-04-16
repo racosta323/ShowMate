@@ -4,6 +4,8 @@ import { useNavigate, useOutletContext, useParams } from 'react-router-dom'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
 
 import { useFormik } from 'formik'
 import LinesEllipsis from 'react-lines-ellipsis'
@@ -66,10 +68,20 @@ function EditReview({ reviewId, formik }){
                         </Stack>
                     </> : 
                     <>
-                        <input
+                        <InputGroup>
+                            <Form.Control
+                                ref={inputRef}
+                                type="review"
+                                name='review'
+                                onChange={formik.handleChange}
+                                value={formik.values.review}
+                                readOnly={!isEditMode}
+                                onBlur={()=>{setEditMode(false)}}
+                            />
+                        </InputGroup>
+                        {/* <input
                             ref={inputRef}
                             type="review"
-                            as='textarea'
                             name='review'
                             onChange={formik.handleChange}
                             value={formik.values.review}
@@ -79,7 +91,7 @@ function EditReview({ reviewId, formik }){
                                 setEditMode(false)
                                 setInputClass('border border-0 bg-light')
                             }}
-                        />
+                        /> */}
                         <i 
                             as="button" 
                             onClick={turnOnEdit}

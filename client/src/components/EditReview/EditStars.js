@@ -4,6 +4,8 @@ import { useNavigate, useOutletContext, useParams } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Stack from 'react-bootstrap/Stack'
 import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import InputGroup from 'react-bootstrap/InputGroup'
 
 
 function EditStars({ reviewId, formik }){
@@ -55,7 +57,18 @@ function EditStars({ reviewId, formik }){
                 </> :
                 <>
                      <Stack direction='horizontal'>
-                        <input
+                     <InputGroup>
+                            <Form.Control
+                                ref={inputRef}
+                                type="stars"
+                                name='stars'
+                                onChange={formik.handleChange}
+                                value={formik.values.stars}
+                                readOnly={!isEditMode}
+                                onBlur={()=>{setEditMode(false)}}
+                            />
+                        </InputGroup>
+                        {/* <input
                             ref={inputRef}
                             type='stars'
                             value={formik.values.stars}
@@ -68,7 +81,7 @@ function EditStars({ reviewId, formik }){
                             }}
                             style={{ width: '40px' }} 
                             onChange={formik.handleChange}
-                        />
+                        /> */}
                         <p className='mt-3'>
                             <span className='text-warning'>
                             / 5
