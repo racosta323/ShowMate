@@ -3,14 +3,27 @@ import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 
 function FilterButtons({ search, handleFilterClick }){
+
+    console.log(search)
+
+    const renderButton = () => {
+        if (search && search !== 'Choose...'){
+            return (
+                <Button
+                    variant="outline-danger"
+                    size="sm"
+                    onClick={handleFilterClick}
+                >
+                X {search}
+                </Button>
+            )
+        }
+    }
+
     return(
-        <Button
-            variant="outline-danger"
-            size="sm"
-            onClick={handleFilterClick}
-        >
-           X {search}
-        </Button>
+        <>
+            {renderButton()}
+        </>
     )
 }
 

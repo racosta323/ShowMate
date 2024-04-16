@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom"
 import Col from 'react-bootstrap/Col'
 
 function renderFilteredResults({ results }){
+
+    console.log(results)
    
     const filteredResults = results?.map((review) => {
         return (

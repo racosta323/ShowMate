@@ -26,7 +26,7 @@ function Reviews(){
     const handleShow = () => setShow(true)
 
     const defaultArtistValue = artistToggle ? filteredArtist : "Choose...."
-    const defaultGenreValue = artistToggle ? filteredArtist : "Choose...."
+    const defaultGenreValue = genreToggle ? filteredArtist : "Choose...."
 
     function handleArtistToggle(event){
         setArtistToggle(event.target.checked)
@@ -42,7 +42,7 @@ function Reviews(){
 
     function handleFilterClick(){
         setArtistToggle(false)
-    
+        setGenreToggle(false)
     }
 
     function handleArtistInput(event){
@@ -93,6 +93,8 @@ function Reviews(){
         return review.artist.genre === filteredGenre
     })
 
+    console.log(filteredGenreResults)
+
     const combinedResults = () => {
         if (artistToggle && defaultArtistValue != "Choose...."){
             return <FilteredResults results={filteredArtistResults}/> 
@@ -137,6 +139,7 @@ function Reviews(){
         )
     })
     
+    console.log(genreToggle)
 
     return (
         <Container>
@@ -153,6 +156,7 @@ function Reviews(){
             <Row>
                 <Col>
                     {artistToggle ? <FilterButtons search={filteredArtist} handleFilterClick={handleFilterClick}/> : console.log("hello")}
+                    {genreToggle ? <FilterButtons search={filteredGenre} handleFilterClick={handleFilterClick}/> : console.log("hello")}
                     <Filters 
                         show={show} 
                         handleClose={handleClose} 

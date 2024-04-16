@@ -54,60 +54,60 @@ function Filters(
             <Row>
               <Col>
                 <Offcanvas.Header closeButton aria-label="Hide">
-                        <Offcanvas.Title>Sort by options below:</Offcanvas.Title>
-                    </Offcanvas.Header>
-                    <Offcanvas.Body>
-                        <Form>
-                            <Form.Check
-                                type="switch"
-                                id="custom-switch"
-                                label="Artist"
-                                onClick={handleArtistToggle}
-                                defaultChecked={artistToggle}
-                            >
-                            </Form.Check>
-                            {artistToggle ? 
-                                <>
-                                    <Form.Select
-                                        defaultArtistValue={defaultArtistValue}
-                                        onInput={handleArtistInput}
-                                        
-                                    >
-                                        <option>Choose...</option>
-                                        {uniqueArtistNames.map((name, index) => (
-                                            <option key={index} value={name}>{name}</option>
-                                        ))}
-                                    </Form.Select>
-                                </> : 
-                                <>
+                    <Offcanvas.Title>Sort by options below:</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    <Form>
+                        <Form.Check
+                            type="switch"
+                            id="custom-switch"
+                            label="Artist"
+                            onClick={handleArtistToggle}
+                            defaultChecked={artistToggle}
+                        >
+                        </Form.Check>
+                        {artistToggle ? 
+                            <>
+                                <Form.Select
+                                    defaultArtistValue={defaultArtistValue}
+                                    onInput={handleArtistInput}
+                                    
+                                >
+                                    <option>Choose...</option>
+                                    {uniqueArtistNames.map((name, index) => (
+                                        <option key={index} value={name}>{name}</option>
+                                    ))}
+                                </Form.Select>
+                            </> : 
+                            <>
 
-                                </> 
-                            }
-                            <Form.Check
-                                type="switch"
-                                id="custom-switch"
-                                label="Genre"
-                                onClick={handleGenreToggle}
-                                defaultChecked={genreToggle}
-                            >
-                            </Form.Check>
-                            {genreToggle ? 
-                                <>
-                                    <Form.Select
-                                        defaultArtistValue={defaultGenreValue}
-                                        onInput={handleGenreInput}
-                                    >
-                                        <option>Choose...</option>
-                                        {uniqueGenreNames.map((name, index) => (
-                                            <option key={index} value={name}>{name}</option>
-                                        ))}
-                                    </Form.Select>
-                                </> : 
-                                <>
+                            </> 
+                        }
+                        <Form.Check
+                            type="switch"
+                            id="custom-switch"
+                            label="Genre"
+                            onClick={handleGenreToggle}
+                            defaultChecked={genreToggle}
+                        >
+                        </Form.Check>
+                        {genreToggle ? 
+                            <>
+                                <Form.Select
+                                    defaultArtistValue={defaultGenreValue}
+                                    onInput={handleGenreInput}
+                                >
+                                    <option>Choose...</option>
+                                    {uniqueGenreNames.map((genre, index) => (
+                                        <option key={index} value={genre}>{genre}</option>
+                                    ))}
+                                </Form.Select>
+                            </> : 
+                            <>
 
-                                </> 
-                            }
-                        </Form>
+                            </> 
+                        }
+                    </Form>
                     </Offcanvas.Body>
               </Col>
             </Row>
