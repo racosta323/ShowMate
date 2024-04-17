@@ -1,17 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate, useOutletContext, useParams } from 'react-router-dom'
+import { useNavigate, useOutletContext, useParams, NavLink} from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
-import NavLink from 'react-bootstrap/NavLink'
-import Form from 'react-bootstrap/Form'
-import InputGroup from 'react-bootstrap/InputGroup'
 
-import { useFormik } from 'formik'
-import LinesEllipsis from 'react-lines-ellipsis'
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
 function Review({ }){
     
@@ -20,6 +14,7 @@ function Review({ }){
 
     const [review, setReview] = useState({})  
 
+    console.log(review)
 
     useEffect(()=>{
         fetch(`/reviews/${reviewId}`)
@@ -36,7 +31,7 @@ function Review({ }){
                     <Col xs={8}> 
                         <Stack direction="horizontal">
                             <i className="bi bi-person-circle mx-3 text-primary"></i>
-                            <p className="mt-3 text-primary">
+                            <p as={NavLink} className="mt-3 text-primary">
                                 <NavLink to={`/users/${review.user?.id}`} className="link-offset-2 link-underline link-underline-opacity-0">
                                     {review.user?.username}
                                 </NavLink>

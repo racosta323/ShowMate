@@ -4,11 +4,7 @@ import Row from "react-bootstrap/Row"
 import Col from 'react-bootstrap/Col'
 import Stack from "react-bootstrap/Stack"
 
-import LinesEllipsis from 'react-lines-ellipsis'
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
-
 function ReviewList({ review }){
-    const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
     return(
         <>
@@ -41,19 +37,6 @@ function ReviewList({ review }){
                 </Row>
                 <Row>
                     <p className="ms-3 text-secondary smaller">Date Posted: {review.created_at}</p>
-                    {/* <ResponsiveEllipsis
-                        text={review.review}
-                        maxLine={3}
-                        ellipsis="..."
-                        trimRight
-                        basedOn="letters"
-                        className="mb-3 ms-3 lh-sm"
-                    /> */}
-                </Row>
-                <Row>
-                    <Col>
-                        {/* <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6> */}
-                    </Col>
                 </Row>
                 <Row>
                     <Col>
