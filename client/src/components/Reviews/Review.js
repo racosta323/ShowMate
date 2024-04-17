@@ -14,8 +14,6 @@ function Review({ }){
 
     const [review, setReview] = useState({})  
 
-    console.log(review)
-
     useEffect(()=>{
         fetch(`/reviews/${reviewId}`)
         .then(resp=>resp.json())

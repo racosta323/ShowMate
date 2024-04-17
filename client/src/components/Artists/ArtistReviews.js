@@ -16,8 +16,6 @@ function ArtistReviews(){
 
         const { show, setShow, handleClose, handleShow, loggedInUser } = useOutletContext()
 
-        console.log(loggedInUser)
-
         const params = useParams()
         const artistId = params.id
 

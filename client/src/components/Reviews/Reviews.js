@@ -65,7 +65,6 @@ function Reviews(){
     const renderReviews = currentRecords?.map((review)=>{
         return (
             <tbody key = {review.id}>
-                {console.log(review)}
                 <tr>
                     <td>
                         <Col
@@ -130,9 +129,6 @@ function Reviews(){
             return renderReviews
         }
     }
-
-    
-    console.log(genreToggle)
 
     return (
         <Container>

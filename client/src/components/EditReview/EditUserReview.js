@@ -69,8 +69,6 @@ function EditUserReview(){
         }
     })
 
-    console.log(formik.values)
-
     function handleDelete(){
         fetch(`/reviews/${reviewId}`, {
             method: 'DELETE',

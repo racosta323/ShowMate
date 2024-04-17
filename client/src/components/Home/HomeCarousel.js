@@ -19,7 +19,7 @@ function HomeCarousel({ artists }){
             <Carousel.Item key={artist.id}>
                 <Row>
                     <img
-                        src={artist.profile_image ? artist.profile_image : console.log("add photo")}
+                        src={artist?.profile_image}
                         alt={`Image of ${artist.name}`}
                         text=""
                         height={500}

@@ -11,8 +11,6 @@ import EditReview from '../EditReview/EditReview'
 function UserReviews( { reviews, loggedInUser, userId }){
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
-    console.log(loggedInUser, userId)
-
     return(
         <>
             <Row className='border border-secondary-subtle rounded mt-4 '>
@@ -29,7 +27,6 @@ function UserReviews( { reviews, loggedInUser, userId }){
                                 5 {' '}
                             </span>
                             <i className="bi bi-star-fill text-warning" ></i>
-                            {/* {' '} see review */}
                         </h6>
                         
                     </Col>
@@ -52,7 +49,6 @@ function UserReviews( { reviews, loggedInUser, userId }){
                 </Row>
                 <Row>
                     <Col>
-                        {/* <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6> */}
                         {userId == loggedInUser.id ? 
                             <p className="text-end text-secondary smaller">
                                 <NavLink to={`/users/${loggedInUser.id}/edit/${reviews.id}`}>

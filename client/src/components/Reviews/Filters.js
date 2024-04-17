@@ -109,7 +109,6 @@ function Filters(
                                     onInput={handleArtistInput}
                                     
                                 >
-                                    {console.log(defaultArtistValue)}
                                     <option>Choose...</option>
                                     {uniqueArtistNames.map((name, index) => (
                                         <option key={index} value={name}>{name}</option>
@@ -140,12 +139,6 @@ function Filters(
                     </Offcanvas.Body>
               </Col>
             </Row>
-           
-            {/* <Row className="my-5">
-                <Col className='d-flex justify-content-center'>
-                    <Button variant="dark">Sort</Button>
-                </Col>
-            </Row> */}
         </Offcanvas>
     )
 }

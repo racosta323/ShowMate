@@ -38,7 +38,7 @@ function Artists(){
             return accumulator + currentValue.stars
         }, 0)
     } else {
-        console.log("No reviews found")
+        alert("No reviews found")
         return 0;
     }
 }

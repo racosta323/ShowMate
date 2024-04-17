@@ -48,7 +48,7 @@ function App() {
     .then(data => setArtist(data))
 }, [])
 
-const renderList = artists.map ? artists.map((artist)=>{
+const renderList = artists.map ? artists?.map((artist)=>{
   if (!artist.reviews || artist.reviews.length == 0){
     return <NoReview handleClose={handleClose} handleShow={handleShow} show={show}/>
   } else {

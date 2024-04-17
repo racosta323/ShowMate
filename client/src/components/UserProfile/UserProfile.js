@@ -21,15 +21,11 @@ function UserProfile(){
 
     const { logoutUser, loggedInUser, artists } = useOutletContext()
 
-    console.log(artists)
-
     useEffect(()=>{
         fetch(`/users/${userId}`)
         .then(resp=>resp.json())
         .then(data => setUser(data))
     }, [userId])
-
-    console.log(user)
 
     const renderList = () => {
         if (!user.reviews || user.reviews.length == 0){

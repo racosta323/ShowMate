@@ -62,7 +62,6 @@ function CreateProfile(){
                         image: ''
                     }}
                     onSubmit={async (values) => {
-                        console.log(values)
                         try{
                             const artistResponse = await fetch('/artists',{
                                 method: 'POST',
@@ -75,15 +74,6 @@ function CreateProfile(){
                                 const artistData = await artistResponse.json()
                                 values.id = artistData.id
                             }
-                            // .then (resp=> {
-                            //     if(resp.ok){
-                            //         resp.json().then(artist=>{
-                            //             console.log(artist)
-                            //         })
-                            //     } else {
-                            //         console.log('errors? handle them')
-                            //     }
-                            // })
                         } catch(error){
             
                         }
@@ -102,7 +92,6 @@ function CreateProfile(){
                                     name='name'
                                     placeholder="Artist Name"
                                     onChange={handleChange}
-                                    // onBlur={handleBlur}
                                     required
                                     autoFocus
                                     value={values.name}

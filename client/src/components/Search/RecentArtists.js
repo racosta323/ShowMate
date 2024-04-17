@@ -9,12 +9,6 @@ function RecentArtists({ artist }){
 
     const navigate = useNavigate()
 
-    console.log(artist)
-
-    // artist?.sort((a,b)=>{
-    //     console.log(a,b)
-    // })
-
     return(
         <Row className="mt-2">
             <Col 

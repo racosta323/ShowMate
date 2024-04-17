@@ -14,15 +14,8 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
 
     const navigate = useNavigate()
 
-    // function toggleClick(){
-    //     console.log(loggedInUser)
-    //     setLoggedInUser((current)=> !current)
-    // }
-
     function handleClick(){
-        console.log(loggedInUser)
         if(!loggedInUser){
-            console.log('if')
             navigate('/login')
             window.location.reload()
         }

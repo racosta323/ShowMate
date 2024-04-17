@@ -79,8 +79,6 @@ function CreateReview({ show, handleClose, userId, artist }){
                     }}
                     validationSchema={reviewSchema}
                     onSubmit= {async (values) => {
-                        // values.stars = newRating
-                        console.log(values)
                         try{
                             const reviewResponse = await fetch('/reviews',{
                                 method: 'POST',
@@ -89,19 +87,6 @@ function CreateReview({ show, handleClose, userId, artist }){
                                 },
                                 body: JSON.stringify(values, null, 2)
                             })
-                            // if(reviewResponse.status ===201){
-                            //     const reviewData = await reviewResponse.json()
-                            //     formik.values.id = reviewData.id
-                            // }
-                            // .then (resp=> {
-                            //     if(resp.ok){
-                            //         resp.json().then(artist=>{
-                            //             console.log(artist)
-                            //         })
-                            //     } else {
-                            //         console.log('errors? handle them')
-                            //     }
-                            // })
                         } catch(error){
             
                         }
@@ -119,7 +104,6 @@ function CreateReview({ show, handleClose, userId, artist }){
                                 Share your review of a show you attended for: <br/> 
                                 <span className='fw-bold fs-3'>{artist?.name}</span>
                             </p>
-                            {console.log(values)}
                             <Row>
                                 <Form.Group>
                                     <Stars 
@@ -127,10 +111,6 @@ function CreateReview({ show, handleClose, userId, artist }){
                                         onChange={handleChange} 
                                         key={values.id} 
                                         setFieldValue={setFieldValue}
-                                        // handleClick={setRating}
-                                        // rating={rating}
-                                        // newRating={newRating} 
-                                        
                                     />
                                 </Form.Group>
                             </Row>
@@ -244,17 +224,13 @@ function CreateReview({ show, handleClose, userId, artist }){
                             <Button className="mx-3" variant="danger" onClick={handleClose}>
                                 Close
                             </Button>
-                            {/* <Button variant="dark" onClick={formik.handleSubmit}> */}
                             <Button variant="dark" onClick={()=>{
                                 handleSubmit()
-                                
                             }}
                             >
                                 Save Changes
                             </Button>
                         </Col>
-                        {/* {console.log(success)}
-                        {renderSuccess()} */}
                     </Form>
                     
                     )}
