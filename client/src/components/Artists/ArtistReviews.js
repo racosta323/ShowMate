@@ -47,11 +47,10 @@ function ArtistReviews(){
                 <Row className='my-4'></Row>
                 <Row className='my-5'>
                     <Col>
-                        {/* first 16:9 ratio chosen */}
-                        {/* image is not reactive??? */}
                         <Row>
                             <img
                                 src={artist.profile_image}  
+                                alt={`Image of ${artist.name}`}
                                 height={300}
                                 width={400}
                             />

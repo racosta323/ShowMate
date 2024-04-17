@@ -24,7 +24,6 @@ function Artists(){
     
     const params = useParams()
     const artistId = params.id
-    // console.log(artistId)
 
      useEffect(()=>{
         fetch(`/artists/${artistId}`)
@@ -44,9 +43,6 @@ function Artists(){
     }
 }
 
-//    const averageStars = Object.keys(artist).length > 0 ? totalStars() / (artist.reviews).length : console.log('error')
-
-//    const numberOfReviews = Object.keys(artist).length > 0 ? (artist.reviews).length : console.log('error')
 const averageStars = artist && artist.reviews && artist.reviews.length > 0 ? totalStars() / artist.reviews.length : 0;
 
 const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
@@ -62,8 +58,7 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                            <Ratio aspectRatio="16x9">
                                 <Image
                                     src={artist?.profile_image}
-                                    // max-height={400}
-                                    // width={500}
+                                    alt={`Image of ${artist.name}`}
                                 />
                            </Ratio>
                         </Col>
@@ -112,33 +107,12 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                     </Row>
                     <Row className='p-4'>
                         <Button onClick={()=>{navigate(`/artists/${artistId}/reviews`)}} variant='success text-light'>Check out Reviews</Button>
-                    </Row>
-                    
-                    {/* <Row>
-                       <Col>
-                            <h3 className='text-center'>Read all reviews</h3>
-                            <p className='text-center'>Purchase tickets here</p>
-                            <p className='text-center'>Price ranges</p>
-                       </Col>
-                    </Row> */}
-                        
+                    </Row>                    
                 </Col>
             </Row>
             <Row className='my-5'></Row>
             <Row className='my-5'></Row>
             <Row className='my-5'></Row>
-            {/* <Row className='mt-5'>
-                <Col xs={8}>
-                    <h2>User Uploads</h2>
-                    <p>Image Carousel</p>
-                </Col>
-                <Col className='py-5'>   
-                    <Row className='bg-body-secondary p-5 mt-1'>
-                        <h2>Something could go here</h2>
-                    </Row>
-                </Col>
-            </Row> */}
-
         </>
     )
 }

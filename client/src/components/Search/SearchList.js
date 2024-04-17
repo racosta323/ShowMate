@@ -20,6 +20,7 @@ function SearchList({ name, genre, img, id }){
             <Col>
                 <Image
                     src={img}
+                    alt={`Image of ${name}`}
                     height={100}
                     width={100}
                     roundedCircle

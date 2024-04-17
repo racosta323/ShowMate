@@ -18,6 +18,7 @@ function Trending({ name, genre, rank, image, id }){
                     <h1 className='p-1 fw-bold text-dark'>{rank}</h1>
                     <Image
                         src={image}
+                        alt={`Image of ${name}`}
                         height={50}
                         width={50}
                         roundedCircle

@@ -20,6 +20,7 @@ function HomeCarousel({ artists }){
                 <Row>
                     <img
                         src={artist.profile_image ? artist.profile_image : console.log("add photo")}
+                        alt={`Image of ${artist.name}`}
                         text=""
                         height={500}
                         width={800}
