@@ -84,7 +84,6 @@ const renderList = artists.map ? artists?.map((artist)=>{
       
       <Container className="bg-light">
         <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} logoutUser={logoutUser}/>
-       {/* { !!loggedInUser ? <Outlet context={context}/> : <Auth setUser={setLoggedInUser}/>} */}
        { !!loggedInUser ? <Outlet context={context}/> : <Auth setUser={setLoggedInUser}/>}
       </Container>
     </>

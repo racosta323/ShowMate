@@ -22,12 +22,6 @@ function NoUserReview(){
                         <h5>You have not written any reviews yet</h5>      
                     </Col>
                 </Row>
-                <Row>
-                    <Col className="d-flex justify-content-center">
-                        {/* <a href="#" onClick={handleShow}>Write a review?</NavLink> 
-                        <CreateReview show={show} handleShow={handleShow} handleClose={handleClose}/> */}
-                    </Col>
-                </Row>
             </Row>
         </>
     )

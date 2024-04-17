@@ -1,8 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-
-import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Carousel from 'react-bootstrap/Carousel'
 
 import { shuffle } from 'lodash'
@@ -20,12 +17,12 @@ function HomeCarousel({ artists }){
                 <Row>
                     <img
                         src={artist?.profile_image}
-                        alt={`Image of ${artist.name}`}
+                        alt={`Image of ${artist?.name}`}
                         text=""
                         height={500}
                         width={800}
                         onClick={()=>{
-                            navigate(`/artists/${artist.id}`)
+                            navigate(`/artists/${artist?.id}`)
                         }}
                     />
                 </Row>

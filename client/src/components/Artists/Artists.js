@@ -58,7 +58,7 @@ const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
                            <Ratio aspectRatio="16x9">
                                 <Image
                                     src={artist?.profile_image}
-                                    alt={`Image of ${artist.name}`}
+                                    alt={`Image of ${artist?.name}`}
                                 />
                            </Ratio>
                         </Col>

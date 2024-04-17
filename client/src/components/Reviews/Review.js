@@ -51,18 +51,12 @@ function Review({ }){
                                 5 {' '}
                             </span>
                             <i className="bi bi-star-fill text-warning" ></i>
-                            {/* {' '} see review */}
                         </h6>
                         
                     </Col>
                 </Row>
                 <Row>
                     <p className="ms-3 text-secondary smaller">Date Posted: {review.created_at}</p>
-                </Row>
-                <Row>
-                    <Col>
-                        {/* <h6 className="text-end text-secondary smaller">See full review (open when clicked)</h6> */}
-                    </Col>
                 </Row>
                 <Row>
                     <Col>

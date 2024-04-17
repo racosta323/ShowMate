@@ -13,7 +13,6 @@ function renderFilteredResults({ results }) {
                             as={NavLink}
                             to={`/artists/${review.artist.id}`}
                         >
-                            {/* <td>{review.id}</td> */}
                             <td>
                                 <Col
                                     as={NavLink}

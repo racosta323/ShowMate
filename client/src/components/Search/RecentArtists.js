@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom'
 
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import Button from 'react-bootstrap/Button'
 import Stack from "react-bootstrap/esm/Stack"
 
 function RecentArtists({ artist }){

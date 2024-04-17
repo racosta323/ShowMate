@@ -83,20 +83,6 @@ function EditStars({ reviewId, formik }){
                         <Col xs={1} className='mt-1'>
                             <i as="button" className="bi bi-pencil-fill pencil" onClick={turnOnEdit}></i>
                         </Col>
-                            {/* <input
-                                ref={inputRef}
-                                type='stars'
-                                value={formik.values.stars}
-                                name="stars"
-                                readOnly={!isEditMode}
-                                className={inputClass}
-                                onBlur={()=>{
-                                    setEditMode(false)
-                                    setInputClass('border border-0 bg-light fs-4 fw-bold')
-                                }}
-                                style={{ width: '40px' }} 
-                                onChange={formik.handleChange}
-                            /> */}
                 </Row>
                 }
             </form>         

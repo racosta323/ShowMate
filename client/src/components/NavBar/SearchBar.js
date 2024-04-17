@@ -5,8 +5,6 @@ import Row from 'react-bootstrap/Row';
 
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import Search from '../Search/Search';
-
 
 function SearchBar(){
 
@@ -18,14 +16,12 @@ function SearchBar(){
     const handleChange = (value) => {
         setInput(value)
         fetchData(value)
-        
     }
 
     function handleSubmit(e){   
         e.preventDefault()
         navigate('/search', {state:{input:input, results:results}})
         setInput('')
-        window.location.reload()
     }
     const fetchData = (input) => {
         fetch(`/artists`)
@@ -52,10 +48,7 @@ function SearchBar(){
                             data-bs-theme="light"
                             onChange={(e)=>{handleChange(e.target.value)}}
                             style={{fontSize: "13px", background: "#fcfbde"}}
-                            
-                            // onChange={searchChange}
                         />
-                        {/* <SearchResultsList /> */}
                     </Col>
     
                     <Col>

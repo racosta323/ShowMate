@@ -3,14 +3,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import Stack from 'react-bootstrap/Stack'
 import SearchBar from './SearchBar'
 
 import { NavLink, useNavigate } from 'react-router-dom'
-import Auth2 from './Auth';
 
-function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
+function NavBar({ loggedInUser, logoutUser }){
 
     const navigate = useNavigate()
 
@@ -50,7 +48,7 @@ function NavBar({ setLoggedInUser, loggedInUser, logoutUser }){
         
                 <Col className='ms-3' xs={5}>
                     <SearchBar/>
-                    {/* <SearchBarContainer/> */}
+
                 </Col>
                 <Navbar.Collapse id="responsive-navbar-nav">
 

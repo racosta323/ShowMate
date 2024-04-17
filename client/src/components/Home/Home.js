@@ -1,19 +1,16 @@
 import { useState, useEffect } from 'react'
 import { useOutletContext } from 'react-router-dom'
 
-import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Carousel from 'react-bootstrap/Carousel'
 
 import HomeCarousel from "./HomeCarousel"
-import Reviews from '../Reviews/Reviews'
 import Trending from './Trending'
 
 
 function Home(){
 
-    const { logoutUser, loggedInUser } = useOutletContext()
+    const { loggedInUser } = useOutletContext()
     
    
     const [artists, setArtists] = useState()
@@ -38,8 +35,13 @@ function Home(){
 
     const renderArtists = avgStars?.slice(0,5).map((artist)=>{
         return(
-            <Trending key={artist.artist.id} name={artist.artist.name} genre={artist.artist.genre} rank={avgStars.indexOf(artist)+1} image={artist.artist.profile_image} id={artist.artist.id}/>
-        )
+            <Trending 
+                key={artist.artist.id} 
+                name={artist.artist.name} 
+                genre={artist.artist.genre} 
+                rank={avgStars.indexOf(artist)+1} 
+                image={artist.artist.profile_image} id={artist.artist.id}
+            />)
     })
 
     return(

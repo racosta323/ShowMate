@@ -68,24 +68,7 @@ function EditShowName({ formik, reviewId }){
                     </Col>
                     <Col xs={1}>
                         <i as="button" className="bi bi-pencil-fill pencil" onClick={turnOnEdit}></i>
-                    </Col>
-                        
-                        {/* <input
-                            ref={inputRef}
-                            type='show'
-                            value={formik.values.show}
-                            name="show"
-                            readOnly={!isEditMode}
-                            className={inputClass}
-                            onBlur={()=>{
-                                setEditMode(false)
-                                setInputClass('border border-0 bg-light fs-4 fw-bold')
-                            }}
-                            // style={{ width: '40px' }} 
-                            onChange={formik.handleChange}
-                        /> */}
-                      
-                        
+                    </Col>        
                 </Row>
             }
         </Col>

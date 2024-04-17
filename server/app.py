@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import ipdb
 from datetime import datetime
 
 from flask import request, make_response, session

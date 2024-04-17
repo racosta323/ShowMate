@@ -38,7 +38,6 @@ function Search({ results, input }) {
                     <h2 className='fs-1'>Search '{location.state.input}'</h2>
                     <hr className='mb-5'></hr>
 
-                    {/* <NoResults/> */}
                     {(location.state && location.state.results[0]) ?
                         <>
                             <SearchList
@@ -53,7 +52,7 @@ function Search({ results, input }) {
                             <NoResults />
                         </>
                     }
-                    {/* <SearchList/> */}
+  
 
                     <p className='text-end'>Don't see what you're looking for? </p>
 
@@ -63,16 +62,8 @@ function Search({ results, input }) {
                 <Col className='py-5'>
                     <Row className='bg-body-secondary p-5 mt-4'>
                         <p>Check out...</p>
-                        <h2>Recently <br /> Created <br /> Artists</h2>
+                        <h2> Other <br /> Artists</h2>
                         <hr></hr>
-                        {/* <Row>
-                            <Col>
-                                <p>ARTIST NAME</p>
-                            </Col>
-                            <Col>
-                                <p>GENRE</p>
-                            </Col>
-                        </Row> */}
                         {renderedArtists}
                     </Row>
                 </Col>

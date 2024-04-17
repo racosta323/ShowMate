@@ -32,7 +32,6 @@ function UserProfile(){
            return <NoUserReview/>
         } else {
             return user.reviews.map((review)=>{
-                // return <EditUserReview key={review.id} reviews={review}/>
                 return <UserReviews key={review.id} reviews={review} logoutUser={logoutUser} loggedInUser={loggedInUser} userId={userId}/>
             })
         }
@@ -48,7 +47,7 @@ function UserProfile(){
                 </Col>
                 <Col xs={8} className='my-5 p-4'>
                     <h2>{`${user.first_name} ${user.last_name}'s`} Reviews</h2>
-                    {/* <h2>Reviews</h2> */}
+             
                     <hr className='my-4'/>
                     {renderList()}
                 </Col>

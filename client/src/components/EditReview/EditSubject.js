@@ -81,19 +81,6 @@ function EditSubject({ reviewId, formik }){
                             className="bi bi-pencil-fill pencil"
                         ></i>
                     </Col>
-                    {/* <input
-                        ref={inputRef}
-                        type="subject"
-                        name='subject'
-                        onChange={formik.handleChange}
-                        value={formik.values.subject}
-                        readOnly={!isEditMode}
-                        className={inputClass}
-                        onBlur={()=>{
-                            setEditMode(false)
-                            setInputClass('border border-0 bg-light')
-                        }}
-                    /> */}
                     
                 </Row>
             } 

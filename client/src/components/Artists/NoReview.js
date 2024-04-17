@@ -10,9 +10,6 @@ function NoReview({ handleClose, handleShow, show }){
     
     return(
         <>
-            {/* <Row className='my-1'>
-                <hr></hr>
-            </Row> */}
             <Row className='border border-secondary-subtle rounded p-5 mt-5'>
                 <Row className="p-2">
                     <Col className="d-flex justify-content-center">

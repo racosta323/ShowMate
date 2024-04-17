@@ -55,12 +55,8 @@ function UserReviews( { reviews, loggedInUser, userId }){
                                     Edit
                                 </NavLink>  
                             </p> : 
-                            <></>}
-                        {/* <p className="text-end text-secondary smaller">
-                            <a href="#">
-                                Edit
-                            </NavLink>  
-                        </p> */}
+                            <></>
+                        }
                     </Col>
                 </Row>
                 <Row>

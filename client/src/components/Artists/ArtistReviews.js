@@ -47,18 +47,14 @@ function ArtistReviews(){
                     <Col>
                         <Row>
                             <img
-                                src={artist.profile_image}  
-                                alt={`Image of ${artist.name}`}
+                                src={artist?.profile_image}  
+                                alt={`Image of ${artist?.name}`}
                                 height={300}
                                 width={400}
                             />
                         </Row>
                         <Row className='my-4'></Row>
-                        {/* <Row className='border border-dark h-100'>
-                            <Col className='h-100'>Something here</Col>
-                        </Row> */}
                     </Col>
-                    {/* other side */}
                     <Col xs={8} className='ps-5'>
                         <Row>
                             <Col >
@@ -80,7 +76,6 @@ function ArtistReviews(){
                                     <Col className="d-flex justify-content-end">
                                         <Button onClick={handleShow}>
                                             <i className="bi bi-pencil-square text-light fs-3" ></i>
-                                                {/* <h6 className='mt-1 smaller'>Review</h6> */}
                                         </Button>
                                         <CreateReview show={show} handleShow={handleShow} handleClose={handleClose} userId={loggedInUser.id} artist={artist}/>
                                     </Col>
