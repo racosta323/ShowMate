@@ -11,6 +11,7 @@ import RecentArtists from './RecentArtists'
 
 import { useLocation } from 'react-router-dom'
 import { useOutletContext } from 'react-router-dom'
+import { shuffle } from 'lodash'
 
 
 function Search({ results, input }) {
@@ -22,10 +23,11 @@ function Search({ results, input }) {
 
     useEffect(() => {
         if (Array.isArray(artists)) {
-            const rendered = artists?.slice(0, 5).map(artist => {
-                return (<RecentArtists artist={artist} />);
-            });
-            setRenderedArtists(rendered);
+            const shuffledArtists = shuffle(artists)
+        const rendered = shuffledArtists.slice(0, 5).map(artist => {
+            return (<RecentArtists artist={artist} />)
+        });
+        setRenderedArtists(rendered)
         }
     }, [artists]);
 
