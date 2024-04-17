@@ -36,6 +36,9 @@ function ReviewList({ review }){
                     </Col>
                 </Row>
                 <Row>
+                    <p className="ms-3 text-dark">{review.review}</p>
+                </Row>
+                <Row>
                     <p className="ms-3 text-secondary smaller">Date Posted: {review.created_at}</p>
                 </Row>
                 <Row>
