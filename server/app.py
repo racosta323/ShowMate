@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import ipdb
 from datetime import datetime
 
 from flask import request, make_response, session
@@ -78,9 +79,9 @@ api.add_resource(Reviews, '/reviews')
 
 class ReviewById(Resource):
     def get(self, id):
-
+        
         try:
-            review = Review.query.get(id)
+            review = Review.query.filter_by(id=id).first()
         except:
             return make_response({'error': "could not find review"}, 400)
 

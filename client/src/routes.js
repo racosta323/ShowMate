@@ -5,6 +5,7 @@ import ArtistReviews from './components/Artists/ArtistReviews'
 import Home from './components/Home/Home'
 import Reviews from './components/Reviews/Reviews'
 import Auth from './components/NavBar/Auth'
+import Review from './components/Reviews/Review'
 
 
 import { createBrowserRouter } from 'react-router-dom'
@@ -48,6 +49,10 @@ const routes = [
             {
                 path: 'reviews',
                 element: <Reviews/>
+            }, 
+            {
+                path: 'review/:id',
+                element: <Review />
             }, 
             {
                 path: 'login',

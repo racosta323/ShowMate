@@ -11,6 +11,7 @@ import Filters from "./Filters";
 import FilterButtons from "./FilterButtons";
 import FilteredResults from './FilteredResults'
 
+
 function Reviews(){
 
     const { reviews } = useOutletContext()
@@ -56,7 +57,7 @@ function Reviews(){
     const renderReviews = reviews?.map((review)=>{
         return (
             <tbody key = {review.id}>
-                {/* {console.log(review)} */}
+                {console.log(review)}
                 <tr>
                     <td>{review.id}</td>
                     <td>
@@ -80,6 +81,14 @@ function Reviews(){
                             {review.user.username}
                         </Col>
                     </td>
+                    <td>
+                        <Col
+                            as={NavLink}
+                            to={`/review/${review?.id}`}
+                        >
+                            <p>See Review</p>
+                        </Col>
+                    </td>
                 </tr>
             </tbody>
         )
@@ -95,7 +104,7 @@ function Reviews(){
         return review.artist.genre === filteredGenre
     })
 
-    console.log(filteredGenreResults)
+
 
     const combinedResults = () => {
         if (artistToggle && defaultArtistValue != "Choose...."){
@@ -154,6 +163,7 @@ function Reviews(){
                             <th>SHOW DATE</th>
                             <th>STARS</th>
                             <th>USERNAME</th>
+                            <th>REVIEW</th>
                         </tr>
                     </thead>
                     {combinedResults()}

@@ -28,13 +28,6 @@ function EditReview({ reviewId, formik }){
         .then(data => setReviews(data))
     }, [reviewId])
 
-    // useEffect(() => {
-    //     formik.setValues({
-    //         ...formik.values,
-    //         subject: reviews.subject
-    //     });
-    // }, [reviews])
-
 
     function turnOnEdit(){
         setToggleReview(true)
@@ -42,15 +35,12 @@ function EditReview({ reviewId, formik }){
         setEditMode(true);
     }
 
-    //autofocus
     useEffect(() => {
         if (toggleReview && inputRef.current) {
             inputRef?.current.focus();
         }
     }, [toggleReview]);
     
-    
-    // console.log(inputRef)
 
     return(
         <Row>
