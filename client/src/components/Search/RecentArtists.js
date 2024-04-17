@@ -13,19 +13,26 @@ function RecentArtists({ name, genre, id }){
         <Row className="mt-2">
             <Col 
                 as="button" 
-                className="text-danger border rounded" 
-                style={{background: "#fcfbde"}}
+                className="text-light border rounded" 
+                style={{background: "#395A7F"}}
                 onClick={()=>{
                     navigate(`/artists/${id}`)
                 }}
             >
-                <p className="text-start fs-5 fw-bold lh-1 pt-1">{name} <br/> 
-                    <span className="smaller fw-normal text-dark">
-                        {genre}
-                    </span> 
-                </p>
-                
+                <Stack direction='horizontal'>
+                    <Col>
+                        <p className="text-start fs-5 fw-bold lh-1 m-2">{name} <br/> 
+                            <span className="smaller fw-normal text-light">
+                                {genre}
+                            </span> 
+                        </p>
+                    </Col>
+                    <Col>
+                        <i className="bi bi-boombox fs-2"></i>
+                    </Col>
+                </Stack>
             </Col>
+    
         </Row>
     )
 }
