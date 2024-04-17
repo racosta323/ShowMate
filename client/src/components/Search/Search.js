@@ -19,10 +19,10 @@ function Search({ results, input }) {
 
     const { artists } = useOutletContext()
 
-    
+    console.log(artists)
 
     const renderArtists = artists?.slice(0,5).map((artist)=>{
-        return (<RecentArtists name={artist.name} genre={artist.genre}/>)
+        return (<RecentArtists name={artist.name} genre={artist.genre} id={artist.id}/>)
     })
 
     return (
@@ -40,6 +40,7 @@ function Search({ results, input }) {
                                 genre={location.state.results[0].genre}
                                 img={location.state.results[0].profile_image}
                                 id={location.state.results[0].id}
+                                key={location.state.results[0].id}
                             />
                         </> :
                         <>

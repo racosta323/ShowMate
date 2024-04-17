@@ -9,7 +9,6 @@ function SearchList({ name, genre, img, id }){
 
     const navigate = useNavigate()
 
-
     return(
         <Row 
             className='bg-body-secondary border-start border-5 border-danger p-3'
