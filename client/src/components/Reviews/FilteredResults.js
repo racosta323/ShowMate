@@ -38,9 +38,9 @@ function renderFilteredResults({ results }) {
                             <td>
                                 <Col
                                     as={NavLink}
-                                    to={`/users/${review.user.id}`}
+                                    to={`/review/${review.id}`}
                                 >
-                                    {review.user.username}
+                                    See Review
                                 </Col>
                             </td>
                         </tr>
