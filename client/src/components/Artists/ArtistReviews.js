@@ -57,9 +57,9 @@ function ArtistReviews(){
                             />
                         </Row>
                         <Row className='my-4'></Row>
-                        <Row className='border border-dark h-100'>
+                        {/* <Row className='border border-dark h-100'>
                             <Col className='h-100'>Something here</Col>
-                        </Row>
+                        </Row> */}
                     </Col>
                     {/* other side */}
                     <Col xs={8} className='ps-5'>
