@@ -56,7 +56,7 @@ function Home(){
                     
                 </Col>
             </Row>
-            <Row>
+            <Row className='p-2'>
                 <Col xs={8}>
                     <Row className="my-5">
                         <Col>
@@ -68,9 +68,9 @@ function Home(){
                     <Row className="my-4">
                         <Col>
                             <h3 className='fw-bold'>Trending Artists</h3>
+                            {renderArtists}
                         </Col>
                     </Row>
-                    {renderArtists}
                    <Row>
                         <Col>
                             <p className='smaller p-2'>Sorted by highest rating</p>
