@@ -3,7 +3,6 @@ from sqlalchemy.ext.associationproxy import association_proxy
 
 from config import db, bcrypt
 
-# Models go here!
 class Artist(db.Model, SerializerMixin):
     __tablename__ = 'artists'
 
@@ -46,7 +45,6 @@ class Review(db.Model, SerializerMixin):
     def __repr__(self):
         return f'<Review id={self.id}, subject={self.subject}, review={self.review} stars={self.stars}, artist_id={self.artist_id}, date={self.show_date} user_id={self.user_id}>'
     
-
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 

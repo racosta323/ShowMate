@@ -5,11 +5,15 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Carousel from 'react-bootstrap/Carousel'
 
+import { shuffle } from 'lodash'
+
 function HomeCarousel({ artists }){
 
     const navigate = useNavigate()
 
-    const renderArtists = artists ? artists.map((artist)=>{
+    const shuffledArtists= shuffle(artists)
+
+    const renderArtists = shuffledArtists?.slice(0,10).map((artist)=>{
 
         return(
             <Carousel.Item key={artist.id}>
@@ -31,7 +35,7 @@ function HomeCarousel({ artists }){
                 </Carousel.Caption>
             </Carousel.Item>
         ) 
-    }) : console.log('Loading')
+    })
 
 
     return(
