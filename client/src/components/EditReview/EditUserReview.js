@@ -3,12 +3,8 @@ import { useNavigate, useOutletContext, useParams, NavLink } from 'react-router-
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Stack from 'react-bootstrap/Stack'
-import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-import LinesEllipsis from 'react-lines-ellipsis'
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 import { useFormik } from 'formik'
 import EditReview from './EditReview'
 import EditSubject from './EditSubject'
@@ -16,7 +12,7 @@ import EditStars from './EditStars'
 import EditShowContainer from './EditShowContainer'
 
 function EditUserReview(){
-    const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
+
     const inputRef = useRef(null)
 
     const { loggedInUser } = useOutletContext()

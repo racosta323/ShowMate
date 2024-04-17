@@ -66,20 +66,7 @@ function EditShowDate({ formik, reviewId }){
                                 onBlur={()=>{setEditMode(false)}}
                             />
                         </InputGroup>
-                        {/* <input
-                            ref={inputRef}
-                            type='date'
-                            value={formik.values.show_date}
-                            name="show_date"
-                            readOnly={!isEditMode}
-                            className={inputClass}
-                            onBlur={()=>{
-                                setEditMode(false)
-                                setInputClass('border border-0 bg-light fs-4 fw-bold')
-                            }}
-                            // style={{ width: '40px' }} 
-                            onChange={formik.handleChange}
-                        /> */}
+                       
                         <i as="button" className="ms-3 bi bi-pencil-fill pencil" onClick={turnOnEdit}></i>
                      </Stack>
                 </>

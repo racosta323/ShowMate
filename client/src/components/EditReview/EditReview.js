@@ -7,12 +7,9 @@ import Stack from 'react-bootstrap/Stack'
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
 
-import { useFormik } from 'formik'
-import LinesEllipsis from 'react-lines-ellipsis'
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
 function EditReview({ reviewId, formik }){
-    const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
+   
 
     const inputRef = useRef(null)
 
@@ -78,20 +75,6 @@ function EditReview({ reviewId, formik }){
                                 className="ms-2 bi bi-pencil-fill pencil"
                             ></i>
                         </Col>
-                        
-                        {/* <input
-                            ref={inputRef}
-                            type="review"
-                            name='review'
-                            onChange={formik.handleChange}
-                            value={formik.values.review}
-                            readOnly={!isEditMode}
-                            className={inputClass}
-                            onBlur={()=>{
-                                setEditMode(false)
-                                setInputClass('border border-0 bg-light')
-                            }}
-                        /> */}
                         
                     </Row>
                 } 

@@ -53,7 +53,7 @@ function EditShowName({ formik, reviewId }){
                     </Stack>
                 </Col> : 
                 <Row>
-                    <Col xs={10}>
+                    <Col xs={8}>
                         <InputGroup>
                             <Form.Control
                                 ref={inputRef}
