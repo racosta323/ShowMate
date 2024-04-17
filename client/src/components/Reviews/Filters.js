@@ -48,7 +48,6 @@ function Filters(
             show={show} 
             onHide={handleClose} 
             placement="top" 
-            // backdrop="static"
             backdropClassName="bg-tertiary"
         >
             <Row>
