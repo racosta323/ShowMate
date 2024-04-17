@@ -75,7 +75,8 @@ function SearchBar(){
                             className="mr-sm-2 search"
                             data-bs-theme="light"
                             onChange={(e)=>{handleChange(e.target.value)}}
-                            style={{fontSize: "13px"}}
+                            style={{fontSize: "13px", background: "#fcfbde"}}
+                            
                             // onChange={searchChange}
                         />
                         {/* <SearchResultsList /> */}

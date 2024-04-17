@@ -3,13 +3,13 @@ import Col from "react-bootstrap/Col"
 import Button from 'react-bootstrap/Button'
 import Stack from "react-bootstrap/esm/Stack"
 
-function RecentArtists(){
+function RecentArtists({ name, genre }){
     return(
-        <Row>
-            <Col as="button" className="text-danger border border-danger bg-white">
-                <p className="text-start fs-4 fw-bold lh-1 pt-1">Beyonce <br/> 
-                    <span className="fs-6 fw-normal">
-                        Pop
+        <Row className="mt-2">
+            <Col as="button" className="text-danger border rounded" style={{background: "#fcfbde"}}>
+                <p className="text-start fs-5 fw-bold lh-1 pt-1">{name} <br/> 
+                    <span className="smaller fw-normal text-dark">
+                        {genre}
                     </span> 
                 </p>
                 

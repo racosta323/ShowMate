@@ -10,12 +10,20 @@ import CreateProfile from './CreateArtistProfile'
 import RecentArtists from './RecentArtists'
 
 import { useLocation } from 'react-router-dom'
+import { useOutletContext } from 'react-router-dom'
 
 
 function Search({ results, input }) {
 
     const location = useLocation()
 
+    const { artists } = useOutletContext()
+
+    
+
+    const renderArtists = artists?.slice(0,5).map((artist)=>{
+        return (<RecentArtists name={artist.name} genre={artist.genre}/>)
+    })
 
     return (
         <Container className='py-5'>
@@ -47,6 +55,7 @@ function Search({ results, input }) {
                 </Col>
                 <Col className='py-5'>
                     <Row className='bg-body-secondary p-5 mt-4'>
+                        <p>Check out...</p>
                         <h2>Recently <br /> Created <br /> Artists</h2>
                         <hr></hr>
                         {/* <Row>
@@ -57,7 +66,7 @@ function Search({ results, input }) {
                                 <p>GENRE</p>
                             </Col>
                         </Row> */}
-                        <RecentArtists />
+                        {renderArtists}
                     </Row>
                 </Col>
             </Row>
