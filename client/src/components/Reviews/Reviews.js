@@ -5,11 +5,13 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Table from 'react-bootstrap/Table'
-import Stack from "react-bootstrap/Stack";
+import Stack from "react-bootstrap/Stack"
+import Pagination from 'react-bootstrap/Pagination'
 
 import Filters from "./Filters";
 import FilterButtons from "./FilterButtons";
 import FilteredResults from './FilteredResults'
+import PageNumbers from './PageNumbers'
 
 
 function Reviews(){
@@ -21,6 +23,12 @@ function Reviews(){
     const [filteredGenre, setFilteredGenre] = useState(null)
     const [artistToggle, setArtistToggle] = useState(false)
     const [genreToggle, setGenreToggle] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [recordsPerPage, setRecordsPerPage] = useState(5)
+
+    const indexOfLastRecord = currentPage * recordsPerPage;
+    const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+    const currentRecords = reviews.slice(indexOfFirstRecord, indexOfLastRecord);
    
 
     const handleClose = () => setShow(false)
@@ -54,12 +62,11 @@ function Reviews(){
 
 
 
-    const renderReviews = reviews?.map((review)=>{
+    const renderReviews = currentRecords?.map((review)=>{
         return (
             <tbody key = {review.id}>
                 {console.log(review)}
                 <tr>
-                    <td>{review.id}</td>
                     <td>
                         <Col
                             as={NavLink}
@@ -94,7 +101,15 @@ function Reviews(){
         )
     })
 
-    //filtered results
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(reviews.length / recordsPerPage); i++) {
+        pageNumbers.push(
+            <Pagination.Item key={i} active={i === currentPage} onClick={() => setCurrentPage(i)}>
+                {i}
+            </Pagination.Item>
+        );
+    }
+
     const filteredArtistResults = reviews?.filter((review)=>{
             return review.artist.name === filteredArtist
     })
@@ -121,7 +136,6 @@ function Reviews(){
 
     return (
         <Container>
-            <Row></Row>
             <Row className="my-5">
                 <Col>
                     <p>Click on the filter icon to filter results</p>
@@ -151,11 +165,10 @@ function Reviews(){
                         />
                 </Col>
             </Row>
-            <Row className="my-5">
+            <Row className="mt-4">
                 <Table responsive="sm">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>ARTIST</th>
                             <th>GENRE</th>
                             <th>SHOW</th>
@@ -167,9 +180,12 @@ function Reviews(){
                         </tr>
                     </thead>
                     {combinedResults()}
-                    {/* {artistToggle ? <FilteredResults results={filteredArtistResults}/> : renderReviews}
-                    {genreToggle? <FilteredResults results={filteredGenreResults}/> : renderReviews} */}
                 </Table>
+            </Row>
+            <Row>
+                <Col className="d-flex justify-content-end">
+                    <Pagination>{pageNumbers}</Pagination>
+                </Col>
             </Row>
         </Container>
     )
