@@ -3,7 +3,6 @@ import { useParams, useOutletContext, NavLink } from 'react-router-dom'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Stack from 'react-bootstrap/Stack'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
@@ -37,7 +36,6 @@ function ArtistReviews(){
             })
         }
     }
-
 
     return(
         <Container>

@@ -91,7 +91,6 @@ function CreateReview({ show, handleClose, userId, artist }){
             
                         }
                         setSuccess(true)
-                        // resetForm()
                         handleClose()
                         window.location.reload()
                     }}

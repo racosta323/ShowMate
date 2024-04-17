@@ -4,7 +4,6 @@ import { useParams, useOutletContext, NavLink, useNavigate } from 'react-router-
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Stack from 'react-bootstrap/Stack'
-import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Image from 'react-bootstrap/Image'
 import Ratio from 'react-bootstrap/Ratio'
@@ -44,9 +43,7 @@ function Artists(){
 }
 
 const averageStars = artist && artist.reviews && artist.reviews.length > 0 ? totalStars() / artist.reviews.length : 0;
-
 const numberOfReviews = artist && artist.reviews ? artist.reviews.length : 0;
-
 
     return(
        <>

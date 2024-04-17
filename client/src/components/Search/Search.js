@@ -14,7 +14,7 @@ import { useOutletContext } from 'react-router-dom'
 import { shuffle } from 'lodash'
 
 
-function Search({ results, input }) {
+function Search({ }) {
 
     const location = useLocation()
 
