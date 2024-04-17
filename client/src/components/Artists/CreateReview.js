@@ -16,23 +16,19 @@ import Success from '../Success'
 import Stars from './Stars'
 
 
-function CreateReview({ show, handleShow, handleClose, userId, artist }){
+function CreateReview({ show, handleClose, userId, artist }){
 
-    
     const navigate = useNavigate()
 
-    const [rating, setRating] = useState(null)
     const [modalShow, setModalShow] = useState(false)
     const [success, setSuccess ] = useState(false)
-    
-    // console.log(newRating)
     
     const params = useParams()
     const artistId = params.id
 
     const reviewSchema = Yup.object().shape({
         stars:Yup.number()
-        .required('Required'),
+            .required('Required'),
         subject: Yup.string()
             .min(1, "Too short")
             .max(50, "Too long")
@@ -45,80 +41,23 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
             .min(1, "Too short")
             .max(50, "Too long")
             .required('Required'),
-        date: Yup.date(),
+        date: Yup.date()
+            // .oneOf(["mm/dd/yyyy"], "Please enter a date")
+            .required('Required'),
         review: Yup.string()
             .min(5, "Too short")
             .max(1000, "Too long")
             .required('Required')
     })
- 
-// console.log(newRating)
-//     const formik = useFormik({
-//         initialValues: {
-//             id: '',
-//             subject: '',
-//             name: '',
-//             location: '',
-//             date: '',
-//             review: '',
-//             artistId: artistId,
-//             stars: '',
-//             userId: userId
-//         },
-//         onSubmit: async (values) => {
-//             try{
-//                 const reviewResponse = await fetch('/reviews',{
-//                     method: 'POST',
-//                     headers: {
-//                         "Content-Type": 'application/json'
-//                     },
-//                     body: JSON.stringify(values, null, 2)
-//                 })
-//                 // if(reviewResponse.status ===201){
-//                 //     const reviewData = await reviewResponse.json()
-//                 //     formik.values.id = reviewData.id
-//                 // }
-//                 // .then (resp=> {
-//                 //     if(resp.ok){
-//                 //         resp.json().then(artist=>{
-//                 //             console.log(artist)
-//                 //         })
-//                 //     } else {
-//                 //         console.log('errors? handle them')
-//                 //     }
-//                 // })
-//             } catch(error){
-
-//             }
-            
-//         }
-//    })
-
-//    const handleStarClick = (currentRating) => {
-//         setRating(currentRating)
-//         // formik.values.stars = currentRating
-//    }
-
-    // const handleSaveClick = () => {
-    //     if (success){
-    //         handleClose()
-    //         setModalShow(true)
-    //         // setSuccess(true)
-    // }
     
     const renderSuccess = () =>{
         return(
             <>
                 {success && <Success artistId={artistId} show={modalShow} onHide={() => setModalShow(false)} />}
-
             </>
-
         )
     }
 
-    
-   
-   
     return(
         <>
             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} size="lg">
@@ -167,9 +106,9 @@ function CreateReview({ show, handleShow, handleClose, userId, artist }){
             
                         }
                         setSuccess(true)
-                        window.location.reload()
                         // resetForm()
                         handleClose()
+                        window.location.reload()
                     }}
                 
                 >

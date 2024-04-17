@@ -39,42 +39,6 @@ function Auth({ setUser }) {
         password: Yup.string().required('password required')
     })
 
-    // const formik = useFormik({
-    //     initialValues:{
-    //         id: '',
-    //         firstName: '',
-    //         lastName: '',
-    //         username: '',
-    //         password: '',
-    //         passwordConfirmation: ''
-    //     },
-    //     validationSchema: signup ? signupSchema : loginSchema,
-    //     onSubmit: async (values) => {
-    //         try{
-    //             const endpoint = signup ? '/users' : '/login'
-    //             const userResponse = await fetch(
-    //                 endpoint,{
-    //                     method: 'POST',
-    //                     headers: {
-    //                         "Content-Type": "application/json"
-    //                     },
-    //                     body: JSON.stringify(values, null, 2)
-    //                 })
-    //                 .then (resp=>{
-    //                     if (resp.ok){
-    //                         resp.json().then(user=>{
-    //                             setUser(user)
-    //                         })
-    //                     } else {
-    //                         console.log('errors? handle them')
-    //                     }
-    //                 })
-    //         } catch(error){
-
-    //         }
-    //     } 
-    // })
-
     return (
         <Container>
             <Modal show={show} onHide={handleClose} backdrop="static">
