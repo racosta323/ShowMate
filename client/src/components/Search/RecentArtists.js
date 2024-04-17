@@ -5,9 +5,15 @@ import Col from "react-bootstrap/Col"
 import Button from 'react-bootstrap/Button'
 import Stack from "react-bootstrap/esm/Stack"
 
-function RecentArtists({ name, genre, id }){
+function RecentArtists({ artist }){
 
     const navigate = useNavigate()
+
+    console.log(artist)
+
+    // artist?.sort((a,b)=>{
+    //     console.log(a,b)
+    // })
 
     return(
         <Row className="mt-2">
@@ -16,14 +22,14 @@ function RecentArtists({ name, genre, id }){
                 className="text-light border rounded" 
                 style={{background: "#395A7F"}}
                 onClick={()=>{
-                    navigate(`/artists/${id}`)
+                    navigate(`/artists/${artist.id}`)
                 }}
             >
                 <Stack direction='horizontal'>
                     <Col>
-                        <p className="text-start fs-5 fw-bold lh-1 m-2">{name} <br/> 
+                        <p className="text-start fs-5 fw-bold lh-1 m-2">{artist.name} <br/> 
                             <span className="smaller fw-normal text-light">
-                                {genre}
+                                {artist.genre}
                             </span> 
                         </p>
                     </Col>

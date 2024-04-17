@@ -60,7 +60,7 @@ function SearchBar(){
                 return input && artist && artist.name && artist.name.toLowerCase().includes(input)
             })
             setResults(results)
-            console.log(results)
+           
         })
     }
 

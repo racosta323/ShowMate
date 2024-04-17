@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -18,12 +18,16 @@ function Search({ results, input }) {
     const location = useLocation()
 
     const { artists } = useOutletContext()
+    const [renderedArtists, setRenderedArtists] = useState([]);
 
-    console.log(artists)
-
-    const renderArtists = artists?.slice(0,5).map((artist)=>{
-        return (<RecentArtists name={artist.name} genre={artist.genre} id={artist.id}/>)
-    })
+    useEffect(() => {
+        if (Array.isArray(artists)) {
+            const rendered = artists?.slice(0, 5).map(artist => {
+                return (<RecentArtists artist={artist} />);
+            });
+            setRenderedArtists(rendered);
+        }
+    }, [artists]);
 
     return (
         <Container className='py-5'>
@@ -67,7 +71,7 @@ function Search({ results, input }) {
                                 <p>GENRE</p>
                             </Col>
                         </Row> */}
-                        {renderArtists}
+                        {renderedArtists}
                     </Row>
                 </Col>
             </Row>
