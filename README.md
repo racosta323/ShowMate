@@ -20,9 +20,26 @@ A dynamic full-stack web app born from my capstone project at [Flatiron School's
 
 This project demonstrates proficiency in all the above requirements, showcasing a comprehensive understanding of backend development, data modeling, client-side routing, CRUD operations, validation, error handling, and state management. It serves as a culmination of my learning journey, showcasing my ability to develop complex web applications using modern technologies and best practices.
 
-### Requirements
+# Setup
 
-From client folder, npm start to start the development server. In a separate terminal, run app.py from the server folder. 
+1. Install backend dependencies by running :
+
+      $ pipenv install
+      $ pipenv shell
+      Run your Flask API on localhost:5555:
+
+      $ python server/app.py
+      Check that your server serves the default route http://localhost:5555.
+
+2.  Install frontend dependencies:
+
+$ npm install 
+--> The React app runs on localhost:3000:
+
+$ npm start 
+--> Check that your React client displays a default page http://localhost:3000.
+
+5. Start the server using "npm start". 
 
 ## Table of Contents
 1. [Basic Details](#basic-details)
