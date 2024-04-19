@@ -4,7 +4,7 @@
 
 ## Background
 
-Welcome to ShowMate! I developed this application as my final capstone project for my software engineering curriculum offered by [Flatiron School](https://flatironschool.com/). It was developed over the course of one week and incorporates a range of requirements to demonstrate proficiency in various technologies and concepts.
+A dynamic full-stack web app born from my capstone project at [Flatiron School's](https://flatironschool.com/) software engineering curriculum. Developed in just one week, ShowMate empowers users to review concerts they've attended and explore others' reviews, fostering a vibrant community around live music experiences.
 
 ### Project Requirements:
 
