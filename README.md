@@ -20,6 +20,10 @@ A dynamic full-stack web app born from my capstone project at [Flatiron School's
 
 This project demonstrates proficiency in all the above requirements, showcasing a comprehensive understanding of backend development, data modeling, client-side routing, CRUD operations, validation, error handling, and state management. It serves as a culmination of my learning journey, showcasing my ability to develop complex web applications using modern technologies and best practices.
 
+### Requirements
+
+From client folder, npm start to start the development server. In a separate terminal, run app.py from the server folder. 
+
 ## Table of Contents
 1. [Basic Details](#basic-details)
 2. [Features](#features)
