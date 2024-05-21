@@ -178,5 +178,5 @@ def check_authorized():
         return make_response({"error": "unauthorized"})
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, use_reloader=False)
 
