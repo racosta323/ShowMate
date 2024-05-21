@@ -78,7 +78,7 @@ function CreateProfile(){
             
                         }
                         navigate(`/artists/${values.id}`)
-                        window.location.reload()
+                        // window.location.reload()
                     }}
                 >
                     {({ values, handleSubmit, handleChange, touched, errors, handleBlur, resetForm})=>(
