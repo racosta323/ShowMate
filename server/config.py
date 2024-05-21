@@ -16,17 +16,13 @@ import ipdb
 app = Flask(
     __name__,
     static_url_path='',
-    static_folder='../client/build',
+    static_folder='../client/build/static',
     template_folder='../client/build'
 )
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
-
-@app.errorhandler(404)
-def not_found(e):
-    return render_template("index.html")
 
 metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
@@ -36,6 +32,10 @@ migrate = Migrate(app, db)
 db.init_app(app)
 
 api = Api(app)
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("index.html")
 
 CORS(app)
 
