@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
 from datetime import datetime
-from flask import request, make_response, session
+from flask import request, make_response, session, render_template
 from flask_restful import Resource
 from config import app, db, api
 from models import Artist, Review, User
 
 @app.route('/')
 def index():
-    return '<h1>Project Server</h1>'
+    return render_template("index.html")
 
 class Artists(Resource):
     def get(self):
@@ -178,5 +178,5 @@ def check_authorized():
         return make_response({"error": "unauthorized"})
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=False)
+    app.run(port='5555', debug=True, use_reloader=False)
 
