@@ -31,7 +31,7 @@ class Artists(Resource):
 
         return make_response(artist.to_dict(), 201)
 
-api.add_resource(Artists, 'api/artists')    
+api.add_resource(Artists, '/api/artists')    
 
 class ArtistById(Resource):
     def get(self, id):
