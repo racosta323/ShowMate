@@ -43,7 +43,7 @@ function App() {
   const handleShow = () => setShow(true);
 
   useEffect(()=>{
-    fetch(`/artists`)
+    fetch(`/api/artists`)
     .then(resp=>resp.json())
     .then(data => setArtist(data))
 }, [])

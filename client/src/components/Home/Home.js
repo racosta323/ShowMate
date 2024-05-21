@@ -16,7 +16,7 @@ function Home(){
     const [artists, setArtists] = useState()
     
     useEffect(()=>{
-        fetch('/artists')
+        fetch('/api/artists')
         .then (resp=>resp.json())
         .then(data=>setArtists(data))
     }, [])

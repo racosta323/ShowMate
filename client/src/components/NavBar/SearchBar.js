@@ -24,7 +24,7 @@ function SearchBar(){
         setInput('')
     }
     const fetchData = (input) => {
-        fetch(`/artists`)
+        fetch(`/api/artists`)
         .then (resp => resp.json())
         .then(data => {
             
