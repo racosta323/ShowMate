@@ -63,7 +63,7 @@ function CreateProfile(){
                     }}
                     onSubmit={async (values) => {
                         try{
-                            const artistResponse = await fetch('/artists',{
+                            const artistResponse = await fetch('/api/artists',{
                                 method: 'POST',
                                 headers: {
                                     "Content-Type": 'application/json'
