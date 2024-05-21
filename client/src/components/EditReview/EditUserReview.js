@@ -24,7 +24,7 @@ function EditUserReview(){
     const navigate = useNavigate()
 
     useEffect(()=>{
-        fetch(`/reviews/${reviewId}`)
+        fetch(`/api/reviews/${reviewId}`)
         .then(resp=>resp.json())
         .then(data => setReview(data))
     }, [reviewId])
@@ -70,7 +70,7 @@ function EditUserReview(){
     })
 
     function handleDelete(){
-        fetch(`/reviews/${reviewId}`, {
+        fetch(`/api/reviews/${reviewId}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json"

@@ -23,7 +23,7 @@ function MyProfile(){
     
 
     useEffect(()=>{
-        fetch(`/users/${userId}`)
+        fetch(`/api/users/${userId}`)
         .then(resp=>resp.json())
         .then(data => setUser(data))
     }, [userId])

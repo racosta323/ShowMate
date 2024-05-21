@@ -60,7 +60,7 @@ const renderList = artists.map ? artists?.map((artist)=>{
 
 
     useEffect(()=>{
-        fetch('/reviews')
+        fetch('/api/reviews')
         .then(resp=>resp.json())
         .then(data=>setReviews(data))
     }, [])

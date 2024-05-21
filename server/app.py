@@ -42,7 +42,7 @@ class ArtistById(Resource):
 
         return make_response(artist.to_dict())
 
-api.add_resource(ArtistById, '/artists/<int:id>')
+api.add_resource(ArtistById, '/api/artists/<int:id>')
 
 class Reviews(Resource):
     def get(self):
@@ -71,7 +71,7 @@ class Reviews(Resource):
         except:
             return make_response({'error': "could not create review"}, 400)
 
-api.add_resource(Reviews, '/reviews')   
+api.add_resource(Reviews, '/api/reviews')   
 
 class ReviewById(Resource):
     def get(self, id):
@@ -113,7 +113,7 @@ class ReviewById(Resource):
         except:
             return make_response({'error': "could not delete review"}, 400)
 
-api.add_resource(ReviewById, '/reviews/<int:id>')
+api.add_resource(ReviewById, '/api/reviews/<int:id>')
 
 class Users(Resource):
     def post(self):
@@ -131,7 +131,7 @@ class Users(Resource):
         except:
             return make_response({'error': "could not create user"}, 400)
 
-api.add_resource(Users, '/users')
+api.add_resource(Users, '/api/users')
 
 class UserById(Resource):
     def get(self, id):
@@ -142,7 +142,7 @@ class UserById(Resource):
 
         return make_response(user.to_dict())
 
-api.add_resource(UserById, '/users/<int:id>')
+api.add_resource(UserById, '/api/users/<int:id>')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -174,7 +174,7 @@ def logout():
 
 @app.before_request
 def check_authorized():
-    if request.endpoint == 'users/:id' and not session.get('user_id'):
+    if request.endpoint == 'api/users/:id' and not session.get('user_id'):
         return make_response({"error": "unauthorized"})
 
 if __name__ == '__main__':
