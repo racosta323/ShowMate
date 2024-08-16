@@ -20,7 +20,7 @@ function EditReview({ reviewId, formik }){
 
 
     useEffect(()=>{
-        fetch(`/reviews/${reviewId}`)
+        fetch(`/api/reviews/${reviewId}`)
         .then(resp=>resp.json())
         .then(data => setReviews(data))
     }, [reviewId])

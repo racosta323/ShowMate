@@ -15,7 +15,7 @@ function Review({ }){
     const [review, setReview] = useState({})  
 
     useEffect(()=>{
-        fetch(`/reviews/${reviewId}`)
+        fetch(`/api/reviews/${reviewId}`)
         .then(resp=>resp.json())
         .then(data => setReview(data))
     }, [reviewId])

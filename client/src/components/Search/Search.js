@@ -17,6 +17,7 @@ import { shuffle } from 'lodash'
 function Search({ }) {
 
     const location = useLocation()
+    console.log(location)
 
     const { artists } = useOutletContext()
     const [renderedArtists, setRenderedArtists] = useState([]);

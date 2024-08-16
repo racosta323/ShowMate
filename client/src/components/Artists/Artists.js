@@ -25,7 +25,7 @@ function Artists(){
     const artistId = params.id
 
      useEffect(()=>{
-        fetch(`/artists/${artistId}`)
+        fetch(`/api/artists/${artistId}`)
         .then(resp=>resp.json())
         .then(data => setArtist(data))
     }, [artistId])

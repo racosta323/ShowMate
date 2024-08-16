@@ -80,7 +80,7 @@ function CreateReview({ show, handleClose, userId, artist }){
                     validationSchema={reviewSchema}
                     onSubmit= {async (values) => {
                         try{
-                            const reviewResponse = await fetch('/reviews',{
+                            const reviewResponse = await fetch('/api/reviews',{
                                 method: 'POST',
                                 headers: {
                                     "Content-Type": 'application/json'
